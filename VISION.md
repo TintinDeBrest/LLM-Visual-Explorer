@@ -1,4 +1,4 @@
-# Vision for LLM-Visual-Explorer
+# Vision for LLM Visual Explorer
 ## WHY: 
 LLMs can be very intimidating and encompass several expert 
 domains (Computer science, Math, Linguistics ...). There is a need for a 
