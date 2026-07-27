@@ -6,10 +6,10 @@ tool like LLM-Visual-Explorer (LlmExpl) to visualize the main
 concepts (e.g. tokens, embeddings, semantic analogies, attention ...) 
 pedagogically and progressively for non-specialists. 
 LlmExpl should also encourage hands-on experimentation to help users 
-connect with their own intuition. Finally LlmExpl  should be suitable 
-for 1hr type demonstration / conference 
+connect with their own intuition. Finally LlmExpl and should be suitable 
+for a one-hour public demonstration or conference. 
 ## WHAT: 
-LlmExpl will be developped in several functional sprints, using Colab for 
+LlmExpl is developed incrementally through functional sprints, using Colab for 
 prototyping & testing, VS code and GitHub for coding and version control, 
 starting from a V0.8 functional Colab notebook prototype. 
 * The documentation will be in English, but the tool will support both French and English:
@@ -17,9 +17,11 @@ starting from a V0.8 functional Colab notebook prototype.
 ---
 ## Near Future version V 1.0
 
-Objective :
+**One objective only**
 
-> only show embeddings.
+Visualize embeddings.
+
+Nothing else.
 
 Users are able to :
 
@@ -39,4 +41,4 @@ We may later decide to introduce (or not):
 * Attention Explorer ;
 * RAG Explorer ;
 * Fine Tuning Explorer ;
-* Etc ...
+*  ...
