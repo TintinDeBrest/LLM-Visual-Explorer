@@ -1,37 +1,51 @@
 # embeddings
 # PhL 28jul26
+########################################################################
 
-from sentence_transformers import SentenceTransformer
-from explorer.config import MODEL_NAME
-from typing import Sequence
+# Std lib
+from typing import Sequence 
+# 3rd party lib
 import numpy as np
+from sentence_transformers import SentenceTransformer
+# Project lib
+from explorer.config import MODEL_NAME
 
-_model = None # used cached model if present
+_model = None # Cached SentenceTransformer instance
+
 
 def load_model():
+    """Load the embedding model only once."""
+
     global _model
+
     if _model is None:
+        print(f"Loading model: {MODEL_NAME}")
         _model = SentenceTransformer(MODEL_NAME)
+
     return _model
 
 
-def compute_embeddings(words: Sequence[str]) -> np.ndarray:
+def compute_embeddings(words: str | Sequence[str]) -> np.ndarray:
     """
-    Compute embeddings for a list of words or sentences.
+    Compute embeddings for one or more words or sentences.
+
     Parameters
     ----------
-    words : list[str]
+    words : str | Sequence[str]
+        Input text(s).
+
     Returns
     -------
     numpy.ndarray
+        One embedding vector per input text.
     """
-    if isinstance(words, str): # Allow single word "chat" or ["chat"]
+
+    if isinstance(words, str):
         words = [words]
-                
-    print(f"Loading {MODEL_NAME}")
+
     model = load_model()
-    
+
     return model.encode(
-    words,
-    convert_to_numpy=True
-)
+        words,
+        convert_to_numpy=True,
+    )
