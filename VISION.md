@@ -41,4 +41,5 @@ We may later decide to introduce (or not):
 * Attention Explorer ;
 * RAG Explorer ;
 * Fine Tuning Explorer ;
+* Sentence explorer ;
 *  ...
