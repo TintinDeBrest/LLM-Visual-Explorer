@@ -22,3 +22,30 @@ def compute_similarity(embeddings: np.ndarray) -> np.ndarray:
     """
 
     return cosine_similarity(embeddings)
+
+
+def rank_similarity_pairs(words, similarities):
+    """
+    Return word pairs sorted by decreasing similarity.
+    """
+
+    pairs = []
+
+    n = len(words)
+
+    for i in range(n):
+        for j in range(i + 1, n):
+            pairs.append(
+                (
+                    words[i],
+                    words[j],
+                    similarities[i, j]
+                )
+            )
+
+    pairs.sort(
+        key=lambda x: x[2],
+        reverse=True
+    )
+
+    return pairs
