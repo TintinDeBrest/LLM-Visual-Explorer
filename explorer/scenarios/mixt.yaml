@@ -1,11 +1,24 @@
-title: mixte
+title: Mixte
 
-description: Comparaison sémantique de 7 concepts hétérogènes
+description:
+    Analogie célèbre de Word2Vec: roi-homme+femme=reine
 
 objects:
-  - Roi
-  - Reine
-  - Homme
-  - Femme
-  - Pomme
-  - Orange
+
+  - name: Roi
+    category: Humain
+
+  - name: Reine
+    category: Humain
+
+  - name: Homme
+    category: Humain
+
+  - name: Femme
+    category: Humain
+
+  - name: Pomme
+    category: Fruit
+
+  - name: Orange
+    category: Fruit
