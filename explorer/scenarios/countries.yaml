@@ -1,0 +1,10 @@
+title: Countries
+
+description: Comparaison sémantique de cinq pays.
+
+objects:
+  - France
+  - Etats-Unis
+  - UK
+  - Allemagne
+  - Espagne
