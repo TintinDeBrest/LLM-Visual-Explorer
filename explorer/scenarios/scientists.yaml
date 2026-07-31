@@ -1,0 +1,10 @@
+title: Scientists
+
+description: Comparaison sémantique de cinq savants.
+
+objects:
+  - Newton
+  - Einstein
+  - Curie
+  - Darwin
+  - Turing
