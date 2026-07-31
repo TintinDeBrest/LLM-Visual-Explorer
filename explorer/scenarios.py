@@ -82,3 +82,30 @@ def get_scenarios():
 def load_scenario(name):
 
     return SCENARIOS[name]
+
+
+def load_scenario(name: str):
+    """Retourne la liste des objets du scénario."""
+
+    if name not in SCENARIOS:
+        raise ValueError(f"Scénario inconnu : {name}")
+
+    return {
+        "name": name,
+        "objects": SCENARIOS[name]
+    }
+
+
+def display_scenario(scenario):
+    """Affiche proprement le scénario dans le notebook."""
+
+    print("=" * 50)
+    print(f"SCÉNARIO : {scenario['name'].upper()}")
+    print("=" * 50)
+
+    print("\nObjets analysés :\n")
+
+    for obj in scenario["objects"]:
+        print(f"  • {obj}")
+
+    print(f"\nNombre d'objets : {len(scenario['objects'])}")
