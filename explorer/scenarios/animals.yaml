@@ -1,0 +1,10 @@
+title: Animaux
+
+description: Comparaison sémantique de cinq mammifères.
+
+objects:
+  - Chat
+  - Chien
+  - Loup
+  - Renard
+  - Lion
