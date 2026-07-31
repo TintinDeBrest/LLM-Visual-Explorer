@@ -3,8 +3,18 @@ title: Animaux
 description: Comparaison sémantique de cinq mammifères.
 
 objects:
-  - Chat
-  - Chien
-  - Loup
-  - Renard
-  - Lion
+
+  - name: Chat
+    category: Félin
+
+  - name: Lion
+    category: Félin
+
+  - name: Chien
+    category: Canidé
+
+  - name: Loup
+    category: Canidé
+
+  - name: Renard
+    category: Canidé
