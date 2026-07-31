@@ -1,13 +1,16 @@
 # Vision for LLM Visual Explorer
 ## WHY: 
-LLMs can be very intimidating and encompass several expert 
-domains (Computer science, Math, Linguistics ...). There is a need for a 
+LLMs can be very intimidating and encompass several **expert 
+domains** (Computer science, Math, Linguistics ...). There is a need for a 
 tool like LLM-Visual-Explorer (LlmExpl) to visualize the main 
 concepts (e.g. tokens, embeddings, semantic analogies, attention ...) 
 pedagogically and progressively for non-specialists. 
-LlmExpl should also encourage hands-on experimentation to help users 
-connect with their own intuition. Finally LlmExpl and should be suitable 
-for a one-hour public demonstration or conference. 
+ \
+ \
+LlmExpl should utimately encourage **hands-on experimentation** to help users 
+connect with their own intuition. Finally LlmExpl should be suitable 
+for a one to two hours public demonstration or conference. 
+
 ## WHAT: 
 LlmExpl is developed incrementally through functional sprints, using Colab for 
 prototyping & testing, VS code and GitHub for coding and version control, 
@@ -19,7 +22,7 @@ starting from a V0.8 functional Colab notebook prototype.
 
 **One objective only**
 
-Visualize embeddings.
+Visualize embeddings and report findings
 
 Nothing else.
 
