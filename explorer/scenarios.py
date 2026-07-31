@@ -1,4 +1,3 @@
-# scenarios
 from pathlib import Path
 import yaml
 
@@ -18,20 +17,31 @@ def load_scenario(name: str):
 
     return scenario
 
-def get_scenarios():
-    return list(SCENARIOS.keys())
-
 
 def display_scenario(scenario):
-    """Affiche proprement le scénario dans le notebook."""
 
-    print("=" * 50)
-    print(f"SCÉNARIO : {scenario['name'].upper()}")
-    print("=" * 50)
+    print("=" * 60)
 
-    print("\nObjets analysés :\n")
+    print(f"SCÉNARIO : {scenario['title']}")
+
+    print("=" * 60)
+
+    print()
+
+    print(scenario["description"])
+
+    print()
+
+    print("Objets analysés :")
+
+    print()
 
     for obj in scenario["objects"]:
-        print(f"  • {obj}")
 
-    print(f"\nNombre d'objets : {len(scenario['objects'])}")
+        print(f"   • {obj['name']}")
+
+    print()
+
+    print(f"Nombre d'objets : {len(scenario['objects'])}")
+
+    print("=" * 60)
