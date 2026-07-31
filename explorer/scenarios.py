@@ -22,23 +22,6 @@ def get_scenarios():
     return list(SCENARIOS.keys())
 
 
-def load_scenario(name):
-
-    return SCENARIOS[name]
-
-
-def load_scenario(name: str):
-    """Retourne la liste des objets du scénario."""
-
-    if name not in SCENARIOS:
-        raise ValueError(f"Scénario inconnu : {name}")
-
-    return {
-        "name": name,
-        "objects": SCENARIOS[name]
-    }
-
-
 def display_scenario(scenario):
     """Affiche proprement le scénario dans le notebook."""
 
