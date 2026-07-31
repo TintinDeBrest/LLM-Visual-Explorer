@@ -1,6 +1,9 @@
 # Display pour tous les affichages du notebook
 #===============================================
 
+from explorer.config import MODEL_NAME
+
+
 def display_model(model):
 
     print("=" * 60)
@@ -8,10 +11,10 @@ def display_model(model):
     print("=" * 60)
     print()
 
-    print(model.__class__.__name__)
+    print(f"Nom        : {MODEL_NAME}")
+    print(f"Dimension  : {model.get_embedding_dimension()}")
 
-    print(model.model_card_data.base_model)
-    print(model.get_sentence_embedding_dimension())
+    print()
 
 
 def display_scenario(scenario):
