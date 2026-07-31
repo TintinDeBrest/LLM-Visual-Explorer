@@ -1,0 +1,11 @@
+title: mixte
+
+description: Comparaison sémantique de 7 concepts hétérogènes
+
+objects:
+  - Roi
+  - Reine
+  - Homme
+  - Femme
+  - Pomme
+  - Orange
