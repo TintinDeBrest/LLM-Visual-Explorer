@@ -1,79 +1,22 @@
 # scenarios
-SCENARIOS = {
+from pathlib import Path
+import yaml
 
-    "analogie_royale": {
-        "titre": "Analogie royale",
-        "mots": [
-            "roi",
-            "reine",
-            "homme",
-            "femme"
-        ],
-        "categories": [
-            "Royal",
-            "Royal",
-            "Humain",
-            "Humain"
-        ]
-    },
 
-    "fruits": {
-        "titre": "Les fruits",
-        "mots": [
-            "pomme",
-            "orange",
-            "banane",
-            "poire",
-            "citron"
-        ],
-        "categories": [
-            "Fruit",
-            "Fruit",
-            "Fruit",
-            "Fruit",
-            "Fruit"
-        ]
-    },
+SCENARIOS_DIR = Path(__file__).parent / "scenarios"
 
-    "animaux": {
-        "titre": "Les animaux",
-        "mots": [
-            "chat",
-            "chien",
-            "lion",
-            "loup",
-            "renard"
-        ],
-        "categories": [
-            "Animal",
-            "Animal",
-            "Animal",
-            "Animal",
-            "Animal"
-        ]
-    },
 
-    "mixte": {
-        "titre": "Humains et fruits",
-        "mots": [
-            "roi",
-            "reine",
-            "homme",
-            "femme",
-            "pomme",
-            "orange"
-        ],
-        "categories": [
-            "Royal",
-            "Royal",
-            "Humain",
-            "Humain",
-            "Fruit",
-            "Fruit"
-        ]
-    }
+def load_scenario(name: str):
 
-}
+    filename = SCENARIOS_DIR / f"{name}.yaml"
+
+    if not filename.exists():
+        raise FileNotFoundError(filename)
+
+    with open(filename, "r", encoding="utf-8") as f:
+        scenario = yaml.safe_load(f)
+
+    return scenario
 
 def get_scenarios():
     return list(SCENARIOS.keys())
