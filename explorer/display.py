@@ -59,7 +59,7 @@ def display_model(model):
     print()
 
 
-def display_projection(explained_variance):
+def display_projection(explained_variance, pca=None):
     """
     Affiche l'information conservée par la projection 3D.
     
