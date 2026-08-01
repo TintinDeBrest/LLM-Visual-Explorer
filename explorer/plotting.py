@@ -24,6 +24,21 @@ def plot_scene(df, title):
 
     fig = go.Figure()
 
+
+    # Optional icons for display
+    animal_icons = {
+        "Chat": "🐱",
+        "Lion": "🦁",
+        "Loup": "🐺",
+        "Chien": "🐕",
+        "Renard": "🦊",
+    }
+
+    df["Label"] = [
+        f"{animal_icons.get(mot, '')} {mot}"
+        for mot in df["Mot"]
+    ]
+
     for category, color in CATEGORY_COLORS.items():
 
         subset = df[df["Catégorie"] == category]
@@ -37,10 +52,10 @@ def plot_scene(df, title):
                 y=subset["PC2"],
                 z=subset["PC3"],
                 mode="markers+text",
-                text=subset["Mot"],
+                text=subset["Label"],
                 textposition="top center",
                 marker=dict(
-                    size=7,
+                    size=9,
                     color=color,
                 ),
                 name=category,
