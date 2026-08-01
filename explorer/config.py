@@ -30,9 +30,7 @@ SHOW_ARROWS = True
 SHOW_ICONS = True
 
 CATEGORY_COLORS = {
-    "Royal": "royalblue",
-    "Humain": "forestgreen",
-    "Fruit": "crimson",
-    "Animal": "darkorange",
+    "Félin": "royalblue",
+    "Canidé": "forestgreen",
 }
 
