@@ -1,1 +1,7 @@
-
+sentence-transformers
+plotly
+scikit-learn
+pandas
+numpy
+pyyaml
+jupyter

@@ -39,7 +39,11 @@ def display_report(
     print(f"PC3 : {explained[2]:5.1f}%")
 
     print()
-    print(f"384D → 3D preserves {total:.1f}% of the semantic structure")
+
+    print(
+        f"{embedding_dimension} Dim → 3D preserves {total:.1f}% "
+        "of the semantic structure"
+    )
 
     print()
     print("-" * 60)
