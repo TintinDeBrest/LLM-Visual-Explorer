@@ -2,19 +2,33 @@ title: Animaux
 
 description: Comparaison sémantique de cinq mammifères.
 
+categories:
+
+  Félin:
+    color: "#E67E22"
+
+  Canidé:
+    color: "#3498DB"
+
+
 objects:
 
   - name: Chat
     category: Félin
+    emoji: 🐱
 
   - name: Lion
     category: Félin
+    emoji: 🦁
 
   - name: Chien
     category: Canidé
+    emoji: 🐶
 
   - name: Loup
     category: Canidé
+    emoji: 🐺
 
   - name: Renard
     category: Canidé
+    emoji: 🦊
