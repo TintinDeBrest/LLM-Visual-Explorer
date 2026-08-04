@@ -4,13 +4,13 @@
 
 import pandas as pd
 
-def create_dataframe(words, categories, xyz):
+def create_dataframe(concepts, categories, xyz):
     """
-    Create a DataFrame from words, categories and PCA coordinates.
+    Create a DataFrame from concepts, categories and PCA coordinates.
     """
 
     df = pd.DataFrame({
-        "Mot": words,
+        "Mot": concepts,
         "Catégorie": categories,
         "PC1": xyz[:, 0],
         "PC2": xyz[:, 1],

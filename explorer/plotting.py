@@ -3,10 +3,19 @@
 
 import plotly.graph_objects as go
 
-from explorer.config import CATEGORY_COLORS
+CATEGORY_PALETTE = [
+    "royalblue",
+    "darkorange",
+    "purple",
+    "forestgreen",
+    "crimson",
+    "gold",
+    "deeppink",
+    "teal",
+]
 
 
-def plot_scene(df, title):
+def plot_scene(df, title, icons=None):
     """
     Display a 3D Plotly scene from a PCA dataframe.
 
@@ -17,6 +26,9 @@ def plot_scene(df, title):
     title : str
         Figure title.
 
+    icons : dict, optional
+        Dictionary mapping item names to emojis/icons.
+
     Returns
     -------
     plotly.graph_objects.Figure
@@ -24,27 +36,33 @@ def plot_scene(df, title):
 
     fig = go.Figure()
 
+    if icons is None:
+        icons = {}
 
-    # Optional icons for display
-    animal_icons = {
-        "Chat": "🐱",
-        "Lion": "🦁",
-        "Loup": "🐺",
-        "Chien": "🐕",
-        "Renard": "🦊",
+    # -----------------------------------------------------------------
+    # Automatic color assignment for categories
+    # -----------------------------------------------------------------
+
+    categories = list(df["Catégorie"].unique())
+
+    
+    category_colors = {
+        category: CATEGORY_PALETTE[i % len(CATEGORY_PALETTE)]
+        for i, category in enumerate(categories)
     }
+    
+    # -----------------------------------------------------------------
+    # Plot one trace per category
+    # -----------------------------------------------------------------
 
-    df["Label"] = [
-        f"{animal_icons.get(mot, '')} {mot}"
-        for mot in df["Mot"]
-    ]
-
-    for category, color in CATEGORY_COLORS.items():
+    for category in categories:
 
         subset = df[df["Catégorie"] == category]
 
-        if subset.empty:
-            continue
+        subset_labels = [
+            f"{icons.get(mot, '')} {mot}".strip()
+            for mot in subset["Mot"]
+        ]
 
         fig.add_trace(
             go.Scatter3d(
@@ -52,11 +70,11 @@ def plot_scene(df, title):
                 y=subset["PC2"],
                 z=subset["PC3"],
                 mode="markers+text",
-                text=subset["Label"],
+                text=subset_labels,
                 textposition="top center",
                 marker=dict(
                     size=9,
-                    color=color,
+                    color=category_colors[category],
                 ),
                 name=category,
             )
@@ -67,6 +85,7 @@ def plot_scene(df, title):
         width=900,
         height=700,
         scene=dict(
+            aspectmode="data",
             xaxis_title="PC1",
             yaxis_title="PC2",
             zaxis_title="PC3",

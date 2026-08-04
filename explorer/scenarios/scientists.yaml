@@ -1,10 +1,60 @@
-title: Scientists
+title: Scientifiques
 
-description: Comparaison sémantique de cinq savants.
+description: Exploration de l'espace sémantique de dix scientifiques majeurs ayant marqué différentes disciplines.
+
+categories:
+
+  Physique:
+
+  Biologie:
+
+  Chimie:
+
+  Médecine:
+
+  Astronomie:
+
+  Informatique:
+
 
 objects:
-  - Newton
-  - Einstein
-  - Curie
-  - Darwin
-  - Turing
+
+  - name: Newton
+    category: Physique
+    emoji: 🍎
+
+  - name: Einstein
+    category: Physique
+    emoji: 🌌
+
+  - name: Pasteur
+    category: Biologie
+    emoji: 🦠
+
+  - name: Darwin
+    category: Biologie
+    emoji: 🧬
+
+  - name: Curie
+    category: Chimie
+    emoji: ⚛️
+
+  - name: Lavoisier
+    category: Chimie
+    emoji: ⚗️
+
+  - name: Paré
+    category: Médecine
+    emoji: 🩺
+
+  - name: Galilée
+    category: Astronomie
+    emoji: 🔭
+
+  - name: Faraday
+    category: Physique
+    emoji: ⚡
+
+  - name: Ada Lovelace
+    category: Informatique
+    emoji: 💻

@@ -3,7 +3,7 @@
 def display_report(
     scenario_name,
     model_name,
-    words,
+    concepts,
     embedding_dimension,
     pca,
     similarity_pairs,
@@ -26,7 +26,7 @@ def display_report(
 
     print(f"Scenario              : {scenario_name}")
     print(f"Model                 : {model_name}")
-    print(f"Number of concepts    : {len(words)}")
+    print(f"Number of concepts    : {len(concepts)}")
     print(f"Embedding dimension   : {embedding_dimension}")
 
     print()

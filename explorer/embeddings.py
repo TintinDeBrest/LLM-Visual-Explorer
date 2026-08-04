@@ -25,13 +25,13 @@ def load_model():
     return _model
 
 
-def compute_embeddings(words: str | Sequence[str]) -> np.ndarray:
+def compute_embeddings(concepts: str | Sequence[str]) -> np.ndarray:
     """
-    Compute embeddings for one or more words or sentences.
+    Compute embeddings for one or more concepts or sentences.
 
     Parameters
     ----------
-    words : str | Sequence[str]
+    concepts : str | Sequence[str]
         Input text(s).
 
     Returns
@@ -40,12 +40,12 @@ def compute_embeddings(words: str | Sequence[str]) -> np.ndarray:
         One embedding vector per input text.
     """
 
-    if isinstance(words, str):
-        words = [words]
+    if isinstance(concepts, str):
+        concepts = [concepts]
 
     model = load_model()
 
     return model.encode(
-        words,
+        concepts,
         convert_to_numpy=True,
     )

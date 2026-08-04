@@ -28,9 +28,3 @@ SHOW_GRID = False
 SHOW_LABELS = False
 SHOW_ARROWS = True
 SHOW_ICONS = True
-
-CATEGORY_COLORS = {
-    "Félin": "royalblue",
-    "Canidé": "forestgreen",
-}
-
