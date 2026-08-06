@@ -1,0 +1,51 @@
+title: Verbes
+
+description: "Exploration de l'espace sémantique de huit verbes courants regroupés en quatre familles : mouvement, communication, création et perception."
+
+categories:
+
+  Mouvement:
+
+  Communication:
+
+  Création:
+
+  Perception:
+
+
+objects:
+
+  - name: Marcher
+    category: Mouvement
+    emoji: 🚶
+
+  - name: Courir
+    category: Mouvement
+    emoji: 🏃
+
+
+  - name: Parler
+    category: Communication
+    emoji: 🗣️
+
+  - name: Écrire
+    category: Communication
+    emoji: ✍️
+
+
+  - name: Construire
+    category: Création
+    emoji: 🏗️
+
+  - name: Fabriquer
+    category: Création
+    emoji: 🔨
+
+
+  - name: Voir
+    category: Perception
+    emoji: 👁️
+
+  - name: Écouter
+    category: Perception
+    emoji: 👂

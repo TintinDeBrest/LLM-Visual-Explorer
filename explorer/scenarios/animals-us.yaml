@@ -1,0 +1,56 @@
+title: Animals (English)
+
+description: Exploration of the semantic space of ten animals belonging to four major groups of the animal kingdom.
+
+categories:
+
+  Mammal:
+
+  Marine:
+
+  Bird:
+
+  Insect:
+
+
+objects:
+
+  - name: Cat
+    category: Mammal
+    emoji: 🐱
+
+  - name: Dog
+    category: Mammal
+    emoji: 🐶
+
+  - name: Lion
+    category: Mammal
+    emoji: 🦁
+
+  - name: Wolf
+    category: Mammal
+    emoji: 🐺
+
+  - name: Dolphin
+    category: Marine
+    emoji: 🐬
+
+  - name: Tuna
+    category: Marine
+    emoji: 🐟
+
+  - name: Eagle
+    category: Bird
+    emoji: 🦅
+
+  - name: Owl
+    category: Bird
+    emoji: 🦉
+
+  - name: Butterfly
+    category: Insect
+    emoji: 🦋
+
+  - name: Ant
+    category: Insect
+    emoji: 🐜

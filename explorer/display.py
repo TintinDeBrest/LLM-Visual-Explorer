@@ -88,17 +88,29 @@ def display_projection(explained_variance, pca=None):
     print()
 
 
-def display_similarity_ranking(similarity_pairs, icons=None):
+def display_similarity_ranking(
+    pairs,
+    icons=None,
+    top_n=10,
+    bottom_n=10,
+):
     """
-    Display a ranked list of semantic similarities.
+    Display the closest and most distant semantic pairs.
 
     Parameters
     ----------
-    similarity_pairs : list of tuples
-        List of (item1, item2, similarity), sorted from highest to lowest.
+    pairs : list
+        List of tuples (word1, word2, similarity)
+        sorted by decreasing similarity.
 
-    icons : dict, optional
-        Dictionary mapping item names to emojis/icons.
+    icons : dict
+        Dictionary mapping concepts to emojis.
+
+    top_n : int
+        Number of highest similarity pairs displayed.
+
+    bottom_n : int
+        Number of lowest similarity pairs displayed.
     """
 
     if icons is None:
@@ -109,58 +121,108 @@ def display_similarity_ranking(similarity_pairs, icons=None):
     print("=" * 70)
     print()
 
-    # Width of concept names
-    name_width = max(max(len(a), len(b)) for a, b, _ in similarity_pairs) + 3
+    # ---------------------------------------------------------
+    # Helpers
+    # ---------------------------------------------------------
 
-    bar_width = 25
+    def format_concept(word):
+        emoji = icons.get(word, "")
+        return f"{emoji} {word}".strip()
 
-    medals = {1: "🥇", 2: "🥈", 3: "🥉"}
+    def similarity_bar(value):
+        # value between -1 and 1
+        length = int(value * 24)
+        return "█" * length
 
-    for rank, (a, b, score) in enumerate(similarity_pairs, start=1):
+    def display_pair(rank, pair, highlight=False):
 
-        icon_a = icons.get(a, "")
-        icon_b = icons.get(b, "")
+        w1, w2, sim = pair
 
-        percent = round(score * 100)
-
-        filled = int(score * bar_width)
-        bar = "█" * filled + " " * (bar_width - filled)
-
-        medal = medals.get(rank, "  ")
+        prefix = "🔻" if highlight else "   "
 
         print(
-            f"{medal} {rank:2d}. "
-            f"{icon_a} {a:<{name_width}} ↔ "
-            f"{icon_b} {b:<{name_width}} "
-            f"{bar:<{bar_width}} "
-            f"{percent:3d}%"
+            f"{prefix}{rank:>3}. "
+            f"{format_concept(w1):<15} ↔ "
+            f"{format_concept(w2):<15} "
+            f"{similarity_bar(sim)} "
+            f"{sim:.0%}"
         )
 
+    # ---------------------------------------------------------
+    # Top semantic neighbours
+    # ---------------------------------------------------------
+
+    print("🟢 Les 10 voisins sémantiques")
+    print("-" * 70)
+
+    top_pairs = pairs[:top_n]
+
+    for rank, pair in enumerate(top_pairs, start=1):
+
+        if rank == 1:
+            display_pair(rank, pair, highlight=False)
+
+        elif rank == 2:
+            display_pair(rank, pair)
+
+        elif rank == 3:
+            display_pair(rank, pair)
+
+        else:
+            display_pair(rank, pair)
+
+    # ---------------------------------------------------------
+    # Hidden middle section
+    # ---------------------------------------------------------
+
+    hidden = len(pairs) - top_n - bottom_n
+
+    print()
+    print("-" * 70)
+    print(f"              ⋮ {hidden} paires intermédiaires masquées ⋮")
+    print("-" * 70)
     print()
 
-    # Summary
-    best = similarity_pairs[0]
-    worst = similarity_pairs[-1]
+    # ---------------------------------------------------------
+    # Bottom semantic antipodes
+    # ---------------------------------------------------------
 
+    print("🔴 Les 10 antipodes sémantiques")
+    print("-" * 70)
+
+    bottom_pairs = pairs[-bottom_n:]
+
+    start_rank = len(pairs) - bottom_n + 1
+
+    for rank, pair in enumerate(bottom_pairs, start=start_rank):
+
+        display_pair(rank, pair, highlight=(rank == len(pairs)))
+
+    # ---------------------------------------------------------
+    # Summary
+    # ---------------------------------------------------------
+
+    print()
     print("-" * 70)
     print("📌 SUMMARY")
     print("-" * 70)
     print()
 
+    best = pairs[0]
+    worst = pairs[-1]
+
     print(
         f"🥇 Most similar : "
-        f"{icons.get(best[0], '')} {best[0]} ↔ "
-        f"{icons.get(best[1], '')} {best[1]} "
-        f"({round(best[2] * 100)}%)"
+        f"{format_concept(best[0])} ↔ "
+        f"{format_concept(best[1])} "
+        f"({best[2]:.0%})"
     )
 
     print()
 
     print(
         f"🔻 Least similar: "
-        f"{icons.get(worst[0], '')} {worst[0]} ↔ "
-        f"{icons.get(worst[1], '')} {worst[1]} "
-        f"({round(worst[2] * 100)}%)"
+        f"{format_concept(worst[0])} ↔ "
+        f"{format_concept(worst[1])} "
+        f"({worst[2]:.0%})"
     )
-
-    print()

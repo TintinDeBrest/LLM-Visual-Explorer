@@ -1,45 +1,61 @@
-title: Métiers
+title: Professions
 
-description: Exploration de l'espace sémantique de six métiers représentant différentes activités humaines.
+description: Exploration de l'espace sémantique de dix métiers représentant différents domaines d'activité humaine.
 
 categories:
 
-  Savoir:
+  Soigner:
 
+  Concevoir:
 
-  Convaincre:
+  Enseigner:
 
+  Défendre:
+
+  Informer:
 
   Fabriquer:
 
-
+  Transporter:
 
 objects:
 
   - name: Médecin
-    category: Savoir
+    category: Soigner
     emoji: 🩺
 
+  - name: Infirmier
+    category: Soigner
+    emoji: 💉
+
   - name: Ingénieur
-    category: Savoir
+    category: Concevoir
     emoji: 👷
 
+  - name: Chercheur
+    category: Concevoir
+    emoji: 🔬
+
   - name: Professeur
-    category: Savoir
+    category: Enseigner
     emoji: 👨‍🏫
 
   - name: Avocat
-    category: Convaincre
+    category: Défendre
     emoji: ⚖️
 
-  - name: Vendeur
-    category: Convaincre
-    emoji: 🛒
+  - name: Journaliste
+    category: Informer
+    emoji: 📰
 
   - name: Boulanger
     category: Fabriquer
     emoji: 🥖
 
-  - name: Charpentier
+  - name: Menuisier
     category: Fabriquer
     emoji: 🪚
+
+  - name: Pilote
+    category: Transporter
+    emoji: ✈️

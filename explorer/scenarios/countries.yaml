@@ -1,10 +1,62 @@
-title: Countries
+title: Pays
 
-description: Comparaison sémantique de cinq pays.
+description: "Exploration de l'espace sémantique de dix pays répartis sur plusieurs continents."
+
+categories:
+
+  Europe:
+
+  Asie:
+
+  Amérique:
+
+  Afrique:
+
+  Océanie:
+
 
 objects:
-  - France
-  - Etats-Unis
-  - UK
-  - Allemagne
-  - Espagne
+
+  - name: France
+    category: Europe
+    emoji: 🇫🇷
+
+  - name: Allemagne
+    category: Europe
+    emoji: 🇩🇪
+
+
+  - name: Japon
+    category: Asie
+    emoji: 🇯🇵
+
+  - name: Chine
+    category: Asie
+    emoji: 🇨🇳
+
+  - name: Inde
+    category: Asie
+    emoji: 🇮🇳
+
+
+  - name: États-Unis
+    category: Amérique
+    emoji: 🇺🇸
+
+  - name: Brésil
+    category: Amérique
+    emoji: 🇧🇷
+
+
+  - name: Égypte
+    category: Afrique
+    emoji: 🇪🇬
+
+  - name: Kenya
+    category: Afrique
+    emoji: 🇰🇪
+
+
+  - name: Suède
+    category: Europe
+    emoji: 🇸🇪

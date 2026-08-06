@@ -1,0 +1,51 @@
+title: Outils Geek
+
+description: "Exploration de l'espace sémantique de huit objets technologiques modernes regroupés en quatre familles : informatique, mobilité, création numérique et observation."
+
+categories:
+
+  Informatique:
+
+  Mobilité:
+
+  Création numérique:
+
+  Observation:
+
+
+objects:
+
+  - name: Ordinateur
+    category: Informatique
+    emoji: 💻
+
+  - name: PC
+    category: Informatique
+    emoji: 🖥️
+
+
+  - name: Smartphone
+    category: Mobilité
+    emoji: 📱
+
+  - name: Tablette
+    category: Mobilité
+    emoji: 📲
+
+
+  - name: Imprimante 3D
+    category: Création numérique
+    emoji: 🖨️
+
+  - name: Drone
+    category: Création numérique
+    emoji: 🚁
+
+
+  - name: Télescope
+    category: Observation
+    emoji: 🔭
+
+  - name: Caméra
+    category: Observation
+    emoji: 📷

@@ -1,34 +1,56 @@
-title: Animaux
+title: Animaux vus par un modèle de langage
 
-description: Comparaison sémantique de cinq mammifères.
+description: Exploration de l'espace sémantique de dix animaux répartis en quatre grandes familles du monde vivant.
 
 categories:
 
-  Félin:
-    color: "#E67E22"
+  Mammifère:
 
-  Canidé:
-    color: "#3498DB"
+  Animal marin:
+
+  Oiseau:
+
+  Insecte:
 
 
 objects:
 
   - name: Chat
-    category: Félin
+    category: Mammifère
     emoji: 🐱
 
-  - name: Lion
-    category: Félin
-    emoji: 🦁
-
   - name: Chien
-    category: Canidé
+    category: Mammifère
     emoji: 🐶
 
+  - name: Lion
+    category: Mammifère
+    emoji: 🦁
+
   - name: Loup
-    category: Canidé
+    category: Mammifère
     emoji: 🐺
 
-  - name: Renard
-    category: Canidé
-    emoji: 🦊
+  - name: Dauphin
+    category: Animal marin
+    emoji: 🐬
+
+  - name: Sardine
+    category: Animal marin
+    emoji: 🐟
+
+  - name: Coq
+    category: Oiseau
+    emoji: 🐓
+
+  - name: Hibou
+    category: Oiseau
+    emoji: 🦉
+
+  - name: Papillon
+    category: Insecte
+    emoji: 🦋
+
+  - name: Fourmi
+    category: Insecte
+    emoji: 🐜

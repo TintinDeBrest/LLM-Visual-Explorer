@@ -1,0 +1,56 @@
+title: Plantes
+
+description: Exploration de l'espace sémantique de dix plantes réparties en quatre grandes familles botaniques.
+
+categories:
+
+  Arbre:
+
+  Fleur:
+
+  Plante cultivée:
+
+  Plante sauvage:
+
+
+objects:
+
+  - name: Chêne
+    category: Arbre
+    emoji: 🌳
+
+  - name: Pin
+    category: Arbre
+    emoji: 🌲
+
+  - name: Rose
+    category: Fleur
+    emoji: 🌹
+
+  - name: Tulipe
+    category: Fleur
+    emoji: 🌷
+
+  - name: Orchidée
+    category: Fleur
+    emoji: 🪷
+
+  - name: Tournesol
+    category: Fleur
+    emoji: 🌻
+
+  - name: Bambou
+    category: Plante cultivée
+    emoji: 🎍
+
+  - name: Cactus
+    category: Plante cultivée
+    emoji: 🌵
+
+  - name: Fougère
+    category: Plante sauvage
+    emoji: 🌿
+
+  - name: Mousse
+    category: Plante sauvage
+    emoji: 🍀
