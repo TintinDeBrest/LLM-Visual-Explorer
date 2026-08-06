@@ -55,6 +55,18 @@ objects:
     category: Physique
     emoji: ⚡
 
+  - name: Carnot
+    category: Physique
+    emoji: ⚡
+
+  - name: Maxwell
+    category: Physique
+    emoji: ⚡
+
   - name: Ada Lovelace
+    category: Informatique
+    emoji: 💻
+
+  - name: Turing
     category: Informatique
     emoji: 💻

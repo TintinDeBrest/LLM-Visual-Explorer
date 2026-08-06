@@ -24,35 +24,23 @@ def compute_similarity(embeddings: np.ndarray) -> np.ndarray:
     return cosine_similarity(embeddings)
 
 
-def rank_similarity_pairs(
-    concepts,
-    similarities,
-    top_n=None,
-    bottom_n=None,
-):
+def rank_similarity_pairs(concepts, similarities):
     """
-    Rank all concept pairs by cosine similarity.
+    Return all concept pairs sorted by decreasing similarity.
 
     Parameters
     ----------
-    concepts : list[str]
-        Concept names.
+    concepts : list
+        List of concept names.
 
-    similarities : ndarray
-        Cosine similarity matrix.
-
-    top_n : int | None
-        Number of most similar pairs to return.
-        If None, keep all pairs.
-
-    bottom_n : int | None
-        Number of least similar pairs to append.
-        Ignored if top_n is None.
+    similarities : numpy.ndarray
+        Similarity matrix.
 
     Returns
     -------
-    list of tuple
-        (concept1, concept2, similarity)
+    list of tuples
+        [(concept1, concept2, similarity), ...]
+        sorted from highest to lowest similarity.
     """
 
     pairs = []
@@ -61,28 +49,10 @@ def rank_similarity_pairs(
 
     for i in range(n):
         for j in range(i + 1, n):
-            pairs.append(
-                (
-                    concepts[i],
-                    concepts[j],
-                    similarities[i, j],
-                )
-            )
 
-    pairs.sort(
-        key=lambda x: x[2],
-        reverse=True,
-    )
+            pairs.append((concepts[i], concepts[j], similarities[i, j]))
 
-    # Default behaviour: return all pairs
-    if top_n is None:
-        return pairs
+    # Highest similarity first
+    pairs.sort(key=lambda x: x[2], reverse=True)
 
-    top_pairs = pairs[:top_n]
-
-    if bottom_n is None:
-        return top_pairs
-
-    bottom_pairs = pairs[-bottom_n:]
-
-    return top_pairs + bottom_pairs
+    return pairs
