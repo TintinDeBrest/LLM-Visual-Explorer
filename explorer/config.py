@@ -1,13 +1,23 @@
 # ====================================================================
 # config.py
-# PhL 29jul26
+# PhL 07Aug26
 # ====================================================================
 
 # ---------------------------------------------------------------------
 # Model
 # ---------------------------------------------------------------------
 
-MODEL_NAME = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+# MiniLM
+# MODEL_ALIAS = "MiniLM"
+# MODEL_NAME = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+
+# BERT
+# MODEL_ALIAS = "BERT"
+# MODEL_NAME = "sentence-transformers/bert-base-nli-mean-tokens"
+
+# MPNet
+MODEL_ALIAS = "MPNet"
+MODEL_NAME = "sentence-transformers/paraphrase-multilingual-mpnet-base-v2"
 
 # ---------------------------------------------------------------------
 # Defaults

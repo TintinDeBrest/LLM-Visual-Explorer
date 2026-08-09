@@ -2,6 +2,8 @@
 Fonctions pour LLM VISUAL EXPLORER report
 """
 
+from explorer.config import MODEL_ALIAS, MODEL_NAME
+
 
 def display_report(
     scenario_name,
@@ -32,7 +34,8 @@ def display_report(
     # ---------------------------------------------------------
 
     print(f"Scenario              : {scenario_name}")
-    print(f"Model                 : {model_name}")
+    print(f"Model alias           : {MODEL_ALIAS}")
+    print(f"Technical Model       : {MODEL_NAME}")
     print(f"Number of concepts    : {len(concepts)}")
     print(f"Embedding dimension   : {embedding_dimension}")
 
@@ -43,23 +46,23 @@ def display_report(
     # ---------------------------------------------------------
 
     print("-" * 70)
-    print("📐 3D PROJECTION (PCA)")
+    print("📐 PROJECTION 3D (PCA)")
     print("-" * 70)
 
-    print(f"PC1 : {explained[0]:5.1f}%")
-    print(f"PC2 : {explained[1]:5.1f}%")
-    print(f"PC3 : {explained[2]:5.1f}%")
+    # print(f"PC1 : {explained[0]:5.1f}%")
+    # print(f"PC2 : {explained[1]:5.1f}%")
+    # print(f"PC3 : {explained[2]:5.1f}%")
 
     print()
 
     print(
-        f"{embedding_dimension} dimensions → 3D preserves "
-        f"{total:.1f}% of the semantic structure"
+        f"{embedding_dimension} dimensions → 3D préserve "
+        f"{total:.1f}% de la structure sémantique"
     )
 
     print()
 
-    print("The visualization is a projection of a high-dimensional " "semantic space.")
+    # print("The visualization is a projection of a high-dimensional " "semantic space.")
 
     # ---------------------------------------------------------
     # Semantic observations
@@ -67,14 +70,16 @@ def display_report(
 
     print()
     print("-" * 70)
-    print("🔗 SEMANTIC OBSERVATIONS")
+    print("🔗 OBSERVATIONS SEMANTIQUES")
     print("-" * 70)
 
     print()
 
-    print(f"🥇 Closest concepts : " f"{best[0]} ↔ {best[1]} " f"({best[2]:.0%})")
+    print(f"🥇 Paire la plus proche : " f"{best[0]} ↔ {best[1]} " f"({best[2]:.0%})")
 
-    print(f"🔻 Farthest concepts: " f"{worst[0]} ↔ {worst[1]} " f"({worst[2]:.0%})")
+    print(
+        f"🔻 Paire la plus éloignée: " f"{worst[0]} ↔ {worst[1]} " f"({worst[2]:.0%})"
+    )
 
     # ---------------------------------------------------------
     # Data export
@@ -93,7 +98,7 @@ def display_report(
     print("  • concepts.csv      → concepts and categories")
     print("  • embeddings.csv    → semantic vectors")
     print("  • projection.csv    → PCA coordinates")
-    print("  • similarities.csv  → semantic distances")
+    print("  • similarities.csv  → semantic similarities")
 
     # ---------------------------------------------------------
     # Going further
@@ -101,52 +106,50 @@ def display_report(
 
     print()
     print("-" * 70)
-    print("🚀 GO FURTHER")
+    print("🚀 ALLEZ PLUS LOIN")
     print("-" * 70)
 
     print()
 
-    print("The most surprising pairs are often the most interesting ones.")
+    print("Les paires les plus surprenantes sont souvent les plus interessantes.")
 
     print(
-        "You can copy one of these pairs into a generative LLM "
-        "to obtain a qualitative analysis."
+        "Vous pouvez copier une de ces paires de concepts surprenant pour la "
+        "soumettre à un LLM génératif afin d'obtenir une analyse qualitative."
     )
 
     print()
 
-    print("PROMPT TO COPY:")
+    print("PROMPT A COPIER:")
     print("-" * 70)
 
     print("""
-Hello,
+Bonjour,
 
-An AI model representing concepts in a semantic vector space
-considers the following two concepts:
+Un modèle d'intelligence artificielle représentant les concepts dans un
+espace vectoriel sémantique considère que les deux concepts suivants sont
+<proches/éloignés> :
 
-<Concept1> and <Concept2>
+<Concept1> et <Concept2>
 
-I would like to know whether you consider, a priori, that these
-concepts are semantically close or distant.
+Je voudrais savoir si vous considérez, à priori, que cette relation est
+pertinente.
 
-Could you provide:
-- arguments supporting or challenging this relationship;
-- concrete examples illustrating your analysis;
-- possible nuances or counter-arguments?
+Pouvez-vous fournir :
+- des arguments en faveur de cette proximité ou de cet éloignement ;
+- des exemples concrets illustrant votre analyse ;
+- des nuances ou contre-arguments éventuels ?
 
-The objective is to better understand why these concepts may be
-associated (or separated) in a semantic space.
+L'objectif est de mieux comprendre pourquoi ces deux concepts peuvent être
+associés (ou séparés) dans un espace sémantique.
 """)
 
     print("-" * 70)
 
     print()
 
-    print(
-        "Note: the embedding model reveals semantic structures, "
-        "but does not provide explanations."
-    )
+    print("Note: le modèle révèle des structures mais " "ne donne pas d'explications")
 
-    print("A generative LLM can then help interpret these structures.")
+    print("Un LLM géneratif peut vous aider à interpreter ces structures.")
 
     print()

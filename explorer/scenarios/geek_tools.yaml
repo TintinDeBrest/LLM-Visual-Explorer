@@ -19,11 +19,6 @@ objects:
     category: Informatique
     emoji: 💻
 
-  - name: PC
-    category: Informatique
-    emoji: 🖥️
-
-
   - name: Smartphone
     category: Mobilité
     emoji: 📱
@@ -32,15 +27,21 @@ objects:
     category: Mobilité
     emoji: 📲
 
-
   - name: Imprimante 3D
     category: Création numérique
     emoji: 🖨️
 
   - name: Drone
-    category: Création numérique
+    category: Jeu
     emoji: 🚁
 
+  - name: Console
+    category: Jeu
+    emoji: 🎮
+
+  - name: Casque VR
+    category: Jeu
+    emoji: 🥽
 
   - name: Télescope
     category: Observation
