@@ -2,7 +2,13 @@
 Fonctions pour LLM VISUAL EXPLORER report
 """
 
+from pathlib import Path
+import base64
+
+from IPython.display import display, HTML
+
 from explorer.config import MODEL_ALIAS, MODEL_NAME
+from explorer.display import create_prompt_button, create_pair_selector
 
 
 def display_report(
@@ -13,6 +19,11 @@ def display_report(
     pca,
     similarity_pairs,
 ):
+    logo_path = Path(__file__).resolve().parent.parent / "images" / "LlmExpl_logo.png"
+
+    with open(logo_path, "rb") as f:
+        logo_data = base64.b64encode(f.read()).decode()
+
     """
     Display a summary report of the current exploration.
     """
@@ -25,7 +36,26 @@ def display_report(
 
     print()
     print("=" * 70)
-    print("🌌 LLM VISUAL EXPLORER REPORT")
+    ###############################################
+    display(HTML(f"""
+        <div style="
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        ">
+            <img
+                src="data:image/png;base64,{logo_data}"
+                width="55"
+            >
+            <span style="
+                font-size: 1.5em;
+                font-weight: bold;
+            ">
+                LLM VISUAL EXPLORER REPORT
+            </span>
+        </div>
+        """))
+    ###############################################
     print("=" * 70)
     print()
 
@@ -49,10 +79,6 @@ def display_report(
     print("📐 PROJECTION 3D (PCA)")
     print("-" * 70)
 
-    # print(f"PC1 : {explained[0]:5.1f}%")
-    # print(f"PC2 : {explained[1]:5.1f}%")
-    # print(f"PC3 : {explained[2]:5.1f}%")
-
     print()
 
     print(
@@ -62,94 +88,107 @@ def display_report(
 
     print()
 
-    # print("The visualization is a projection of a high-dimensional " "semantic space.")
-
     # ---------------------------------------------------------
     # Semantic observations
     # ---------------------------------------------------------
 
-    print()
     print("-" * 70)
     print("🔗 OBSERVATIONS SEMANTIQUES")
     print("-" * 70)
 
     print()
 
-    print(f"🥇 Paire la plus proche : " f"{best[0]} ↔ {best[1]} " f"({best[2]:.0%})")
+    print(f"🥇 Paire la plus proche : " f"{best[0]} ↔ {best[1]} ({best[2]:.0%})")
 
-    print(
-        f"🔻 Paire la plus éloignée: " f"{worst[0]} ↔ {worst[1]} " f"({worst[2]:.0%})"
-    )
-
-    # ---------------------------------------------------------
-    # Data export
-    # ---------------------------------------------------------
+    print(f"🔻 Paire la plus éloignée : " f"{worst[0]} ↔ {worst[1]} ({worst[2]:.0%})")
 
     print()
-    print("-" * 70)
-    print("💾 DATA EXPORT")
-    print("-" * 70)
-
-    print()
-
-    print("The numerical data used during this exploration can be saved:")
-
-    print()
-    print("  • concepts.csv      → concepts and categories")
-    print("  • embeddings.csv    → semantic vectors")
-    print("  • projection.csv    → PCA coordinates")
-    print("  • similarities.csv  → semantic similarities")
 
     # ---------------------------------------------------------
     # Going further
     # ---------------------------------------------------------
 
-    print()
     print("-" * 70)
     print("🚀 ALLEZ PLUS LOIN")
     print("-" * 70)
 
     print()
 
-    print("Les paires les plus surprenantes sont souvent les plus interessantes.")
+    print("Une proximité ou un éloignement peut être surprenant.")
 
-    print(
-        "Vous pouvez copier une de ces paires de concepts surprenant pour la "
-        "soumettre à un LLM génératif afin d'obtenir une analyse qualitative."
+    print("Choisissez une paire qui vous intrigue et soumettez-la grâce à ces ")
+    print("prompt à un LLM génératif pour obtenir une analyse qualitative.")
+
+    print()
+
+    # Closest pair
+
+    print(f"🥇 Paire la plus proche : " f"{best[0]} ↔ {best[1]} ({best[2]:.0%})")
+
+    display(
+        create_prompt_button(
+            best[0],
+            best[1],
+            "proches",
+        )
     )
 
     print()
 
-    print("PROMPT A COPIER:")
+    # Farthest pair
+
+    print(f"🔻 Paire la plus éloignée : " f"{worst[0]} ↔ {worst[1]} ({worst[2]:.0%})")
+
+    display(
+        create_prompt_button(
+            worst[0],
+            worst[1],
+            "éloignés",
+        )
+    )
+
+    print()
+
+    # Any pair
+
+    print("🔎 EXPLORER UNE AUTRE PAIRE")
+
+    display(create_pair_selector(similarity_pairs))
+
+    print()
+
+    print(
+        "Note : LlmExpl révèle des structures dans l'espace sémantique, "
+        "mais ne donne pas d'explications."
+    )
+
+    print(
+        "Coller ces prompts pour interroger un LLM génératif (ChatGPT, Gemini, Claude ...)"
+    )
+    print("peut vous aider à expliquer ces structures ")
+
+    print()
+    """
+    # ---------------------------------------------------------
+    # Data export
+    # ---------------------------------------------------------
+
     print("-" * 70)
-
-    print("""
-Bonjour,
-
-Un modèle d'intelligence artificielle représentant les concepts dans un
-espace vectoriel sémantique considère que les deux concepts suivants sont
-<proches/éloignés> :
-
-<Concept1> et <Concept2>
-
-Je voudrais savoir si vous considérez, à priori, que cette relation est
-pertinente.
-
-Pouvez-vous fournir :
-- des arguments en faveur de cette proximité ou de cet éloignement ;
-- des exemples concrets illustrant votre analyse ;
-- des nuances ou contre-arguments éventuels ?
-
-L'objectif est de mieux comprendre pourquoi ces deux concepts peuvent être
-associés (ou séparés) dans un espace sémantique.
-""")
-
+    print("💾 EXPORT DES DONNÉES")
     print("-" * 70)
 
     print()
 
-    print("Note: le modèle révèle des structures mais " "ne donne pas d'explications")
+    print(
+        "Les données numériques utilisées pendant cette exploration "
+        "peuvent être sauvegardées :"
+    )
 
-    print("Un LLM géneratif peut vous aider à interpreter ces structures.")
+    print()
 
+    print("  • concepts.csv      → concepts et catégories")
+    print("  • embeddings.csv    → vecteurs sémantiques")
+    print("  • projection.csv    → coordonnées PCA")
+    print("  • similarities.csv  → similarités sémantiques")
+    """
     print()

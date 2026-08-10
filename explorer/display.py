@@ -315,7 +315,7 @@ def display_messages():
         with output:
             display(HTML(f"""
                 <div style="
-                    font-size: 1.25em;
+                    font-size: 1.2em;
                     line-height: 1.6;
                 ">
                     {html}
@@ -351,3 +351,117 @@ def display_messages():
     display(navigation)
 
     update_display()
+
+
+def create_prompt_button(concept1, concept2, relation):
+    """
+    Create a button that copies a ready-to-use LLM prompt
+    to the user's clipboard.
+    """
+
+    import ipywidgets as widgets
+    from IPython.display import display, HTML
+    from IPython.display import Javascript
+
+    prompt = f"""Bonjour,
+
+Un modèle d'intelligence artificielle représentant les concepts dans un
+espace vectoriel sémantique considère que les deux concepts suivants sont
+{relation} :
+
+{concept1} et {concept2}
+
+Je voudrais savoir si vous considérez, à priori, que cette relation est pertinente.
+
+Pouvez-vous fournir :
+- des arguments en faveur de cette proximité ou de cet éloignement ;
+- des exemples concrets illustrant votre analyse ;
+- des nuances ou contre-arguments éventuels ?
+
+L'objectif est de mieux comprendre pourquoi ces deux concepts peuvent être
+associés (ou séparés) dans un espace sémantique.
+"""
+
+    button = widgets.Button(
+        description="📋 Copier le prompt",
+        tooltip="Copier le prompt pour cette paire",
+        layout=widgets.Layout(width="160px"),
+    )
+
+    def copy_prompt(button):
+        # Échapper les caractères pour JavaScript
+        import json
+
+        prompt_js = json.dumps(prompt)
+
+        display(Javascript(f"""
+            navigator.clipboard.writeText({prompt_js}).then(function() {{
+                console.log("Prompt copied");
+            }});
+            """))
+
+        button.description = "✓ Prompt copié !"
+
+    button.on_click(copy_prompt)
+
+    return button
+
+
+def create_pair_selector(similarity_pairs):
+    """
+    Create a dropdown allowing the user to select any
+    concept pair and copy its corresponding LLM prompt.
+    """
+
+    import ipywidgets as widgets
+    from IPython.display import display
+    import json
+
+    # Create the list displayed in the dropdown
+    options = [
+        (f"{pair[0]} ↔ {pair[1]} — {pair[2]:.0%}", pair) for pair in similarity_pairs
+    ]
+
+    selector = widgets.Dropdown(
+        options=options, description="", layout=widgets.Layout(width="300px")
+    )
+
+    button = widgets.Button(
+        description="📋 Copier le prompt",
+        tooltip="Copier le prompt pour cette paire",
+        layout=widgets.Layout(width="160px"),
+    )
+
+    def copy_selected_prompt(button):
+        pair = selector.value
+
+        prompt = f"""Bonjour,
+
+Un modèle d'intelligence artificielle représentant les concepts dans un
+espace vectoriel sémantique considère que les deux concepts suivants sont
+proches/éloignés :
+
+{pair[0]} et {pair[1]}
+
+Je voudrais savoir si vous considérez, à priori, que cette relation est pertinente.
+
+Pouvez-vous fournir :
+- des arguments en faveur de cette proximité ou de cet éloignement ;
+- des exemples concrets illustrant votre analyse ;
+- des nuances ou contre-arguments éventuels ?
+
+L'objectif est de mieux comprendre pourquoi ces deux concepts peuvent être
+associés (ou séparés) dans un espace sémantique.
+"""
+
+        prompt_js = json.dumps(prompt)
+
+        display(__import__("IPython").display.Javascript(f"""
+                navigator.clipboard.writeText({prompt_js});
+                """))
+
+        button.description = "✓ Prompt copié !"
+
+    button.on_click(copy_selected_prompt)
+
+    return widgets.VBox([selector, button])
