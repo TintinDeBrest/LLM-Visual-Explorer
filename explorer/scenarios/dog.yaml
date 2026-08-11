@@ -1,0 +1,35 @@
+title: Dog
+
+description: Exploration d'un petit espace sémantique autour du chien et de son univers.
+
+objects:
+
+  - name: Chien
+    emoji: 🐕
+
+  - name: Chiot
+    emoji: 🐶
+
+  - name: Chat
+    emoji: 🐈
+
+  - name: Animal
+    emoji: 🐾
+
+  - name: Vétérinaire
+    emoji: 🩺
+
+  - name: Laisse
+    emoji: 🦮
+
+  - name: Promenade
+    emoji: 🚶
+
+  - name: Aboyer
+    emoji: 🔊
+
+  - name: Maître
+    emoji: 👤
+
+  - name: Refuge
+    emoji: 🏠

@@ -177,7 +177,7 @@ def plot_scene(
             z=df["PC3"],
             mode="text",
             text=labels,
-            textposition="middle right",
+            textposition="top center",
             textfont=dict(
                 size=12,
             ),

@@ -2,55 +2,35 @@ title: Animaux vus par un modèle de langage
 
 description: Exploration de l'espace sémantique de dix animaux répartis en quatre grandes familles du monde vivant.
 
-categories:
-
-  Mammifère:
-
-  Animal marin:
-
-  Oiseau:
-
-  Insecte:
-
 
 objects:
 
   - name: Chat
-    category: Mammifère
     emoji: 🐱
 
   - name: Chien
-    category: Mammifère
     emoji: 🐶
 
   - name: Lion
-    category: Mammifère
     emoji: 🦁
 
   - name: Loup
-    category: Mammifère
     emoji: 🐺
 
   - name: Dauphin
-    category: Animal marin
     emoji: 🐬
 
   - name: Sardine
-    category: Animal marin
     emoji: 🐟
 
   - name: Coq
-    category: Oiseau
     emoji: 🐓
 
   - name: Hibou
-    category: Oiseau
     emoji: 🦉
 
   - name: Papillon
-    category: Insecte
     emoji: 🦋
 
   - name: Fourmi
-    category: Insecte
     emoji: 🐜

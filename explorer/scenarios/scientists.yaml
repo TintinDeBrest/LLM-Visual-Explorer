@@ -2,71 +2,43 @@ title: Scientifiques
 
 description: Exploration de l'espace sémantique de dix scientifiques majeurs ayant marqué différentes disciplines.
 
-categories:
-
-  Physique:
-
-  Biologie:
-
-  Chimie:
-
-  Médecine:
-
-  Astronomie:
-
-  Informatique:
-
-
 objects:
 
   - name: Newton
-    category: Physique
     emoji: 🍎
 
   - name: Einstein
-    category: Physique
     emoji: 🌌
 
   - name: Pasteur
-    category: Biologie
     emoji: 🦠
 
   - name: Darwin
-    category: Biologie
     emoji: 🧬
 
   - name: Curie
-    category: Chimie
     emoji: ⚛️
 
   - name: Lavoisier
-    category: Chimie
     emoji: ⚗️
 
   - name: Paré
-    category: Médecine
     emoji: 🩺
 
   - name: Galilée
-    category: Astronomie
     emoji: 🔭
 
   - name: Faraday
-    category: Physique
     emoji: ⚡
 
   - name: Carnot
-    category: Physique
     emoji: ⚡
 
   - name: Maxwell
-    category: Physique
     emoji: ⚡
 
   - name: Ada Lovelace
-    category: Informatique
     emoji: 💻
 
   - name: Turing
-    category: Informatique
     emoji: 💻

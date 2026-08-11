@@ -2,55 +2,39 @@ title: Multilingual Concepts
 
 description: Exploration de l'espace sémantique multilingue à travers cinq couples de concepts français et anglais partageant le même sens.
 
-categories:
-
-  Français:
-
-  Anglais:
-
 
 objects:
 
   - name: Chien
-    category: Français
     emoji: 🐶
 
   - name: Dog
-    category: Anglais
     emoji: 🐶
 
 
   - name: Maison
-    category: Français
     emoji: 🏠
 
   - name: House
-    category: Anglais
     emoji: 🏠
 
 
   - name: Voiture
-    category: Français
     emoji: 🚗
 
   - name: Car
-    category: Anglais
     emoji: 🚗
 
 
   - name: Arbre
-    category: Français
     emoji: 🌳
 
   - name: Tree
-    category: Anglais
     emoji: 🌳
 
 
   - name: Amour
-    category: Français
     emoji: ❤️
 
   - name: Love
-    category: Anglais
     emoji: ❤️

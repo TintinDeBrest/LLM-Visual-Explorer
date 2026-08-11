@@ -2,60 +2,34 @@ title: Professions
 
 description: Exploration de l'espace sémantique de dix métiers représentant différents domaines d'activité humaine.
 
-categories:
-
-  Soigner:
-
-  Concevoir:
-
-  Enseigner:
-
-  Défendre:
-
-  Informer:
-
-  Fabriquer:
-
-  Transporter:
-
 objects:
 
   - name: Médecin
-    category: Soigner
     emoji: 🩺
 
   - name: Infirmier
-    category: Soigner
     emoji: 💉
 
   - name: Ingénieur
-    category: Concevoir
     emoji: 👷
 
   - name: Chercheur
-    category: Concevoir
     emoji: 🔬
 
   - name: Professeur
-    category: Enseigner
     emoji: 👨‍🏫
 
   - name: Avocat
-    category: Défendre
     emoji: ⚖️
 
   - name: Journaliste
-    category: Informer
     emoji: 📰
 
   - name: Boulanger
-    category: Fabriquer
     emoji: 🥖
 
   - name: Menuisier
-    category: Fabriquer
     emoji: 🪚
 
   - name: Pilote
-    category: Transporter
     emoji: ✈️

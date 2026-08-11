@@ -1,0 +1,35 @@
+title: Health
+
+description: Exploration d'un petit espace sémantique autour de la santé et des soins.
+
+objects:
+
+  - name: Médecin
+    emoji: 🩺
+
+  - name: Infirmier
+    emoji: 💉
+
+  - name: Hôpital
+    emoji: 🏥
+
+  - name: Patient
+    emoji: 🧑‍⚕️
+
+  - name: Maladie
+    emoji: 🤒
+
+  - name: Diagnostic
+    emoji: 🔎
+
+  - name: Traitement
+    emoji: 💊
+
+  - name: Chirurgie
+    emoji: 🏥
+
+  - name: Médicament
+    emoji: 💊
+
+  - name: Ambulance
+    emoji: 🚑
