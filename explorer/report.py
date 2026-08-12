@@ -12,8 +12,7 @@ from explorer.display import create_prompt_button, create_pair_selector
 
 
 def display_report(
-    scenario_name,
-    model_name,
+    scenario,
     concepts,
     embedding_dimension,
     pca,
@@ -36,7 +35,7 @@ def display_report(
 
     print()
     print("=" * 70)
-    ###############################################
+
     display(HTML(f"""
         <div style="
             display: flex;
@@ -55,7 +54,7 @@ def display_report(
             </span>
         </div>
         """))
-    ###############################################
+
     print("=" * 70)
     print()
 
@@ -63,7 +62,9 @@ def display_report(
     # General information
     # ---------------------------------------------------------
 
-    print(f"Scenario              : {scenario_name}")
+    print(f"Scenario              : {scenario['title']}")
+    print(scenario["description"])
+    print()
     print(f"Model alias           : {MODEL_ALIAS}")
     print(f"Technical Model       : {MODEL_NAME}")
     print(f"Number of concepts    : {len(concepts)}")
@@ -129,7 +130,8 @@ def display_report(
         create_prompt_button(
             best[0],
             best[1],
-            "proches",
+            MODEL_ALIAS,
+            best[2],
         )
     )
 
@@ -143,7 +145,8 @@ def display_report(
         create_prompt_button(
             worst[0],
             worst[1],
-            "éloignés",
+            MODEL_ALIAS,
+            worst[2],
         )
     )
 
@@ -153,7 +156,12 @@ def display_report(
 
     print("🔎 EXPLORER UNE AUTRE PAIRE")
 
-    display(create_pair_selector(similarity_pairs))
+    display(
+        create_pair_selector(
+            similarity_pairs,
+            MODEL_ALIAS,
+        )
+    )
 
     print()
 

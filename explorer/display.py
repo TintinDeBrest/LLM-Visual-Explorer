@@ -3,7 +3,7 @@
 
 import numpy as np
 
-from explorer.config import MODEL_ALIAS, MODEL_NAME
+from explorer.config import MODEL_ALIAS
 
 
 def display_scenario(scenario):
@@ -353,34 +353,136 @@ def display_messages():
     update_display()
 
 
-def create_prompt_button(concept1, concept2, relation):
+def create_prompt(
+    concept1,
+    concept2,
+    model_alias,
+    similarity,
+):
+    """
+    Create a ready-to-use prompt for a generative LLM.
+    """
+
+    similarity_percent = round(similarity * 100)
+
+    prompt = f"""# Analyse d'une relation sémantique observée dans un espace vectoriel
+
+Bonjour,
+
+Nous utilisons un modèle de langage spécialisé dans la représentation
+sémantique des mots et concepts.
+
+Ce modèle représente les concepts dans un espace vectoriel
+(embedding space).
+
+Dans une expérience réalisée avec LlmExpl, nous avons observé
+la relation suivante :
+
+Concept A : {concept1}
+Concept B : {concept2}
+
+Modèle utilisé : {model_alias}
+Score de similarité : {similarity_percent} %
+
+Le score est calculé par LlmExpl à partir des embeddings du modèle.
+Il s'agit donc d'une observation quantitative produite par le modèle,
+et non d'une conclusion humaine.
+
+## Votre tâche
+
+Analysez cette relation et expliquez pourquoi le modèle pourrait
+produire ce niveau de proximité ou d'éloignement.
+
+### 1. Observation
+
+Commencez par interpréter le résultat observé :
+
+- La relation vous paraît-elle intuitivement surprenante ou attendue ?
+- Le score obtenu vous paraît-il cohérent avec la relation entre
+  les deux concepts ?
+- Existe-t-il une différence entre la proximité intuitive pour un
+  humain et celle observée dans l'espace sémantique du modèle ?
+
+### 2. Explication
+
+Proposez plusieurs explications possibles à ce résultat.
+
+Vous pouvez notamment examiner :
+
+- les catégories ou propriétés communes ;
+- les contextes linguistiques dans lesquels les concepts apparaissent ;
+- les associations culturelles ou encyclopédiques ;
+- les relations fonctionnelles ou contextuelles ;
+- les différences importantes entre les deux concepts.
+
+Donnez des exemples concrets lorsque cela aide à comprendre le résultat.
+
+### 3. Nuances et contre-arguments
+
+Présentez les interprétations alternatives ou les limites de votre analyse.
+
+En particulier, évitez de supposer qu'une proximité entre deux embeddings
+signifie que le modèle « comprend » les concepts de la même manière
+qu'un humain.
+
+### 4. Synthèse
+
+Terminez par un tableau synthétique :
+
+| Élément | Analyse |
+|---|---|
+| Relation observée | ... |
+| Score | ... |
+| Explication principale | ... |
+| Explications alternatives | ... |
+| Élément surprenant | ... |
+| Point de vigilance | ... |
+
+Puis donnez une courte conclusion en 2 ou 3 phrases répondant à la question :
+
+Pourquoi cette relation peut-elle être observée dans l'espace sémantique
+de ce modèle ?
+
+## Règles importantes
+
+- Analysez uniquement la relation {concept1} ↔ {concept2}
+  et le résultat fourni.
+- Ne refaites pas l'expérience et ne proposez pas une autre mesure.
+- Ne remplacez pas le résultat observé par votre propre estimation
+  de la similarité.
+- Ne partez pas dans une explication générale du fonctionnement
+  des LLMs.
+- Distinguez clairement ce qui est observé de ce qui est interprété.
+- Une explication plausible n'est pas nécessairement la cause réelle
+  du comportement du modèle.
+- Si le résultat vous paraît contre-intuitif, dites-le clairement
+  plutôt que de chercher à le justifier artificiellement.
+"""
+
+    return prompt
+
+
+def create_prompt_button(
+    concept1,
+    concept2,
+    model_alias,
+    similarity,
+):
     """
     Create a button that copies a ready-to-use LLM prompt
     to the user's clipboard.
     """
 
     import ipywidgets as widgets
-    from IPython.display import display, HTML
-    from IPython.display import Javascript
+    from IPython.display import display, Javascript
+    import json
 
-    prompt = f"""Bonjour,
-
-Un modèle d'intelligence artificielle représentant les concepts dans un
-espace vectoriel sémantique considère que les deux concepts suivants sont
-{relation} :
-
-{concept1} et {concept2}
-
-Je voudrais savoir si vous considérez, à priori, que cette relation est pertinente.
-
-Pouvez-vous fournir :
-- des arguments en faveur de cette proximité ou de cet éloignement ;
-- des exemples concrets illustrant votre analyse ;
-- des nuances ou contre-arguments éventuels ?
-
-L'objectif est de mieux comprendre pourquoi ces deux concepts peuvent être
-associés (ou séparés) dans un espace sémantique.
-"""
+    prompt = create_prompt(
+        concept1,
+        concept2,
+        model_alias,
+        similarity,
+    )
 
     button = widgets.Button(
         description="📋 Copier le prompt",
@@ -389,8 +491,6 @@ associés (ou séparés) dans un espace sémantique.
     )
 
     def copy_prompt(button):
-        # Échapper les caractères pour JavaScript
-        import json
 
         prompt_js = json.dumps(prompt)
 
@@ -407,23 +507,32 @@ associés (ou séparés) dans un espace sémantique.
     return button
 
 
-def create_pair_selector(similarity_pairs):
+def create_pair_selector(
+    similarity_pairs,
+    model_alias,
+):
     """
     Create a dropdown allowing the user to select any
     concept pair and copy its corresponding LLM prompt.
     """
 
     import ipywidgets as widgets
-    from IPython.display import display
+    from IPython.display import display, Javascript
     import json
 
     # Create the list displayed in the dropdown
     options = [
-        (f"{pair[0]} ↔ {pair[1]} — {pair[2]:.0%}", pair) for pair in similarity_pairs
+        (
+            f"{pair[0]} ↔ {pair[1]} — {pair[2]:.0%}",
+            pair,
+        )
+        for pair in similarity_pairs
     ]
 
     selector = widgets.Dropdown(
-        options=options, description="", layout=widgets.Layout(width="300px")
+        options=options,
+        description="",
+        layout=widgets.Layout(width="300px"),
     )
 
     button = widgets.Button(
@@ -433,32 +542,23 @@ def create_pair_selector(similarity_pairs):
     )
 
     def copy_selected_prompt(button):
+
         pair = selector.value
 
-        prompt = f"""Bonjour,
-
-Un modèle d'intelligence artificielle représentant les concepts dans un
-espace vectoriel sémantique considère que les deux concepts suivants sont
-proches/éloignés :
-
-{pair[0]} et {pair[1]}
-
-Je voudrais savoir si vous considérez, à priori, que cette relation est pertinente.
-
-Pouvez-vous fournir :
-- des arguments en faveur de cette proximité ou de cet éloignement ;
-- des exemples concrets illustrant votre analyse ;
-- des nuances ou contre-arguments éventuels ?
-
-L'objectif est de mieux comprendre pourquoi ces deux concepts peuvent être
-associés (ou séparés) dans un espace sémantique.
-"""
+        prompt = create_prompt(
+            pair[0],
+            pair[1],
+            model_alias,
+            pair[2],
+        )
 
         prompt_js = json.dumps(prompt)
 
-        display(__import__("IPython").display.Javascript(f"""
-                navigator.clipboard.writeText({prompt_js});
-                """))
+        display(Javascript(f"""
+            navigator.clipboard.writeText({prompt_js}).then(function() {{
+                console.log("Prompt copied");
+            }});
+            """))
 
         button.description = "✓ Prompt copié !"
 
