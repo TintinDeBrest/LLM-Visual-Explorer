@@ -3,14 +3,16 @@
 ########################################################################
 
 # Std lib
-from typing import Sequence 
+from typing import Sequence
+
 # 3rd party lib
 import numpy as np
 from sentence_transformers import SentenceTransformer
+
 # Project lib
 from explorer.config import MODEL_NAME
 
-_model = None # Cached SentenceTransformer instance
+_model = None  # Cached SentenceTransformer instance
 
 
 def load_model():
@@ -49,3 +51,8 @@ def compute_embeddings(concepts: str | Sequence[str]) -> np.ndarray:
         concepts,
         convert_to_numpy=True,
     )
+
+
+def get_model():
+    """Return the cached embedding model."""
+    return load_model()

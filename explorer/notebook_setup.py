@@ -26,7 +26,7 @@ import numpy as np
 import pandas as pd
 import plotly.graph_objects as go
 
-from sentence_transformers import SentenceTransformer
+# from sentence_transformers import SentenceTransformer
 
 # ---------------------------------------------------------
 # LLM Visual Explorer modules
@@ -43,8 +43,7 @@ from explorer.display import (
     display_similarity_ranking,
 )
 
-from explorer.embeddings import compute_embeddings
-
+from explorer.embeddings import compute_embeddings, get_model
 from explorer.exports import save_similarities_csv
 
 from explorer.projections import compute_pca
