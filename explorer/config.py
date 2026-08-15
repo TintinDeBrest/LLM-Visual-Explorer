@@ -8,16 +8,16 @@
 # ---------------------------------------------------------------------
 
 # MiniLM
-# MODEL_ALIAS = "MiniLM"
-# MODEL_NAME = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+MODEL_ALIAS = "MiniLM"
+MODEL_NAME = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
 
 # BERT
 # MODEL_ALIAS = "BERT"
 # MODEL_NAME = "sentence-transformers/bert-base-nli-mean-tokens"
 
 # MPNet
-MODEL_ALIAS = "MPNet"
-MODEL_NAME = "sentence-transformers/paraphrase-multilingual-mpnet-base-v2"
+# MODEL_ALIAS = "MPNet"
+# MODEL_NAME = "sentence-transformers/paraphrase-multilingual-mpnet-base-v2"
 
 # ---------------------------------------------------------------------
 # Defaults
@@ -38,3 +38,12 @@ SHOW_GRID = False
 SHOW_LABELS = False
 SHOW_ARROWS = False
 SHOW_ICONS = True
+
+
+# Pour test cluster
+CLUSTER_C1 = [
+    "Chat",
+    "Chien",
+    "Coq",
+    "Loup",
+]

@@ -1,0 +1,35 @@
+title: Expressions autour de la tête
+
+description: Exploration de la façon dont un modèle de langage représente des expressions françaises contenant le mot « tête ».
+
+objects:
+
+  - name: Avoir la tête dans les nuages
+    emoji: ☁️
+
+  - name: Avoir une idée en tête
+    emoji: 💡
+
+  - name: Perdre la tête
+    emoji: 🤯
+
+  - name: Se creuser la tête
+    emoji: 🤔
+
+  - name: Faire tourner la tête
+    emoji: 🌀
+
+  - name: En avoir par-dessus la tête
+    emoji: 😩
+
+  - name: Tête de mule
+    emoji: 🐴
+
+  - name: Tête à tête
+    emoji: 👥
+
+  - name: Garder la tête froide
+    emoji: 🥶
+
+  - name: En tête à tête
+    emoji: 🗣️

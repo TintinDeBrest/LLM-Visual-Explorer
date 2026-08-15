@@ -1,0 +1,35 @@
+title: Expressions autour du cœur
+
+description: Exploration de la façon dont un modèle de langage représente des expressions françaises contenant le mot « cœur ».
+
+objects:
+
+  - name: Avoir bon cœur
+    emoji: ❤️
+
+  - name: Avoir le cœur gros
+    emoji: 💔
+
+  - name: Avoir le cœur léger
+    emoji: 😌
+
+  - name: Parler à cœur ouvert
+    emoji: 🗣️
+
+  - name: Mettre du cœur à l'ouvrage
+    emoji: 💪
+
+  - name: Apprendre par cœur
+    emoji: 🧠
+
+  - name: Faire battre le cœur
+    emoji: 💓
+
+  - name: Tenir à cœur
+    emoji: 💖
+
+  - name: De tout cœur
+    emoji: ❤️
+
+  - name: En avoir le cœur net
+    emoji: 🔍

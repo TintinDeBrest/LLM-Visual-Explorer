@@ -1,0 +1,35 @@
+title: Expressions autour du pied
+
+description: Exploration de la façon dont un modèle de langage représente des expressions françaises contenant le mot « pied ».
+
+objects:
+
+  - name: À pied
+    emoji: 🚶
+
+  - name: Pied à terre
+    emoji: 🦶
+
+  - name: Prendre son pied
+    emoji: 😄
+
+  - name: Pied de nez
+    emoji: 😜
+
+  - name: Au pied de la lettre
+    emoji: 📖
+
+  - name: Mettre les pieds dans le plat
+    emoji: 🍽️
+
+  - name: Couper l'herbe sous le pied
+    emoji: 🌱
+
+  - name: Sur un pied d'égalité
+    emoji: ⚖️
+
+  - name: Avoir bon pied bon œil
+    emoji: 👀
+
+  - name: Trouver chaussure à son pied
+    emoji: 👞

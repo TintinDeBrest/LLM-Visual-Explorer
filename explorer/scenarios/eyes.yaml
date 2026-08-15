@@ -1,0 +1,35 @@
+title: Expressions autour de l'œil
+
+description: Exploration de la façon dont un modèle de langage représente des expressions françaises contenant le mot « œil ».
+
+objects:
+
+  - name: Ouvrir l'œil
+    emoji: 👁️
+
+  - name: Jeter un œil
+    emoji: 👀
+
+  - name: Avoir bon œil
+    emoji: 👁️
+
+  - name: Garder un œil sur
+    emoji: 👀
+
+  - name: Faire les yeux doux
+    emoji: 🥰
+
+  - name: Coûter les yeux de la tête
+    emoji: 💰
+
+  - name: Avoir les yeux en face
+    emoji: 👀
+
+  - name: Sauter aux yeux
+    emoji: 😲
+
+  - name: Fermer les yeux
+    emoji: 🙈
+
+  - name: Avoir un œil de lynx
+    emoji: 🦅

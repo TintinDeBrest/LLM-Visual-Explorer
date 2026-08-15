@@ -1,0 +1,35 @@
+title: Films vus par un modèle de langage
+
+description: Exploration de l'espace sémantique de dix films emblématiques issus de genres, d'époques et de cultures cinématographiques variés.
+
+objects:
+
+  - name: Star Wars
+    emoji: 🌌
+
+  - name: Titanic
+    emoji: 🚢
+
+  - name: The Godfather
+    emoji: 🎩
+
+  - name: The Matrix
+    emoji: 💊
+
+  - name: Jurassic Park
+    emoji: 🦖
+
+  - name: Amélie Poulain
+    emoji: 🥄
+
+  - name: Intouchables
+    emoji: 🤝
+
+  - name: La Vita è Bella
+    emoji: ❤️
+
+  - name: Parasite
+    emoji: 🏠
+
+  - name: Spirited Away
+    emoji: 👻

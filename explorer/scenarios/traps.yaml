@@ -1,0 +1,37 @@
+title: Pièges sémantiques
+
+description: >
+  Exploration de la capacité d'un modèle de langage à rapprocher
+  des expressions de sens proche malgré des formulations différentes.
+
+objects:
+
+  - name: Être très heureux
+    emoji: 😄
+
+  - name: Avoir le cœur léger
+    emoji: ❤️
+
+  - name: Être très triste
+    emoji: 😢
+
+  - name: Avoir le moral à zéro
+    emoji: 😞
+
+  - name: Être très fatigué
+    emoji: 😴
+
+  - name: Être sur les rotules
+    emoji: 🥱
+
+  - name: Comprendre enfin
+    emoji: 💡
+
+  - name: Voir le bout du tunnel
+    emoji: 🔦
+
+  - name: Être très énervé
+    emoji: 😡
+
+  - name: Voir rouge
+    emoji: 🔴

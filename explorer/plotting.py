@@ -3,6 +3,7 @@
 # =========================================================
 
 import plotly.graph_objects as go
+from explorer.config import CLUSTER_C1
 
 
 def build_labels(names, icons, show_labels, show_icons):
@@ -116,6 +117,7 @@ def plot_scene(
     icons=None,
     show_labels=False,
     show_icons=False,
+    semantic_strength=None,
 ):
 
     if icons is None:
@@ -143,28 +145,109 @@ def plot_scene(
     ]
 
     # ---------------------------------------------------------
-    # ⭐ Étoiles 3D
-    #
-    # Plotly Scatter3d ne supporte pas le symbole "star".
-    # On utilise donc le caractère Unicode ★ comme texte.
+    # Étoiles 3D
     # ---------------------------------------------------------
 
-    fig.add_trace(
-        go.Scatter3d(
-            x=df["PC1"],
-            y=df["PC2"],
-            z=df["PC3"],
-            mode="text",
-            text=["★"] * len(df),
-            textfont=dict(
-                size=18,
-                color="gold",
-            ),
-            hovertext=hover,
-            hoverinfo="text",
-            showlegend=False,
+    if semantic_strength is not None:
+
+        # -----------------------------------------------------
+        # Nouvelle visualisation :
+        # taille et couleur = force sémantique
+        # -----------------------------------------------------
+
+        star_sizes = [20 + 16 * semantic_strength.get(name, 0) for name in df["Mot"]]
+
+        def strength_to_color(value):
+            """Convertit une force 0..1 en couleur,
+            du bleu sombre au rouge vif en passant par
+            bleu, jaune et rouge.
+            """
+
+            # Points de contrôle :
+            # force 0.00 → bleu sombre
+            # force 0.25 → bleu
+            # force 0.50 → jaune
+            # force 0.75 → rouge
+            # force 1.00 → rouge vif
+
+            stops = [
+                (0.00, (20, 45, 100)),
+                (0.25, (30, 90, 200)),
+                (0.50, (255, 220, 40)),
+                (0.75, (220, 50, 30)),
+                (1.00, (255, 0, 0)),
+            ]
+
+            # Sécurité
+            value = max(0, min(1, value))
+
+            # Recherche du segment
+            for i in range(len(stops) - 1):
+
+                v1, c1 = stops[i]
+                v2, c2 = stops[i + 1]
+
+                if v1 <= value <= v2:
+
+                    # Position relative dans le segment
+                    t = (value - v1) / (v2 - v1)
+
+                    r = int(c1[0] + (c2[0] - c1[0]) * t)
+                    g = int(c1[1] + (c2[1] - c1[1]) * t)
+                    b = int(c1[2] + (c2[2] - c1[2]) * t)
+
+                    return f"rgb({r},{g},{b})"
+
+            return "rgb(255,0,0)"
+
+        star_colors = [
+            strength_to_color(semantic_strength.get(name, 0)) for name in df["Mot"]
+        ]
+
+        fig.add_trace(
+            go.Scatter3d(
+                x=df["PC1"],
+                y=df["PC2"],
+                z=df["PC3"],
+                mode="text",
+                text=["★"] * len(df),
+                textfont=dict(
+                    size=star_sizes,
+                    color=star_colors,
+                ),
+                hovertext=hover,
+                hoverinfo="text",
+                showlegend=False,
+            )
         )
-    )
+
+    else:
+
+        # -----------------------------------------------------
+        # Ancien comportement :
+        # cluster C1
+        # -----------------------------------------------------
+
+        cluster_sizes = [28 if name in CLUSTER_C1 else 18 for name in df["Mot"]]
+
+        cluster_colors = ["red" if name in CLUSTER_C1 else "gold" for name in df["Mot"]]
+
+        fig.add_trace(
+            go.Scatter3d(
+                x=df["PC1"],
+                y=df["PC2"],
+                z=df["PC3"],
+                mode="text",
+                text=["★"] * len(df),
+                textfont=dict(
+                    size=cluster_sizes,
+                    color=cluster_colors,
+                ),
+                hovertext=hover,
+                hoverinfo="text",
+                showlegend=False,
+            )
+        )
 
     # ---------------------------------------------------------
     # Noms des concepts
@@ -185,6 +268,10 @@ def plot_scene(
             showlegend=False,
         )
     )
+
+    # ---------------------------------------------------------
+    # Mise en page
+    # ---------------------------------------------------------
 
     fig.update_layout(
         title=title,

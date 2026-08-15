@@ -160,6 +160,12 @@ def display_similarity_ranking(
 
         return np.linalg.norm(pa - pb)
 
+    names_a = [a for a, _, _ in similarity_pairs]
+    names_b = [b for _, b, _ in similarity_pairs]
+
+    width_a = max(len(name) for name in names_a)
+    width_b = max(len(name) for name in names_b)
+
     def format_pair(rank, pair, highlight=False):
 
         a, b, score = pair
@@ -177,8 +183,8 @@ def display_similarity_ranking(
 
         print(
             f"{prefix}{rank:>2}. "
-            f"{emoji_a} {a:<12} ↔ "
-            f"{emoji_b} {b:<12} "
+            f"{emoji_a} {a:<{width_a}} ↔ "
+            f"{emoji_b} {b:<{width_b}} "
             f"{bar:<20} "
             f"Sim: {score:.0%}  "
             f"Dist: {distance_3d:.1f}"

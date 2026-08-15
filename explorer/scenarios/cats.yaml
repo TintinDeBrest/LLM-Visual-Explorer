@@ -1,0 +1,36 @@
+title: Expressions autour du chat
+
+description: Exploration de la façon dont un modèle de langage représente des expressions françaises contenant le mot « chat ».
+
+
+objects:
+
+  - name: Chat noir
+    emoji: 🐈‍⬛
+
+  - name: Chat botté
+    emoji: 👢
+
+  - name: Chat perché
+    emoji: 🐈
+
+  - name: Chat perdu
+    emoji: 😿
+
+  - name: Donner sa langue au chat
+    emoji: 🤐
+
+  - name: Avoir un chat dans la gorge
+    emoji: 🗣️
+
+  - name: Jouer au chat et à la souris
+    emoji: 🐱
+
+  - name: Appeler un chat un chat
+    emoji: 🗣️
+
+  - name: La nuit, tous les chats sont gris
+    emoji: 🌙
+
+  - name: Quand le chat n'est pas là, les souris dansent
+    emoji: 🐭
