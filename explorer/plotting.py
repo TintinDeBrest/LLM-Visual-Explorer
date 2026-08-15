@@ -6,6 +6,59 @@ import plotly.graph_objects as go
 from explorer.config import CLUSTER_C1
 
 
+# Palette des classes spectrales stellaires, de O (bleu) à M (rouge).
+# Elle ne porte aucune signification scientifique sur les concepts : elle sert
+# uniquement à rendre la force sémantique déjà calculée plus lisible.
+SPECTRAL_STOPS = [
+    (0.00, (255, 112, 67)),   # M — rouge-orangé
+    (0.20, (255, 176, 92)),   # K — orange clair
+    (0.40, (255, 244, 214)),  # G/F — blanc chaud
+    (0.60, (248, 250, 255)),  # A — blanc
+    (0.80, (190, 218, 255)),  # B — bleu-blanc
+    (1.00, (116, 174, 255)),  # O — bleu
+]
+
+
+def strength_to_spectral_color(value):
+    """Convertit une force visuelle 0..1 en couleur stellaire O→M.
+
+    La valeur est inchangée : seule sa représentation graphique évolue.
+    """
+
+    value = max(0, min(1, value))
+
+    for i in range(len(SPECTRAL_STOPS) - 1):
+        v1, c1 = SPECTRAL_STOPS[i]
+        v2, c2 = SPECTRAL_STOPS[i + 1]
+
+        if v1 <= value <= v2:
+            t = (value - v1) / (v2 - v1)
+            r = int(c1[0] + (c2[0] - c1[0]) * t)
+            g = int(c1[1] + (c2[1] - c1[1]) * t)
+            b = int(c1[2] + (c2[2] - c1[2]) * t)
+
+            return f"rgb({r},{g},{b})"
+
+    return "rgb(116,174,255)"
+
+
+def normalize_visual_strengths(values):
+    """Étale une série de forces sur 0..1 pour la couleur uniquement.
+
+    Cette normalisation ne modifie ni les valeurs de semantic_strength ni la
+    taille des étoiles. Elle assure simplement que la palette complète est
+    visible pour chaque scénario.
+    """
+
+    minimum = min(values)
+    maximum = max(values)
+
+    if minimum == maximum:
+        return [0.5] * len(values)
+
+    return [(value - minimum) / (maximum - minimum) for value in values]
+
+
 def build_labels(names, icons, show_labels, show_icons):
 
     labels = []
@@ -69,7 +122,7 @@ def plot_map(
             marker=dict(
                 symbol="star",
                 size=16,
-                color="gold",
+                color="rgb(255,244,214)",
             ),
             hovertext=hover,
             hoverinfo="text",
@@ -97,15 +150,32 @@ def plot_map(
                 yshift=18,
                 xanchor="center",
                 yanchor="bottom",
+                font=dict(color="rgb(245,247,255)"),
             )
 
     fig.update_layout(
         title=title,
         width=850,
         height=650,
-        xaxis_title="PC1",
-        yaxis_title="PC2",
-        template="simple_white",
+        paper_bgcolor="black",
+        plot_bgcolor="black",
+        font=dict(color="rgb(245,247,255)"),
+        xaxis=dict(
+            title="X",
+            showgrid=False,
+            zeroline=False,
+            showline=True,
+            linecolor="rgba(245,247,255,0.65)",
+            tickcolor="rgba(245,247,255,0.65)",
+        ),
+        yaxis=dict(
+            title="Y",
+            showgrid=False,
+            zeroline=False,
+            showline=True,
+            linecolor="rgba(245,247,255,0.65)",
+            tickcolor="rgba(245,247,255,0.65)",
+        ),
     )
 
     return fig
@@ -155,53 +225,17 @@ def plot_scene(
         # taille et couleur = force sémantique
         # -----------------------------------------------------
 
-        star_sizes = [20 + 16 * semantic_strength.get(name, 0) for name in df["Mot"]]
+        raw_strengths = [semantic_strength.get(name, 0) for name in df["Mot"]]
+        visual_strengths = normalize_visual_strengths(raw_strengths)
 
-        def strength_to_color(value):
-            """Convertit une force 0..1 en couleur,
-            du bleu sombre au rouge vif en passant par
-            bleu, jaune et rouge.
-            """
+        # L'échelle de taille est étalée visuellement dans chaque scénario.
+        # Les forces calculées restent inchangées.
+        star_sizes = [14 + 26 * value for value in visual_strengths]
 
-            # Points de contrôle :
-            # force 0.00 → bleu sombre
-            # force 0.25 → bleu
-            # force 0.50 → jaune
-            # force 0.75 → rouge
-            # force 1.00 → rouge vif
-
-            stops = [
-                (0.00, (20, 45, 100)),
-                (0.25, (30, 90, 200)),
-                (0.50, (255, 220, 40)),
-                (0.75, (220, 50, 30)),
-                (1.00, (255, 0, 0)),
-            ]
-
-            # Sécurité
-            value = max(0, min(1, value))
-
-            # Recherche du segment
-            for i in range(len(stops) - 1):
-
-                v1, c1 = stops[i]
-                v2, c2 = stops[i + 1]
-
-                if v1 <= value <= v2:
-
-                    # Position relative dans le segment
-                    t = (value - v1) / (v2 - v1)
-
-                    r = int(c1[0] + (c2[0] - c1[0]) * t)
-                    g = int(c1[1] + (c2[1] - c1[1]) * t)
-                    b = int(c1[2] + (c2[2] - c1[2]) * t)
-
-                    return f"rgb({r},{g},{b})"
-
-            return "rgb(255,0,0)"
-
+        # Dégradé volontairement inversé : les étoiles les plus fortes sont
+        # rouges, les plus faibles bleues, pour une lecture plus immédiate.
         star_colors = [
-            strength_to_color(semantic_strength.get(name, 0)) for name in df["Mot"]
+            strength_to_spectral_color(1 - value) for value in visual_strengths
         ]
 
         fig.add_trace(
@@ -230,7 +264,10 @@ def plot_scene(
 
         cluster_sizes = [28 if name in CLUSTER_C1 else 18 for name in df["Mot"]]
 
-        cluster_colors = ["red" if name in CLUSTER_C1 else "gold" for name in df["Mot"]]
+        cluster_colors = [
+            "rgb(190,218,255)" if name in CLUSTER_C1 else "rgb(255,244,214)"
+            for name in df["Mot"]
+        ]
 
         fig.add_trace(
             go.Scatter3d(
@@ -263,6 +300,7 @@ def plot_scene(
             textposition="top center",
             textfont=dict(
                 size=12,
+                color="rgb(245,247,255)",
             ),
             hoverinfo="skip",
             showlegend=False,
@@ -277,11 +315,38 @@ def plot_scene(
         title=title,
         width=900,
         height=700,
+        paper_bgcolor="black",
+        font=dict(color="rgb(245,247,255)"),
         scene=dict(
             aspectmode="cube",
-            xaxis_title="PC1",
-            yaxis_title="PC2",
-            zaxis_title="PC3",
+            bgcolor="black",
+            xaxis=dict(
+                title="X",
+                showbackground=False,
+                showgrid=False,
+                zeroline=False,
+                showline=True,
+                linecolor="rgba(245,247,255,0.65)",
+                tickcolor="rgba(245,247,255,0.65)",
+            ),
+            yaxis=dict(
+                title="Y",
+                showbackground=False,
+                showgrid=False,
+                zeroline=False,
+                showline=True,
+                linecolor="rgba(245,247,255,0.65)",
+                tickcolor="rgba(245,247,255,0.65)",
+            ),
+            zaxis=dict(
+                title="Z",
+                showbackground=False,
+                showgrid=False,
+                zeroline=False,
+                showline=True,
+                linecolor="rgba(245,247,255,0.65)",
+                tickcolor="rgba(245,247,255,0.65)",
+            ),
         ),
     )
 

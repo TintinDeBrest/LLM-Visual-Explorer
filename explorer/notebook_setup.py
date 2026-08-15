@@ -48,6 +48,8 @@ from explorer.exports import save_similarities_csv
 
 from explorer.projections import compute_pca
 
+from explorer.semantic_core import build_semantic_core
+
 from explorer.plotting import (
     plot_scene,
     plot_map,

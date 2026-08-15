@@ -1,0 +1,44 @@
+title: Musiciens Fameux
+
+description: 10 famous classical composers from different musical periods
+
+objects:
+  - name: Johann Sebastian Bach
+    category: Baroque
+    icon: 🎼
+
+  - name: Wolfgang Amadeus Mozart
+    category: Classical
+    icon: 🎼
+
+  - name: Ludwig van Beethoven
+    category: Classical
+    icon: 🎼
+
+  - name: Gioachino Rossini
+    category: Romantic
+    icon: 🎼
+
+  - name: Franz Schubert
+    category: Romantic
+    icon: 🎼
+
+  - name: Frédéric Chopin
+    category: Romantic
+    icon: 🎼
+
+  - name: Giuseppe Verdi
+    category: Romantic
+    icon: 🎼
+
+  - name: Richard Wagner
+    category: Romantic
+    icon: 🎼
+
+  - name: Piotr Ilitch Tchaïkovski
+    category: Romantic
+    icon: 🎼
+
+  - name: Claude Debussy
+    category: Modern
+    icon: 🎼
