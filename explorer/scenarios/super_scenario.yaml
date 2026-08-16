@@ -1,16 +1,6 @@
-title: Super scénario
+title: Super scénario mix
 
 description: Exploration d'un espace sémantique mélangeant objets, êtres vivants, métiers et concepts abstraits.
-
-categories:
-
-  Nature:
-
-  Objets:
-
-  Métiers:
-
-  Concepts:
 
 objects:
 
@@ -19,92 +9,70 @@ objects:
   # -------------------------
 
   - name: Arbre
-    category: Nature
     emoji: 🌳
 
   - name: Chien
-    category: Nature
     emoji: 🐶
 
   - name: Oiseau
-    category: Nature
     emoji: 🐦
 
   - name: Fleur
-    category: Nature
     emoji: 🌸
 
   - name: Dauphin
-    category: Nature
     emoji: 🐬
-
 
   # -------------------------
   # Objets
   # -------------------------
 
   - name: Maison
-    category: Objets
     emoji: 🏠
 
   - name: Voiture
-    category: Objets
     emoji: 🚗
 
   - name: Ordinateur
-    category: Objets
     emoji: 💻
 
   - name: Livre
-    category: Objets
     emoji: 📖
 
   - name: Marteau
-    category: Objets
     emoji: 🔨
 
-
   # -------------------------
-  # Métiers / savoir
+  # Métiers
   # -------------------------
 
   - name: Ingénieur
-    category: Métiers
     emoji: 👷
 
   - name: Chercheur
-    category: Métiers
     emoji: 🔬
 
   - name: Professeur
-    category: Métiers
     emoji: 👨‍🏫
 
   - name: Avocat
-    category: Métiers
     emoji: ⚖️
 
-
   # -------------------------
-  # Concepts abstraits
+  # Idées
   # -------------------------
 
   - name: Écrire
-    category: Concepts
     emoji: ✍️
 
   - name: Parler
-    category: Concepts
     emoji: 🗣️
 
   - name: Amour
-    category: Concepts
     emoji: ❤️
 
   - name: Apprendre
-    category: Concepts
     emoji: 🧠
 
   - name: Liberté
-    category: Concepts
     emoji: 🕊️

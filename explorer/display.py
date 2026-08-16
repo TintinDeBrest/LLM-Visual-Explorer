@@ -8,38 +8,13 @@ from explorer.config import MODEL_ALIAS
 
 def display_scenario(scenario):
     """
-    Affiche les informations principales du scénario.
+    Affiche un résumé compact du scénario chargé.
     """
-    print("=" * 60)
 
-    print(f"SCÉNARIO : {scenario['title']}")
+    title = scenario["title"]
+    n_concepts = len(scenario["objects"])
 
-    print("=" * 60)
-
-    print()
-
-    print(scenario["description"])
-
-    print()
-
-    print("📋 Concepts analysés :")
-
-    print()
-
-    for obj in scenario["objects"]:
-
-        emoji = obj.get("emoji", "")
-
-        if emoji:
-            print(f"   {emoji}  {obj['name']}")
-        else:
-            print(f"   •  {obj['name']}")
-
-    print()
-
-    print(f"Nombre d'objets : {len(scenario['objects'])}")
-
-    print("=" * 60)
+    print(f"Scénario chargé : {title} / Nombre de concepts : {n_concepts}")
 
 
 def display_model(model):

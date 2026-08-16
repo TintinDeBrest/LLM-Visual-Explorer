@@ -188,6 +188,7 @@ def plot_scene(
     show_labels=False,
     show_icons=False,
     semantic_strength=None,
+    strength_mode="relative",
 ):
 
     if icons is None:
@@ -226,10 +227,18 @@ def plot_scene(
         # -----------------------------------------------------
 
         raw_strengths = [semantic_strength.get(name, 0) for name in df["Mot"]]
-        visual_strengths = normalize_visual_strengths(raw_strengths)
 
-        # L'échelle de taille est étalée visuellement dans chaque scénario.
-        # Les forces calculées restent inchangées.
+        if strength_mode == "relative":
+            # Le mode relatif maximise le contraste à l'intérieur d'un même
+            # scénario, comme dans le rendu Planetarium actuel.
+            visual_strengths = normalize_visual_strengths(raw_strengths)
+        elif strength_mode == "comparable":
+            # Le mode comparable conserve l'échelle absolue 0..1 afin que les
+            # tailles et couleurs soient comparables entre scénarios.
+            visual_strengths = [max(0, min(1, value)) for value in raw_strengths]
+        else:
+            raise ValueError("strength_mode must be 'relative' or 'comparable'")
+
         star_sizes = [14 + 26 * value for value in visual_strengths]
 
         # Dégradé volontairement inversé : les étoiles les plus fortes sont

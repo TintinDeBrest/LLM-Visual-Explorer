@@ -19,7 +19,7 @@ def save_similarities_csv(
 
     The file is stored locally in:
 
-        experiments/<scenario>/<model_alias>/similarities.csv
+        experiments/<scenario>/<model_alias>/similarities_<timestamp>.csv
 
     Parameters
     ----------
@@ -41,7 +41,18 @@ def save_similarities_csv(
     # Output path
     # -----------------------------------------------------------
 
-    output_path = Path("experiments") / scenario_name / model_alias / "similarities.csv"
+    now = datetime.now()
+
+    experiment_date = now.strftime("%Y-%m-%d")
+    experiment_time = now.strftime("%H:%M:%S")
+    run_timestamp = now.strftime("%Y-%m-%d_%H-%M-%S-%f")
+
+    output_path = (
+        Path("experiments")
+        / scenario_name
+        / model_alias
+        / f"similarities_{run_timestamp}.csv"
+    )
 
     output_path.parent.mkdir(
         parents=True,
@@ -49,21 +60,12 @@ def save_similarities_csv(
     )
 
     # -----------------------------------------------------------
-    # Experiment timestamp
-    # -----------------------------------------------------------
-
-    now = datetime.now()
-
-    experiment_date = now.strftime("%Y-%m-%d")
-    experiment_time = now.strftime("%H:%M:%S")
-
-    # -----------------------------------------------------------
     # Write CSV
     # -----------------------------------------------------------
 
     with open(
         output_path,
-        "w",
+        "x",
         newline="",
         encoding="utf-8-sig",
     ) as file:

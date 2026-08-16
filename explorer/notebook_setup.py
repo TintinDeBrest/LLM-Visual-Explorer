@@ -32,7 +32,7 @@ import plotly.graph_objects as go
 # LLM Visual Explorer modules
 # ---------------------------------------------------------
 
-from explorer.config import MODEL_NAME, MODEL_ALIAS
+from explorer.config import MODEL_NAME, MODEL_ALIAS, PLANETARIUM_STRENGTH_MODE
 
 from explorer.dataframe import create_dataframe
 
@@ -57,7 +57,7 @@ from explorer.plotting import (
 
 from explorer.report import display_report
 
-from explorer.scenarios import load_scenario
+from explorer.scenarios import load_scenario, scenario_selector
 
 from explorer.similarities import (
     compute_similarity,
