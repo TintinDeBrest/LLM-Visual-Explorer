@@ -92,6 +92,9 @@ def scenario_selector(display_function, selection):
         (load_scenario(file.stem)["title"], file.stem) for file in scenario_files
     ]
 
+    # Tri alphabétique selon le titre affiché, et non selon le nom du fichier YAML
+    scenario_options.sort(key=lambda x: x[0].casefold())
+
     scenario_dropdown = widgets.Dropdown(
         options=scenario_options,
         value="super_scenario",

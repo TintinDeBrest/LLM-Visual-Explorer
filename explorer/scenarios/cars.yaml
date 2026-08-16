@@ -1,0 +1,41 @@
+title: Voitures iconiques
+
+description: Exploration de l'espace sémantique de voitures emblématiques françaises et internationales, avec un biais volontairement français.
+
+objects:
+
+  - name: Peugeot 404
+    emoji: 🇫🇷
+
+  - name: Renault Twingo
+    emoji: 🇫🇷
+
+  - name: Citroën 2CV
+    emoji: 🇫🇷
+
+  - name: Renault 4L
+    emoji: 🇫🇷
+
+  - name: Citroën DS
+    emoji: 🇫🇷
+
+  - name: Volkswagen Coccinelle
+    emoji: 🇩🇪
+
+  - name: Mini Cooper
+    emoji: 🇬🇧
+
+  - name: Ford Mustang
+    emoji: 🇺🇸
+
+  - name: Chevrolet Impala
+    emoji: 🇺🇸
+
+  - name: Fiat 500
+    emoji: 🇮🇹
+
+  - name: Porsche 911
+    emoji: 🇩🇪
+
+  - name: Toyota Land Cruiser
+    emoji: 🇯🇵

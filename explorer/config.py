@@ -18,12 +18,12 @@
 # MODEL_NAME = "openai-community/gpt2"
 
 # BERT
-# MODEL_ALIAS = "BERT"
-# MODEL_NAME = "sentence-transformers/bert-base-nli-mean-tokens"
+MODEL_ALIAS = "BERT"
+MODEL_NAME = "sentence-transformers/bert-base-nli-mean-tokens"
 
 # MPNet multilingue, présenté simplement comme "MPNet" dans LlmExpl.
-MODEL_ALIAS = "MPNet"
-MODEL_NAME = "sentence-transformers/paraphrase-multilingual-mpnet-base-v2"
+# MODEL_ALIAS = "MPNet"
+# MODEL_NAME = "sentence-transformers/paraphrase-multilingual-mpnet-base-v2"
 
 # ---------------------------------------------------------------------
 # Defaults

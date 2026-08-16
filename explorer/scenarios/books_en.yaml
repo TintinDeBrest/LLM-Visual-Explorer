@@ -1,0 +1,41 @@
+title: Iconic Books (English)
+
+description: Exploration of the semantic space of major works of world literature using their English titles.
+
+objects:
+
+  - name: The Little Prince
+    emoji: 🌟
+
+  - name: Don Quixote
+    emoji: 🐴
+
+  - name: The Lord of the Rings
+    emoji: 💍
+
+  - name: Harry Potter
+    emoji: 🪄
+
+  - name: One Hundred Years of Solitude
+    emoji: 🦋
+
+  - name: Les Misérables
+    emoji: 🇫🇷
+
+  - name: "1984"
+    emoji: 👁️
+
+  - name: The Stranger
+    emoji: ☀️
+
+  - name: Pride and Prejudice
+    emoji: 💌
+
+  - name: Moby Dick
+    emoji: 🐋
+
+  - name: Crime and Punishment
+    emoji: ⚖️
+
+  - name: Alice in Wonderland
+    emoji: 🐇

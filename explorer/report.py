@@ -8,7 +8,11 @@ import base64
 from IPython.display import display, HTML
 
 from explorer.config import MODEL_ALIAS, MODEL_NAME
-from explorer.display import create_prompt_button, create_pair_selector
+from explorer.display import (
+    create_group_selector,
+    create_pair_selector,
+    create_prompt_button,
+)
 
 
 def display_report(
@@ -158,6 +162,19 @@ def display_report(
 
     display(
         create_pair_selector(
+            similarity_pairs,
+            MODEL_ALIAS,
+        )
+    )
+
+    print()
+
+    # Concept group
+
+    print("🧩 EXPLORER UN GROUPE DE 4 CONCEPTS")
+
+    display(
+        create_group_selector(
             similarity_pairs,
             MODEL_ALIAS,
         )

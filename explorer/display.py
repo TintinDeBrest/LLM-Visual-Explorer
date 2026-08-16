@@ -546,3 +546,153 @@ def create_pair_selector(
     button.on_click(copy_selected_prompt)
 
     return widgets.VBox([selector, button])
+
+
+def create_group_selector(
+    similarity_pairs,
+    model_alias,
+):
+    """
+    Create four concept dropdowns and copy a prompt describing
+    the six similarities between the selected concepts.
+    """
+
+    import ipywidgets as widgets
+    from IPython.display import display, Javascript
+    import json
+    from itertools import combinations
+
+    concepts = []
+
+    for concept_a, concept_b, _ in similarity_pairs:
+        for concept in (concept_a, concept_b):
+            if concept not in concepts:
+                concepts.append(concept)
+
+    if len(concepts) < 4:
+        raise ValueError("Au moins quatre concepts distincts sont nécessaires.")
+
+    similarity_lookup = {
+        frozenset((concept_a, concept_b)): score
+        for concept_a, concept_b, score in similarity_pairs
+    }
+
+    selectors = [
+        widgets.Dropdown(
+            options=concepts,
+            value=concepts[index],
+            description=f"Concept {index + 1} :",
+            layout=widgets.Layout(width="300px"),
+            style={"description_width": "80px"},
+        )
+        for index in range(4)
+    ]
+
+    button = widgets.Button(
+        description="📋 Copier le prompt",
+        tooltip="Copier le prompt pour ce groupe",
+        layout=widgets.Layout(width="160px"),
+    )
+
+    def reset_button(change):
+        button.description = "📋 Copier le prompt"
+
+    for selector in selectors:
+        selector.observe(reset_button, names="value")
+
+    def copy_group_prompt(button):
+
+        selected_concepts = [selector.value for selector in selectors]
+
+        if len(set(selected_concepts)) < 4:
+            button.description = "⚠ 4 concepts distincts"
+            return
+
+        selected_pairs = [
+            (
+                concept_a,
+                concept_b,
+                similarity_lookup[frozenset((concept_a, concept_b))],
+            )
+            for concept_a, concept_b in combinations(selected_concepts, 2)
+        ]
+
+        concept_lines = "\n".join(
+            f"- {concept}" for concept in selected_concepts
+        )
+        similarity_lines = "\n".join(
+            f"- {concept_a} ↔ {concept_b} : {score:.1%}"
+            for concept_a, concept_b, score in selected_pairs
+        )
+
+        prompt = f"""# Analyse d'un groupe observé dans un espace vectoriel
+
+Nous observons dans un espace d'embeddings les quatre concepts suivants :
+
+{concept_lines}
+
+Modèle utilisé : {model_alias}
+
+Similarités observées :
+{similarity_lines}
+
+Analysez ce groupe comme une structure sémantique.
+
+Identifiez :
+- les proximités intuitives ;
+- les proximités surprenantes ;
+- les éventuels sous-groupes ou concepts atypiques ;
+- plusieurs hypothèses pouvant expliquer cette géométrie.
+
+Distinguez clairement :
+1. ce qui est directement observable dans les scores ;
+2. ce qui relève d'une interprétation ;
+3. ce qui relève d'une hypothèse explicative.
+
+Ne supposez pas que le modèle « comprend » ces concepts comme un humain.
+N'inventez pas de propriétés du corpus d'entraînement qui ne peuvent pas
+être établies à partir des données fournies.
+
+Pour chaque hypothèse proposée :
+
+- indiquez explicitement quelles données supplémentaires seraient
+  nécessaires pour la vérifier ou la réfuter ;
+- précisez si ces données sont présentes ou absentes des informations
+  fournies ;
+- ne donnez aucun exemple de contexte supposé du corpus comme s'il avait
+  été observé.
+
+Dans la synthèse, ne transformez pas les hypothèses proposées en
+explications causales établies.
+
+Terminez par une conclusion constructive distinguant clairement :
+
+1. l'enseignement principal que les données permettent réellement de
+   retenir ;
+2. une ou deux interprétations plausibles et utiles, présentées
+   explicitement comme des interprétations et non comme des faits ;
+3. la principale limite empêchant une conclusion causale ;
+4. une expérience simple qui permettrait d'aller plus loin.
+
+N'attribuez pas de probabilité à ces interprétations et ne désignez pas
+l'une d'elles comme l'explication principale lorsque les données ne
+permettent pas de les départager.
+
+Ne terminez pas seulement par « on ne peut pas conclure ». Formulez ce que
+l'observation nous apprend malgré les incertitudes, sans renoncer aux
+limites nécessaires.
+"""
+
+        prompt_js = json.dumps(prompt)
+
+        display(Javascript(f"""
+            navigator.clipboard.writeText({prompt_js}).then(function() {{
+                console.log("Prompt copied");
+            }});
+            """))
+
+        button.description = "✓ Prompt copié !"
+
+    button.on_click(copy_group_prompt)
+
+    return widgets.VBox([*selectors, button])
