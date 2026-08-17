@@ -3,6 +3,8 @@
 # Initialisation de l'environnement du notebook
 # =========================================================
 
+import importlib.util
+import subprocess
 import sys
 from pathlib import Path
 
@@ -16,6 +18,38 @@ if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
 print(f"Project root: {PROJECT_ROOT}")
+
+
+# ---------------------------------------------------------
+# Optional notebook dependencies
+# ---------------------------------------------------------
+
+def ensure_package(import_name, package_name):
+    """Install a small notebook dependency only when it is missing."""
+
+    if importlib.util.find_spec(import_name) is not None:
+        return
+
+    print(f"Installing missing dependency: {package_name}")
+
+    try:
+        subprocess.check_call(
+            [
+                sys.executable,
+                "-m",
+                "pip",
+                "install",
+                package_name,
+            ]
+        )
+    except subprocess.CalledProcessError as error:
+        raise RuntimeError(
+            f"Unable to install the required package: {package_name}"
+        ) from error
+
+
+ensure_package("PIL", "pillow")
+ensure_package("kaleido", "kaleido")
 
 
 # ---------------------------------------------------------

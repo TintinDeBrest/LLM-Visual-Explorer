@@ -13,5 +13,8 @@ venv/
 .DS_Store
 Thumbs.db
 
-# Experiments
-experiments/
+# Explorations
+explorations/
+
+# Generated promotional catalog pages
+catalog_exports/

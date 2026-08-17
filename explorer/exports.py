@@ -1,11 +1,20 @@
 # ===============================================================
 # exports.py
-# Fonctions d'export des données expérimentales
+# Fonctions d'export des données d'exploration
 # ===============================================================
 
 import csv
 from datetime import datetime
 from pathlib import Path
+
+
+def exploration_output_dir(scenario_name, model_alias):
+    """Return and create the output directory for an exploration."""
+
+    output_dir = Path("explorations") / scenario_name / model_alias
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    return output_dir
 
 
 def save_similarities_csv(
@@ -19,7 +28,7 @@ def save_similarities_csv(
 
     The file is stored locally in:
 
-        experiments/<scenario>/<model_alias>/similarities_<timestamp>.csv
+        explorations/<scenario>/<model_alias>/similarities_<timestamp>.csv
 
     Parameters
     ----------
@@ -43,20 +52,13 @@ def save_similarities_csv(
 
     now = datetime.now()
 
-    experiment_date = now.strftime("%Y-%m-%d")
-    experiment_time = now.strftime("%H:%M:%S")
+    exploration_date = now.strftime("%Y-%m-%d")
+    exploration_time = now.strftime("%H:%M:%S")
     run_timestamp = now.strftime("%Y-%m-%d_%H-%M-%S-%f")
 
     output_path = (
-        Path("experiments")
-        / scenario_name
-        / model_alias
+        exploration_output_dir(scenario_name, model_alias)
         / f"similarities_{run_timestamp}.csv"
-    )
-
-    output_path.parent.mkdir(
-        parents=True,
-        exist_ok=True,
     )
 
     # -----------------------------------------------------------
@@ -89,8 +91,8 @@ def save_similarities_csv(
 
             writer.writerow(
                 [
-                    experiment_date,
-                    experiment_time,
+                    exploration_date,
+                    exploration_time,
                     scenario_name,
                     model_alias,
                     model_name,
@@ -103,3 +105,94 @@ def save_similarities_csv(
     print()
     print(f"💾 Similarities saved to:")
     print(f"   {output_path}")
+
+    return output_path
+
+
+def save_planetarium_png(
+    figure,
+    scenario_name,
+    model_alias,
+    width=1600,
+    height=1200,
+):
+    """Save a canonical static PNG of a Plotly planetarium figure."""
+
+    import plotly.graph_objects as go
+
+    # Work on a copy so that the interactive figure keeps the user's
+    # current camera, dimensions and text sizes.
+    canonical_figure = go.Figure(figure)
+
+    for trace in canonical_figure.data:
+        if trace.type != "scatter3d" or trace.mode != "text":
+            continue
+
+        texts = list(trace.text) if trace.text is not None else []
+
+        if texts and not all(text == "★" for text in texts):
+            trace.textfont.size = 15
+
+    canonical_figure.update_layout(
+        margin=dict(l=20, r=20, t=70, b=20),
+        title_font=dict(size=22),
+        scene_camera=dict(
+            eye=dict(x=1.08, y=1.08, z=1.08),
+        ),
+    )
+
+    run_timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S-%f")
+    output_path = (
+        exploration_output_dir(scenario_name, model_alias)
+        / f"planetarium_{run_timestamp}.png"
+    )
+
+    canonical_figure.write_image(
+        output_path,
+        format="png",
+        width=width,
+        height=height,
+        scale=1,
+    )
+
+    return output_path
+
+
+def create_planetarium_export_button(
+    figure,
+    scenario_name,
+    model_alias,
+):
+    """Create a notebook button that saves the planetarium on demand."""
+
+    import ipywidgets as widgets
+
+    button = widgets.Button(
+        description="📷 Enregistrer le planétarium",
+        tooltip="Enregistrer une vue PNG du planétarium",
+        layout=widgets.Layout(width="220px"),
+    )
+    output = widgets.Output()
+
+    def export_planetarium(b):
+        with output:
+            output.clear_output()
+
+            try:
+                output_path = save_planetarium_png(
+                    figure,
+                    scenario_name,
+                    model_alias,
+                )
+            except Exception as error:
+                b.description = "⚠️ Export impossible"
+                print(f"Export impossible : {error}")
+                return
+
+            b.description = "✓ Planétarium enregistré"
+            print("📷 Planétarium enregistré dans :")
+            print(f"   {output_path}")
+
+    button.on_click(export_planetarium)
+
+    return widgets.VBox([button, output])

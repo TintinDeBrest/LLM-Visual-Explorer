@@ -1,7 +1,9 @@
 sentence-transformers
 plotly
+kaleido
 scikit-learn
 pandas
 numpy
 pyyaml
+pillow
 jupyter

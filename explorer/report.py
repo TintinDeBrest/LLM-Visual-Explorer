@@ -13,6 +13,7 @@ from explorer.display import (
     create_pair_selector,
     create_prompt_button,
 )
+from explorer.exports import create_planetarium_export_button
 
 
 def display_report(
@@ -21,7 +22,16 @@ def display_report(
     embedding_dimension,
     pca,
     similarity_pairs,
+    scenario_name=None,
+    planetarium_figure=None,
 ):
+    export_scenario_name = scenario_name or scenario.get("_name")
+
+    if planetarium_figure is not None and not export_scenario_name:
+        raise ValueError(
+            "Le nom YAML du scénario est nécessaire pour exporter le planétarium."
+        )
+
     logo_path = Path(__file__).resolve().parent.parent / "images" / "LlmExpl_logo.png"
 
     with open(logo_path, "rb") as f:
@@ -181,6 +191,19 @@ def display_report(
     )
 
     print()
+
+    if planetarium_figure is not None:
+        print("📷 ENREGISTRER LE PLANÉTARIUM")
+
+        display(
+            create_planetarium_export_button(
+                planetarium_figure,
+                export_scenario_name,
+                MODEL_ALIAS,
+            )
+        )
+
+        print()
 
     print(
         "Note : LlmExpl révèle des structures dans l'espace sémantique, "

@@ -3,7 +3,6 @@
 # =========================================================
 
 import plotly.graph_objects as go
-from explorer.config import CLUSTER_C1
 
 
 # Palette des classes spectrales stellaires, de O (bleu) à M (rouge).
@@ -267,16 +266,8 @@ def plot_scene(
     else:
 
         # -----------------------------------------------------
-        # Ancien comportement :
-        # cluster C1
+        # Vue géométrique simple : étoiles homogènes
         # -----------------------------------------------------
-
-        cluster_sizes = [28 if name in CLUSTER_C1 else 18 for name in df["Mot"]]
-
-        cluster_colors = [
-            "rgb(190,218,255)" if name in CLUSTER_C1 else "rgb(255,244,214)"
-            for name in df["Mot"]
-        ]
 
         fig.add_trace(
             go.Scatter3d(
@@ -286,8 +277,8 @@ def plot_scene(
                 mode="text",
                 text=["★"] * len(df),
                 textfont=dict(
-                    size=cluster_sizes,
-                    color=cluster_colors,
+                    size=18,
+                    color="rgb(255,244,214)",
                 ),
                 hovertext=hover,
                 hoverinfo="text",

@@ -1,0 +1,41 @@
+title: Tableaux célèbres
+
+description: Exploration de l'espace sémantique de douze tableaux célèbres représentant différentes époques et traditions artistiques.
+
+objects:
+
+  - name: La Joconde
+    emoji: 🖼️
+
+  - name: La Nuit étoilée
+    emoji: 🌌
+
+  - name: Guernica
+    emoji: 🕊️
+
+  - name: La Persistance de la mémoire
+    emoji: ⏳
+
+  - name: Le Cri
+    emoji: 😱
+
+  - name: La Jeune Fille à la perle
+    emoji: 👩
+
+  - name: La Naissance de Vénus
+    emoji: 🐚
+
+  - name: Les Ménines
+    emoji: 👑
+
+  - name: Impression, soleil levant
+    emoji: 🌅
+
+  - name: La Liberté guidant le peuple
+    emoji: 🇫🇷
+
+  - name: Le Baiser de Klimt
+    emoji: 💋
+
+  - name: American Gothic
+    emoji: 🏠

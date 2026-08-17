@@ -1,0 +1,81 @@
+title: Matières école d'ingénieur
+
+description: Exploration de l'espace sémantique de vingt matières scientifiques, techniques et humaines enseignées en école d'ingénieurs.
+
+objects:
+
+  # -------------------------
+  # Mathématiques et sciences
+  # -------------------------
+
+  - name: Analyse mathématique
+    emoji: 📐
+
+  - name: Algèbre linéaire
+    emoji: ➗
+
+  - name: Probabilités
+    emoji: 🎲
+
+  - name: Mécanique quantique
+    emoji: ⚛️
+
+  - name: Thermodynamique
+    emoji: 🌡️
+
+  - name: Électromagnétisme
+    emoji: 🧲
+
+  # -------------------------
+  # Sciences de l'ingénieur
+  # -------------------------
+
+  - name: Mécanique des fluides
+    emoji: 🌊
+
+  - name: Résistance des matériaux
+    emoji: 🏗️
+
+  - name: Traitement du signal
+    emoji: 📶
+
+  - name: Automatique
+    emoji: 🎛️
+
+  - name: Électronique
+    emoji: 🔌
+
+  - name: Télécommunications
+    emoji: 📡
+
+  # -------------------------
+  # Informatique
+  # -------------------------
+
+  - name: Algorithmique
+    emoji: 🧮
+
+  - name: Programmation
+    emoji: 💻
+
+  - name: Intelligence artificielle
+    emoji: 🤖
+
+  - name: Cybersécurité
+    emoji: 🔐
+
+  # -------------------------
+  # Formation humaine
+  # -------------------------
+
+  - name: Anglais
+    emoji: 🇬🇧
+
+  - name: Économie
+    emoji: 📈
+
+  - name: Gestion de projet
+    emoji: 📋
+
+  - name: Éthique de l'ingénieur
+    emoji: ⚖️
