@@ -7,7 +7,12 @@ import base64
 
 from IPython.display import display, HTML
 
-from explorer.config import MODEL_ALIAS, MODEL_NAME
+from explorer.config import (
+    MODEL_ALIAS,
+    MODEL_NAME,
+    MODEL_TYPE,
+    REPRESENTATION_MODE,
+)
 from explorer.display import (
     create_group_selector,
     create_pair_selector,
@@ -82,7 +87,15 @@ def display_report(
     print(f"Model alias           : {MODEL_ALIAS}")
     print(f"Technical Model       : {MODEL_NAME}")
     print(f"Number of concepts    : {len(concepts)}")
-    print(f"Embedding dimension   : {embedding_dimension}")
+    if MODEL_TYPE == "generative":
+        dimension_label = (
+            "Intermediate-state delta dimension"
+            if REPRESENTATION_MODE == "common_suffix_middle_delta"
+            else "Predictive state dimension"
+        )
+    else:
+        dimension_label = "Embedding dimension"
+    print(f"{dimension_label:<22}: {embedding_dimension}")
 
     print()
 
@@ -180,6 +193,22 @@ def display_report(
     print()
 
     # Concept group
+
+    print(
+        "Avec quatre concepts, vous pouvez explorer une petite structure "
+        "sémantique :"
+    )
+    print("proximités, oppositions, sous-groupes ou concept atypique.")
+    print(
+        "Modifiez la sélection si vous le souhaitez, puis soumettez le prompt "
+        "à un LLM génératif"
+    )
+    print(
+        "pour obtenir des pistes d'interprétation et imaginer de nouvelles "
+        "expériences."
+    )
+
+    print()
 
     print("🧩 EXPLORER UN GROUPE DE 4 CONCEPTS")
 

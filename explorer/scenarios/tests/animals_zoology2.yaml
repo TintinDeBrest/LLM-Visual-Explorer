@@ -1,0 +1,36 @@
+title: Animaux — préfixe zoologie
+
+description: "Exploration des mêmes animaux que le scénario neutre, précédés du préfixe court « Zoologie : »."
+
+
+objects:
+
+  - name: "Zoologie : Chat"
+    emoji: 🐱
+
+  - name: "Zoologie : Chien"
+    emoji: 🐶
+
+  - name: "Zoologie : Lion"
+    emoji: 🦁
+
+  - name: "Zoologie : Loup"
+    emoji: 🐺
+
+  - name: "Zoologie : Dauphin"
+    emoji: 🐬
+
+  - name: "Zoologie : Sardine"
+    emoji: 🐟
+
+  - name: "Zoologie : Coq"
+    emoji: 🐓
+
+  - name: "Zoologie : Hibou"
+    emoji: 🦉
+
+  - name: "Zoologie : Papillon"
+    emoji: 🦋
+
+  - name: "Zoologie : Fourmi"
+    emoji: 🐜

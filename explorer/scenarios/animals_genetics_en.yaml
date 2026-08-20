@@ -1,0 +1,36 @@
+title: Animals — genetics prefix
+
+description: "Exploration of the same animals as the neutral English scenario, preceded by the prefix « Genetics: », to observe how this biological context affects their representations."
+
+
+objects:
+
+  - name: "Genetics: Cat"
+    emoji: 🐱
+
+  - name: "Genetics: Dog"
+    emoji: 🐶
+
+  - name: "Genetics: Lion"
+    emoji: 🦁
+
+  - name: "Genetics: Wolf"
+    emoji: 🐺
+
+  - name: "Genetics: Dolphin"
+    emoji: 🐬
+
+  - name: "Genetics: Sardine"
+    emoji: 🐟
+
+  - name: "Genetics: Eagle"
+    emoji: 🦅
+
+  - name: "Genetics: Owl"
+    emoji: 🦉
+
+  - name: "Genetics: Butterfly"
+    emoji: 🦋
+
+  - name: "Genetics: Ant"
+    emoji: 🐜

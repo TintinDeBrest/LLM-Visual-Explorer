@@ -3,7 +3,7 @@
 
 import numpy as np
 
-from explorer.config import MODEL_ALIAS
+from explorer.config import MODEL_ALIAS, MODEL_TYPE, REPRESENTATION_MODE
 
 
 def display_scenario(scenario):
@@ -23,7 +23,13 @@ def display_model(model):
     """
 
     print("=" * 60)
-    print("MODÈLE D'EMBEDDINGS")
+    if MODEL_TYPE == "generative":
+        if REPRESENTATION_MODE == "common_suffix_middle_delta":
+            print("MODÈLE GÉNÉRATIF — VARIATION D'ÉTAT INTERMÉDIAIRE")
+        else:
+            print("MODÈLE GÉNÉRATIF — ÉTAT PRÉDICTIF")
+    else:
+        print("MODÈLE D'EMBEDDINGS")
     print("=" * 60)
     print()
 
@@ -31,7 +37,7 @@ def display_model(model):
     print(f"Nom Générique: {MODEL_ALIAS}")
     print()
 
-    print("Dimension des embeddings :")
+    print("Dimension de la représentation :")
     print(f"  {model.get_embedding_dimension()}")
 
     print()

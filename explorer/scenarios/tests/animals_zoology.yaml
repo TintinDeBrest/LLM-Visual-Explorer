@@ -1,0 +1,35 @@
+title: Animaux zoologique
+
+description: Exploration des mêmes animaux que le scénario neutre, explicitement placés dans un contexte zoologique.
+
+objects:
+
+  - name: Chat dans un contexte zoologique
+    emoji: 🐱
+
+  - name: Chien dans un contexte zoologique
+    emoji: 🐶
+
+  - name: Lion dans un contexte zoologique
+    emoji: 🦁
+
+  - name: Loup dans un contexte zoologique
+    emoji: 🐺
+
+  - name: Dauphin dans un contexte zoologique
+    emoji: 🐬
+
+  - name: Sardine dans un contexte zoologique
+    emoji: 🐟
+
+  - name: Coq dans un contexte zoologique
+    emoji: 🐓
+
+  - name: Hibou dans un contexte zoologique
+    emoji: 🦉
+
+  - name: Papillon dans un contexte zoologique
+    emoji: 🦋
+
+  - name: Fourmi dans un contexte zoologique
+    emoji: 🐜

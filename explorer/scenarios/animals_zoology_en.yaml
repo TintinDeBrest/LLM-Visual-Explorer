@@ -1,0 +1,36 @@
+title: Animals — zoology prefix
+
+description: "Exploration of the same animals as the neutral English scenario, preceded by the prefix « Zoology: », to observe how this context affects their representations."
+
+
+objects:
+
+  - name: "Zoology: Cat"
+    emoji: 🐱
+
+  - name: "Zoology: Dog"
+    emoji: 🐶
+
+  - name: "Zoology: Lion"
+    emoji: 🦁
+
+  - name: "Zoology: Wolf"
+    emoji: 🐺
+
+  - name: "Zoology: Dolphin"
+    emoji: 🐬
+
+  - name: "Zoology: Sardine"
+    emoji: 🐟
+
+  - name: "Zoology: Eagle"
+    emoji: 🦅
+
+  - name: "Zoology: Owl"
+    emoji: 🦉
+
+  - name: "Zoology: Butterfly"
+    emoji: 🦋
+
+  - name: "Zoology: Ant"
+    emoji: 🐜
