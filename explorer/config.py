@@ -8,11 +8,11 @@
 # ---------------------------------------------------------------------
 
 # Petit modèle génératif — état interne utilisé avant la prédiction suivante
-MODEL_ALIAS = "PMG"
-MODEL_NAME = "Qwen/Qwen2.5-0.5B"
-MODEL_TYPE = "generative"
-REPRESENTATION_MODE = "common_suffix_middle_delta"
-PREDICTIVE_STATE_SUFFIX = "\n:"
+# MODEL_ALIAS = "PMG"
+# MODEL_NAME = "Qwen/Qwen2.5-0.5B"
+# MODEL_TYPE = "generative"
+# REPRESENTATION_MODE = "common_suffix_middle_delta"
+# PREDICTIVE_STATE_SUFFIX = "\n:"
 
 # MiniLM multilingue
 # MODEL_ALIAS = "MiniLM"
@@ -38,11 +38,11 @@ PREDICTIVE_STATE_SUFFIX = "\n:"
 # PREDICTIVE_STATE_SUFFIX = ""
 
 # MPNet multilingue, présenté simplement comme "MPNet" dans LlmExpl.
-# MODEL_ALIAS = "MPNet"
-# MODEL_NAME = "sentence-transformers/paraphrase-multilingual-mpnet-base-v2"
-# MODEL_TYPE = "embedding"
-# REPRESENTATION_MODE = "sentence_embedding"
-# PREDICTIVE_STATE_SUFFIX = ""
+MODEL_ALIAS = "MPNet"
+MODEL_NAME = "sentence-transformers/paraphrase-multilingual-mpnet-base-v2"
+MODEL_TYPE = "embedding"
+REPRESENTATION_MODE = "sentence_embedding"
+PREDICTIVE_STATE_SUFFIX = ""
 
 # ---------------------------------------------------------------------
 # Defaults

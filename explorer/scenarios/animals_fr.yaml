@@ -1,16 +1,16 @@
 family: animals
-language: en
-title: Animals
+language: fr
+title: Animaux
 
-description: Exploration of the semantic space of eleven animals belonging to different major groups of the animal kingdom.
+description: Exploration de l'espace sémantique de onze animaux appartenant à différents grands groupes du règne animal.
 
 objects:
   - id: cat
-    name: Cat
+    name: Chat
     emoji: 🐱
 
   - id: dog
-    name: Dog
+    name: Chien
     emoji: 🐶
 
   - id: lion
@@ -18,11 +18,11 @@ objects:
     emoji: 🦁
 
   - id: wolf
-    name: Wolf
+    name: Loup
     emoji: 🐺
 
   - id: dolphin
-    name: Dolphin
+    name: Dauphin
     emoji: 🐬
 
   - id: sardine
@@ -30,21 +30,21 @@ objects:
     emoji: 🐟
 
   - id: rooster
-    name: Rooster
+    name: Coq
     emoji: 🐓
 
   - id: eagle
-    name: Eagle
+    name: Aigle
     emoji: 🦅
 
   - id: owl
-    name: Owl
+    name: Hibou
     emoji: 🦉
 
   - id: butterfly
-    name: Butterfly
+    name: Papillon
     emoji: 🦋
 
   - id: ant
-    name: Ant
+    name: Fourmi
     emoji: 🐜
