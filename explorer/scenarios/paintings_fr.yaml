@@ -6,52 +6,65 @@ description: Exploration de l’espace sémantique de treize tableaux célèbres
 objects:
 - id: mona_lisa
   name: La Joconde
+  short_name: Joconde
   emoji: 🖼️
 
 - id: starry_night
   name: La Nuit étoilée
+  short_name: Nuit étoilée
   emoji: 🌌
 
 - id: guernica
   name: Guernica
+  short_name: Guernica
   emoji: 🕊️
 
 - id: persistence_memory
   name: La Persistance de la mémoire
+  short_name: Persistance
   emoji: ⏳
 
 - id: scream
   name: Le Cri
+  short_name: Cri
   emoji: 😱
 
 - id: girl_pearl
   name: La Jeune Fille à la perle
+  short_name: Jeune Fille
   emoji: 👩
 
 - id: birth_venus
   name: La Naissance de Vénus
+  short_name: Naissance de Vénus
   emoji: 🐚
 
 - id: meninas
   name: Les Ménines
+  short_name: Ménines
   emoji: 👑
 
 - id: impression_sunrise
   name: Impression, soleil levant
+  short_name: Soleil levant
   emoji: 🌅
 
 - id: liberty_people
   name: La Liberté guidant le peuple
+  short_name: Liberté
   emoji: 🇫🇷
 
 - id: kiss
   name: Le Baiser
+  short_name: Baiser de Klimt
   emoji: 💋
 
 - id: american_gothic
   name: American Gothic
+  short_name: American Gothic
   emoji: 🏠
 
 - id: great_wave
   name: La Grande Vague de Kanagawa
+  short_name: Grande Vague
   emoji: 🌊

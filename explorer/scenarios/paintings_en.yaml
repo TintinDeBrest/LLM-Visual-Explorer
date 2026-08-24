@@ -6,52 +6,65 @@ description: Exploration of the semantic space of thirteen famous paintings repr
 objects:
 - id: mona_lisa
   name: Mona Lisa
+  short_name: Mona Lisa
   emoji: 🖼️
 
 - id: starry_night
   name: The Starry Night
+  short_name: Starry Night
   emoji: 🌌
 
 - id: guernica
   name: Guernica
+  short_name: Guernica
   emoji: 🕊️
 
 - id: persistence_memory
   name: The Persistence of Memory
+  short_name: Persistence
   emoji: ⏳
 
 - id: scream
   name: The Scream
+  short_name: Scream
   emoji: 😱
 
 - id: girl_pearl
   name: Girl with a Pearl Earring
+  short_name: Pearl Earring
   emoji: 👩
 
 - id: birth_venus
   name: The Birth of Venus
+  short_name: Birth of Venus
   emoji: 🐚
 
 - id: meninas
   name: Las Meninas
+  short_name: Las Meninas
   emoji: 👑
 
 - id: impression_sunrise
   name: Impression, Sunrise
+  short_name: Impression Sunrise
   emoji: 🌅
 
 - id: liberty_people
   name: Liberty Leading the People
+  short_name: Liberty
   emoji: 🇫🇷
 
 - id: kiss
   name: The Kiss
+  short_name: Klimt’s Kiss
   emoji: 💋
 
 - id: american_gothic
   name: American Gothic
+  short_name: American Gothic
   emoji: 🏠
 
 - id: great_wave
   name: The Great Wave off Kanagawa
+  short_name: Great Wave
   emoji: 🌊

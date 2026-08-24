@@ -530,8 +530,15 @@ def scenario_selector(display_function, selection):
             obj["name"] for obj in selection["scenario"]["objects"]
         ]
         selection["objects"] = selection["scenario"]["objects"]
+
         selection["icons"] = {
-            obj["name"]: object_icon(obj) for obj in selection["objects"]
+            obj["name"]: object_icon(obj)
+            for obj in selection["objects"]
+        }
+
+        selection["short_names"] = {
+            obj["name"]: obj.get("short_name", obj["name"])
+            for obj in selection["objects"]
         }
 
     def load_selected_scenario(b):

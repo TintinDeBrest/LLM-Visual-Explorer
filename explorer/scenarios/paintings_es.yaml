@@ -6,52 +6,65 @@ description: Exploración del espacio semántico de trece pinturas famosas que r
 objects:
 - id: mona_lisa
   name: La Gioconda
+  short_name: Gioconda
   emoji: 🖼️
 
 - id: starry_night
   name: La noche estrellada
+  short_name: Noche estrellada
   emoji: 🌌
 
 - id: guernica
   name: Guernica
+  short_name: Guernica
   emoji: 🕊️
 
 - id: persistence_memory
   name: La persistencia de la memoria
+  short_name: Persistencia
   emoji: ⏳
 
 - id: scream
   name: El grito
+  short_name: Grito
   emoji: 😱
 
 - id: girl_pearl
   name: La joven de la perla
+  short_name: Joven de perla
   emoji: 👩
 
 - id: birth_venus
   name: El nacimiento de Venus
+  short_name: Nacimiento de Venus
   emoji: 🐚
 
 - id: meninas
   name: Las meninas
+  short_name: Meninas
   emoji: 👑
 
 - id: impression_sunrise
   name: Impresión, sol naciente
+  short_name: Sol naciente
   emoji: 🌅
 
 - id: liberty_people
   name: La Libertad guiando al pueblo
+  short_name: Libertad
   emoji: 🇫🇷
 
 - id: kiss
   name: El beso
+  short_name: Beso de Klimt
   emoji: 💋
 
 - id: american_gothic
   name: Gótico estadounidense
+  short_name: Gótico estadounidense
   emoji: 🏠
 
 - id: great_wave
   name: La gran ola de Kanagawa
+  short_name: Gran ola
   emoji: 🌊

@@ -85,6 +85,7 @@ def plot_map(
     df,
     title,
     icons=None,
+    short_names=None,
     show_labels=False,
     show_icons=False,
 ):
@@ -92,13 +93,19 @@ def plot_map(
     if icons is None:
         icons = {}
 
+    if short_names is None:
+        short_names = {}
+
     fig = go.Figure()
 
     # ---------------------------------------------------------
     # Labels
     # ---------------------------------------------------------
-
-    labels = df["Mot"].tolist()
+    labels = [
+        short_names.get(name, name)
+        for name in df["Mot"]
+    ]
+  
 
     hover = [
         f"{icons.get(m, '')} <b>{m}</b><br>" f"PC1 : {x:.2f}<br>" f"PC2 : {y:.2f}"
@@ -134,23 +141,22 @@ def plot_map(
     # ---------------------------------------------------------
 
     if show_labels:
-
-        for x, y, name in zip(
+        for x, y, label in zip(
             df["PC1"],
             df["PC2"],
-            df["Mot"],
+            labels,
         ):
-
             fig.add_annotation(
                 x=x,
                 y=y,
-                text=name,
+                text=label,
                 showarrow=False,
                 yshift=18,
                 xanchor="center",
                 yanchor="bottom",
                 font=dict(color="rgb(245,247,255)"),
             )
+
 
     fig.update_layout(
         title=title,
@@ -184,6 +190,7 @@ def plot_scene(
     df,
     title,
     icons=None,
+    short_names=None,
     show_labels=False,
     show_icons=False,
     semantic_strength=None,
@@ -193,13 +200,19 @@ def plot_scene(
     if icons is None:
         icons = {}
 
+    if short_names is None:
+        short_names = {}
     fig = go.Figure()
 
     # ---------------------------------------------------------
     # Labels
     # ---------------------------------------------------------
 
-    labels = df["Mot"].tolist()
+    labels = [
+        short_names.get(name, name)
+        for name in df["Mot"]
+    ]
+
 
     hover = [
         f"{icons.get(m, '')} <b>{m}</b><br>"
