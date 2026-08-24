@@ -1,40 +1,96 @@
-title: Multilingual Concepts
+family: multilingual
+language: mul
+title: Concepts multilingues FR–EN–ES
 
-description: Exploration de l'espace sémantique multilingue à travers cinq couples de concepts français et anglais partageant le même sens.
-
+description: Exploration de l'espace sémantique multilingue à travers cinq triplets de concepts français, anglais et espagnols partageant le même sens.
 
 objects:
-
-  - name: Chien
+  - id: dog_fr
+    concept_id: dog
+    language: fr
+    name: Chien
     emoji: 🐶
 
-  - name: Dog
+  - id: dog_en
+    concept_id: dog
+    language: en
+    name: Dog
     emoji: 🐶
 
+  - id: dog_es
+    concept_id: dog
+    language: es
+    name: Perro
+    emoji: 🐶
 
-  - name: Maison
+  - id: house_fr
+    concept_id: house
+    language: fr
+    name: Maison
     emoji: 🏠
 
-  - name: House
+  - id: house_en
+    concept_id: house
+    language: en
+    name: House
     emoji: 🏠
 
+  - id: house_es
+    concept_id: house
+    language: es
+    name: Casa
+    emoji: 🏠
 
-  - name: Voiture
+  - id: car_fr
+    concept_id: car
+    language: fr
+    name: Voiture
     emoji: 🚗
 
-  - name: Car
+  - id: car_en
+    concept_id: car
+    language: en
+    name: Car
     emoji: 🚗
 
+  - id: car_es
+    concept_id: car
+    language: es
+    name: Automóvil
+    emoji: 🚗
 
-  - name: Arbre
+  - id: tree_fr
+    concept_id: tree
+    language: fr
+    name: Arbre
     emoji: 🌳
 
-  - name: Tree
+  - id: tree_en
+    concept_id: tree
+    language: en
+    name: Tree
     emoji: 🌳
 
+  - id: tree_es
+    concept_id: tree
+    language: es
+    name: Árbol
+    emoji: 🌳
 
-  - name: Amour
+  - id: love_fr
+    concept_id: love
+    language: fr
+    name: Amour
     emoji: ❤️
 
-  - name: Love
+  - id: love_en
+    concept_id: love
+    language: en
+    name: Love
+    emoji: ❤️
+
+  - id: love_es
+    concept_id: love
+    language: es
+    name: Amor
     emoji: ❤️

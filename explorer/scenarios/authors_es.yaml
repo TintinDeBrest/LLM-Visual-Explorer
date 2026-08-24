@@ -1,0 +1,35 @@
+family: authors
+language: es
+title: Autores
+description: Exploración del espacio semántico de diez grandes autores de la literatura mundial.
+objects:
+- id: shakespeare
+  name: William Shakespeare
+  emoji: 🇬🇧
+- id: victor_hugo
+  name: Victor Hugo
+  emoji: 🇫🇷
+- id: cervantes
+  name: Cervantes
+  emoji: 🇪🇸
+- id: camus
+  name: Albert Camus
+  emoji: 🇫🇷
+- id: hemingway
+  name: Ernest Hemingway
+  emoji: 🇺🇸
+- id: poe
+  name: Edgar Allan Poe
+  emoji: 🇺🇸
+- id: tolstoy
+  name: León Tolstói
+  emoji: 🇷🇺
+- id: dante
+  name: Dante
+  emoji: 🇮🇹
+- id: goethe
+  name: Goethe
+  emoji: 🇩🇪
+- id: garcia_marquez
+  name: García Márquez
+  emoji: 🇨🇴

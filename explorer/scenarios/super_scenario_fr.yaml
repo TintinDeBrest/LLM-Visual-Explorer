@@ -1,0 +1,62 @@
+family: super_scenario
+language: fr
+title: Super scénario mixte
+description: Exploration d'un espace sémantique mélangeant nature, objets, métiers, actions et idées abstraites.
+objects:
+- id: tree
+  name: Arbre
+  emoji: 🌳
+- id: dog
+  name: Chien
+  emoji: 🐶
+- id: bird
+  name: Oiseau
+  emoji: 🐦
+- id: flower
+  name: Fleur
+  emoji: 🌸
+- id: dolphin
+  name: Dauphin
+  emoji: 🐬
+- id: house
+  name: Maison
+  emoji: 🏠
+- id: car
+  name: Voiture
+  emoji: 🚗
+- id: computer
+  name: Ordinateur
+  emoji: 💻
+- id: book
+  name: Livre
+  emoji: 📖
+- id: hammer
+  name: Marteau
+  emoji: 🔨
+- id: engineer
+  name: Ingénieur
+  emoji: 👷
+- id: researcher
+  name: Chercheur
+  emoji: 🔬
+- id: professor
+  name: Professeur
+  emoji: 👨‍🏫
+- id: lawyer
+  name: Avocat
+  emoji: ⚖️
+- id: write
+  name: Écrire
+  emoji: ✍️
+- id: speak
+  name: Parler
+  emoji: 🗣️
+- id: love
+  name: Amour
+  emoji: ❤️
+- id: learn
+  name: Apprendre
+  emoji: 🧠
+- id: freedom
+  name: Liberté
+  emoji: 🕊️

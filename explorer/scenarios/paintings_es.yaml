@@ -1,0 +1,57 @@
+family: paintings
+language: es
+title: Pinturas famosas
+description: Exploración del espacio semántico de trece pinturas famosas que representan diferentes épocas y tradiciones artísticas.
+
+objects:
+- id: mona_lisa
+  name: La Gioconda
+  emoji: 🖼️
+
+- id: starry_night
+  name: La noche estrellada
+  emoji: 🌌
+
+- id: guernica
+  name: Guernica
+  emoji: 🕊️
+
+- id: persistence_memory
+  name: La persistencia de la memoria
+  emoji: ⏳
+
+- id: scream
+  name: El grito
+  emoji: 😱
+
+- id: girl_pearl
+  name: La joven de la perla
+  emoji: 👩
+
+- id: birth_venus
+  name: El nacimiento de Venus
+  emoji: 🐚
+
+- id: meninas
+  name: Las meninas
+  emoji: 👑
+
+- id: impression_sunrise
+  name: Impresión, sol naciente
+  emoji: 🌅
+
+- id: liberty_people
+  name: La Libertad guiando al pueblo
+  emoji: 🇫🇷
+
+- id: kiss
+  name: El beso
+  emoji: 💋
+
+- id: american_gothic
+  name: Gótico estadounidense
+  emoji: 🏠
+
+- id: great_wave
+  name: La gran ola de Kanagawa
+  emoji: 🌊

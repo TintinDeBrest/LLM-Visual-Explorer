@@ -1,0 +1,37 @@
+family: turing_context
+language: en
+title: Turing–Lovelace Context Experiment
+description: Controlled experiment showing how increasing textual context changes the similarity between Ada Lovelace and Alan Turing.
+
+objects:
+- id: ada_name
+  name: Ada Lovelace
+  emoji: 💻
+
+- id: turing_name
+  name: Alan Turing
+  emoji: 💻
+
+- id: ada_scientist
+  name: Ada Lovelace was a scientist.
+  emoji: 🔬
+
+- id: turing_scientist
+  name: Alan Turing was a scientist.
+  emoji: 🔬
+
+- id: ada_mathematician
+  name: Ada Lovelace was a British mathematician.
+  emoji: 🇬🇧
+
+- id: turing_mathematician
+  name: Alan Turing was a British mathematician.
+  emoji: 🇬🇧
+
+- id: ada_computing
+  name: Ada Lovelace was a pioneer of computer science.
+  emoji: 🖥️
+
+- id: turing_computing
+  name: Alan Turing was a pioneer of computer science.
+  emoji: 🖥️

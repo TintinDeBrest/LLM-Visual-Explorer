@@ -1,0 +1,35 @@
+family: dog
+language: en
+title: Dog and Related Concepts
+description: Exploration of a small semantic space centered on dogs and their world.
+objects:
+- id: dog
+  name: Dog
+  emoji: 🐕
+- id: puppy
+  name: Puppy
+  emoji: 🐶
+- id: cat
+  name: Cat
+  emoji: 🐈
+- id: animal
+  name: Animal
+  emoji: 🐾
+- id: veterinarian
+  name: Veterinarian
+  emoji: 🩺
+- id: leash
+  name: Leash
+  emoji: 🦮
+- id: walk
+  name: Walk
+  emoji: 🚶
+- id: bark
+  name: Bark
+  emoji: 🔊
+- id: owner
+  name: Owner
+  emoji: 👤
+- id: shelter
+  name: Shelter
+  emoji: 🏠

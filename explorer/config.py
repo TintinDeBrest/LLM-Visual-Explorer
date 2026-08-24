@@ -1,10 +1,9 @@
 # ====================================================================
 # config.py
-# PhL 07Aug26
 # ====================================================================
 
 # ---------------------------------------------------------------------
-# Model
+# AI Model
 # ---------------------------------------------------------------------
 
 # Petit modèle génératif — état interne utilisé avant la prédiction suivante
@@ -38,8 +37,15 @@
 # PREDICTIVE_STATE_SUFFIX = ""
 
 # MPNet multilingue, présenté simplement comme "MPNet" dans LlmExpl.
-MODEL_ALIAS = "MPNet"
-MODEL_NAME = "sentence-transformers/paraphrase-multilingual-mpnet-base-v2"
+# MODEL_ALIAS = "MPNet"
+# MODEL_NAME = "sentence-transformers/paraphrase-multilingual-mpnet-base-v2"
+# MODEL_TYPE = "embedding"
+# REPRESENTATION_MODE = "sentence_embedding"
+# PREDICTIVE_STATE_SUFFIX = ""
+
+# LaBSE — multilingual model designed for cross-language alignment
+MODEL_ALIAS = "LaBSE"
+MODEL_NAME = "sentence-transformers/LaBSE"
 MODEL_TYPE = "embedding"
 REPRESENTATION_MODE = "sentence_embedding"
 PREDICTIVE_STATE_SUFFIX = ""
@@ -48,8 +54,13 @@ PREDICTIVE_STATE_SUFFIX = ""
 # Defaults
 # ---------------------------------------------------------------------
 
-DEFAULT_SCENARIO = "animals"
+DEFAULT_SCENARIO = "animals_fr"
 DEFAULT_PROJECTION = "PCA"
+
+# Scenario language filter: "all", "fr", "en", or "es"
+SCENARIO_LANGUAGE = "all"
+
+# Current interface language
 LANGUAGE = "fr"
 
 # ---------------------------------------------------------------------
@@ -69,10 +80,3 @@ SHOW_ICONS = True
 PLANETARIUM_STRENGTH_MODE = "comparable"
 
 
-# Pour test cluster
-CLUSTER_C1 = [
-    "Chat",
-    "Chien",
-    "Coq",
-    "Loup",
-]

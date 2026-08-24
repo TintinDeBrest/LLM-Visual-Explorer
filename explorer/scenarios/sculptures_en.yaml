@@ -1,0 +1,42 @@
+family: sculptures
+language: en
+title: Famous Sculptures
+description: Exploration of the semantic space of twelve famous sculptures from different periods and artistic traditions.
+
+objects:
+- id: venus_milo
+  name: Venus de Milo
+  emoji: 🏛️
+- id: thinker
+  name: The Thinker by Rodin
+  emoji: 🤔
+- id: pieta
+  name: Pietà by Michelangelo
+  emoji: 🕊️
+- id: david
+  name: David by Michelangelo
+  emoji: 🗿
+- id: discobolus
+  name: The Discobolus
+  emoji: 🥏
+- id: winged_victory
+  name: Winged Victory of Samothrace
+  emoji: 🪽
+- id: kiss_rodin
+  name: The Kiss by Rodin
+  emoji: 💋
+- id: ecstasy_teresa
+  name: The Ecstasy of Saint Teresa
+  emoji: ✨
+- id: apollo_daphne
+  name: Apollo and Daphne
+  emoji: 🌿
+- id: perseus_medusa
+  name: Perseus with the Head of Medusa
+  emoji: ⚔️
+- id: statue_liberty
+  name: The Statue of Liberty
+  emoji: 🗽
+- id: christ_redeemer
+  name: Christ the Redeemer
+  emoji: ⛰️

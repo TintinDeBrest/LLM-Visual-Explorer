@@ -1,0 +1,36 @@
+family: movies
+language: es
+title: Películas
+description: Exploración del espacio semántico de diez películas emblemáticas de diferentes géneros, épocas y culturas cinematográficas.
+
+objects:
+- id: star_wars
+  name: Star Wars
+  emoji: 🌌
+- id: titanic
+  name: Titanic
+  emoji: 🚢
+- id: godfather
+  name: El padrino
+  emoji: 🎩
+- id: matrix
+  name: Matrix
+  emoji: 💊
+- id: jurassic_park
+  name: Parque Jurásico
+  emoji: 🦖
+- id: amelie
+  name: Amélie
+  emoji: 🥄
+- id: intouchables
+  name: Intocable
+  emoji: 🤝
+- id: life_beautiful
+  name: La vida es bella
+  emoji: ❤️
+- id: parasite
+  name: Parásitos
+  emoji: 🏠
+- id: spirited_away
+  name: El viaje de Chihiro
+  emoji: 👻

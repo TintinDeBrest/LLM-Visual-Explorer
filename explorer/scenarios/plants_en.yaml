@@ -1,0 +1,35 @@
+family: plants
+language: en
+title: Plants
+description: Exploration of the semantic space of ten plants from several major botanical groups.
+objects:
+- id: oak
+  name: Oak
+  emoji: 🌳
+- id: pine
+  name: Pine
+  emoji: 🌲
+- id: rose
+  name: Rose
+  emoji: 🌹
+- id: tulip
+  name: Tulip
+  emoji: 🌷
+- id: orchid
+  name: Orchid
+  emoji: 🪷
+- id: sunflower
+  name: Sunflower
+  emoji: 🌻
+- id: bamboo
+  name: Bamboo
+  emoji: 🎍
+- id: cactus
+  name: Cactus
+  emoji: 🌵
+- id: fern
+  name: Fern
+  emoji: 🌿
+- id: moss
+  name: Moss
+  emoji: 🍀

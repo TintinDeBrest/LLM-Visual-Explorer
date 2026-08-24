@@ -1,0 +1,46 @@
+family: professions
+language: fr
+title: Professions
+
+description: Exploration de l'espace sémantique de dix métiers représentant différents domaines d'activité humaine.
+
+objects:
+  - id: doctor
+    name: Médecin
+    emoji: 🩺
+
+  - id: nurse
+    name: Infirmier
+    emoji: 💉
+
+  - id: engineer
+    name: Ingénieur
+    emoji: 👷
+
+  - id: researcher
+    name: Chercheur
+    emoji: 🔬
+
+  - id: professor
+    name: Professeur
+    emoji: 👨‍🏫
+
+  - id: lawyer
+    name: Avocat
+    emoji: ⚖️
+
+  - id: journalist
+    name: Journaliste
+    emoji: 📰
+
+  - id: baker
+    name: Boulanger
+    emoji: 🥖
+
+  - id: carpenter
+    name: Menuisier
+    emoji: 🪚
+
+  - id: pilot
+    name: Pilote
+    emoji: ✈️

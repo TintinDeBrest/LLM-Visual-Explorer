@@ -7,6 +7,8 @@ import yaml
 import ipywidgets as widgets
 from IPython.display import display
 
+from explorer.config import DEFAULT_SCENARIO, SCENARIO_LANGUAGE
+
 SCENARIOS_DIR = Path(__file__).parent / "scenarios"
 CATALOG_EXPORT_DIR = Path(__file__).parent.parent / "catalog_exports"
 
@@ -432,16 +434,49 @@ def scenario_selector(display_function, selection):
 
     label_choose = widgets.Label(value="1 Choisir le scénario")
 
-    scenario_options = [
-        (load_scenario(file.stem)["title"], file.stem) for file in scenario_files
-    ]
+    scenario_options = []
 
-    # Tri alphabétique selon le titre affiché, et non selon le nom du fichier YAML
-    scenario_options.sort(key=lambda x: x[0].casefold())
+    for file in scenario_files:
+        scenario = load_scenario(file.stem)
+
+        # Legacy scenarios without language metadata are currently French.
+        language = scenario.get("language", "fr")
+
+
+        if SCENARIO_LANGUAGE != "all" and language != SCENARIO_LANGUAGE:
+            continue
+
+        title = scenario["title"]
+
+        if SCENARIO_LANGUAGE == "all":
+            display_title = f"{language.upper()} — {title}"
+        else:
+            display_title = title
+
+        scenario_options.append((display_title, file.stem))
+
+    # Sort by language prefix, then by displayed title.
+    scenario_options.sort(key=lambda option: option[0].casefold())
+
+    if not scenario_options:
+        raise ValueError(
+            f"No scenario is available for language filter: "
+            f"{SCENARIO_LANGUAGE!r}"
+        )
+
+    available_scenarios = {
+        scenario_name for _, scenario_name in scenario_options
+    }
+
+    selected_scenario = (
+        DEFAULT_SCENARIO
+        if DEFAULT_SCENARIO in available_scenarios
+        else scenario_options[0][1]
+    )
 
     scenario_dropdown = widgets.Dropdown(
         options=scenario_options,
-        value="super_scenario",
+        value=selected_scenario,
         description="",
         layout=widgets.Layout(width=DROPDOWN_WIDTH),
     )

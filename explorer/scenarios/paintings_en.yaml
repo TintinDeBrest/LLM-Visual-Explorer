@@ -1,0 +1,57 @@
+family: paintings
+language: en
+title: Famous Paintings
+description: Exploration of the semantic space of thirteen famous paintings representing different periods and artistic traditions.
+
+objects:
+- id: mona_lisa
+  name: Mona Lisa
+  emoji: 🖼️
+
+- id: starry_night
+  name: The Starry Night
+  emoji: 🌌
+
+- id: guernica
+  name: Guernica
+  emoji: 🕊️
+
+- id: persistence_memory
+  name: The Persistence of Memory
+  emoji: ⏳
+
+- id: scream
+  name: The Scream
+  emoji: 😱
+
+- id: girl_pearl
+  name: Girl with a Pearl Earring
+  emoji: 👩
+
+- id: birth_venus
+  name: The Birth of Venus
+  emoji: 🐚
+
+- id: meninas
+  name: Las Meninas
+  emoji: 👑
+
+- id: impression_sunrise
+  name: Impression, Sunrise
+  emoji: 🌅
+
+- id: liberty_people
+  name: Liberty Leading the People
+  emoji: 🇫🇷
+
+- id: kiss
+  name: The Kiss
+  emoji: 💋
+
+- id: american_gothic
+  name: American Gothic
+  emoji: 🏠
+
+- id: great_wave
+  name: The Great Wave off Kanagawa
+  emoji: 🌊

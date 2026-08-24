@@ -1,20 +1,20 @@
 family: books
-language: en
-title: Iconic Books
+language: es
+title: Libros icónicos
 
-description: Exploration of the semantic space of twelve major works of world literature, both classic and contemporary.
+description: Exploración del espacio semántico de doce grandes obras de la literatura mundial, tanto clásicas como contemporáneas.
 
 objects:
   - id: the_little_prince
-    name: The Little Prince
+    name: El principito
     emoji: 🌟
 
   - id: don_quixote
-    name: Don Quixote
+    name: Don Quijote de la Mancha
     emoji: 🐴
 
   - id: the_lord_of_the_rings
-    name: The Lord of the Rings
+    name: El Señor de los Anillos
     emoji: 💍
 
   - id: harry_potter
@@ -22,11 +22,11 @@ objects:
     emoji: 🪄
 
   - id: one_hundred_years_of_solitude
-    name: One Hundred Years of Solitude
+    name: Cien años de soledad
     emoji: 🦋
 
   - id: les_miserables
-    name: Les Misérables
+    name: Los miserables
     emoji: 🇫🇷
 
   - id: nineteen_eighty_four
@@ -34,11 +34,11 @@ objects:
     emoji: 👁️
 
   - id: the_stranger
-    name: The Stranger
+    name: El extranjero
     emoji: ☀️
 
   - id: pride_and_prejudice
-    name: Pride and Prejudice
+    name: Orgullo y prejuicio
     emoji: 💌
 
   - id: moby_dick
@@ -46,9 +46,9 @@ objects:
     emoji: 🐋
 
   - id: crime_and_punishment
-    name: Crime and Punishment
+    name: Crimen y castigo
     emoji: ⚖️
 
   - id: alice_in_wonderland
-    name: Alice in Wonderland
+    name: Alicia en el país de las maravillas
     emoji: 🐇

@@ -1,0 +1,35 @@
+family: countries
+language: en
+title: Countries
+description: Exploration of the semantic space of ten countries across several continents.
+objects:
+- id: france
+  name: France
+  emoji: 🇫🇷
+- id: germany
+  name: Germany
+  emoji: 🇩🇪
+- id: japan
+  name: Japan
+  emoji: 🇯🇵
+- id: china
+  name: China
+  emoji: 🇨🇳
+- id: india
+  name: India
+  emoji: 🇮🇳
+- id: united_states
+  name: United States
+  emoji: 🇺🇸
+- id: brazil
+  name: Brazil
+  emoji: 🇧🇷
+- id: egypt
+  name: Egypt
+  emoji: 🇪🇬
+- id: kenya
+  name: Kenya
+  emoji: 🇰🇪
+- id: sweden
+  name: Sweden
+  emoji: 🇸🇪

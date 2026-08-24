@@ -1,0 +1,44 @@
+family: scientists
+language: fr
+title: Scientifiques
+description: Exploration de l'espace sémantique de treize scientifiques majeurs de différentes disciplines.
+objects:
+- id: newton
+  name: Newton
+  emoji: 🍎
+- id: einstein
+  name: Einstein
+  emoji: 🌌
+- id: pasteur
+  name: Pasteur
+  emoji: 🦠
+- id: darwin
+  name: Darwin
+  emoji: 🧬
+- id: curie
+  name: Curie
+  emoji: ⚛️
+- id: lavoisier
+  name: Lavoisier
+  emoji: ⚗️
+- id: pare
+  name: Paré
+  emoji: 🩺
+- id: galileo
+  name: Galilée
+  emoji: 🔭
+- id: faraday
+  name: Faraday
+  emoji: ⚡
+- id: carnot
+  name: Carnot
+  emoji: ⚡
+- id: maxwell
+  name: Maxwell
+  emoji: ⚡
+- id: ada_lovelace
+  name: Ada Lovelace
+  emoji: 💻
+- id: turing
+  name: Turing
+  emoji: 💻

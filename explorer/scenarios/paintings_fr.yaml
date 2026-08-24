@@ -1,0 +1,57 @@
+family: paintings
+language: fr
+title: Tableaux célèbres
+description: Exploration de l’espace sémantique de treize tableaux célèbres représentant différentes époques et traditions artistiques.
+
+objects:
+- id: mona_lisa
+  name: La Joconde
+  emoji: 🖼️
+
+- id: starry_night
+  name: La Nuit étoilée
+  emoji: 🌌
+
+- id: guernica
+  name: Guernica
+  emoji: 🕊️
+
+- id: persistence_memory
+  name: La Persistance de la mémoire
+  emoji: ⏳
+
+- id: scream
+  name: Le Cri
+  emoji: 😱
+
+- id: girl_pearl
+  name: La Jeune Fille à la perle
+  emoji: 👩
+
+- id: birth_venus
+  name: La Naissance de Vénus
+  emoji: 🐚
+
+- id: meninas
+  name: Les Ménines
+  emoji: 👑
+
+- id: impression_sunrise
+  name: Impression, soleil levant
+  emoji: 🌅
+
+- id: liberty_people
+  name: La Liberté guidant le peuple
+  emoji: 🇫🇷
+
+- id: kiss
+  name: Le Baiser
+  emoji: 💋
+
+- id: american_gothic
+  name: American Gothic
+  emoji: 🏠
+
+- id: great_wave
+  name: La Grande Vague de Kanagawa
+  emoji: 🌊

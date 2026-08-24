@@ -1,0 +1,36 @@
+family: movies
+language: fr
+title: Films
+description: Exploration de l’espace sémantique de dix films emblématiques issus de genres, d’époques et de cultures cinématographiques variés.
+
+objects:
+- id: star_wars
+  name: Star Wars
+  emoji: 🌌
+- id: titanic
+  name: Titanic
+  emoji: 🚢
+- id: godfather
+  name: Le Parrain
+  emoji: 🎩
+- id: matrix
+  name: Matrix
+  emoji: 💊
+- id: jurassic_park
+  name: Jurassic Park
+  emoji: 🦖
+- id: amelie
+  name: Le Fabuleux Destin d’Amélie Poulain
+  emoji: 🥄
+- id: intouchables
+  name: Intouchables
+  emoji: 🤝
+- id: life_beautiful
+  name: La vie est belle
+  emoji: ❤️
+- id: parasite
+  name: Parasite
+  emoji: 🏠
+- id: spirited_away
+  name: Le Voyage de Chihiro
+  emoji: 👻

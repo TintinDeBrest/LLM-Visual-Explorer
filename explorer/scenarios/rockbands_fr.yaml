@@ -1,0 +1,35 @@
+family: rockbands
+language: fr
+title: Groupes de rock
+description: Exploration de l'espace sémantique de dix groupes de musique emblématiques aux styles et aux époques variés.
+objects:
+- id: beatles
+  name: The Beatles
+  emoji: 🎸
+- id: abba
+  name: ABBA
+  emoji: 🕺
+- id: queen
+  name: Queen
+  emoji: 👑
+- id: rolling_stones
+  name: The Rolling Stones
+  emoji: 👅
+- id: led_zeppelin
+  name: Led Zeppelin
+  emoji: ⚡
+- id: pink_floyd
+  name: Pink Floyd
+  emoji: 🌈
+- id: nirvana
+  name: Nirvana
+  emoji: 🎤
+- id: metallica
+  name: Metallica
+  emoji: 🤘
+- id: telephone
+  name: Téléphone
+  emoji: 🇫🇷
+- id: u2
+  name: U2
+  emoji: ☘️

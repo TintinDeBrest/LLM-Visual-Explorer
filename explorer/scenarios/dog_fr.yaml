@@ -1,0 +1,35 @@
+family: dog
+language: fr
+title: Chien et apparentés
+description: Exploration d'un petit espace sémantique autour du chien et de son univers.
+objects:
+- id: dog
+  name: Chien
+  emoji: 🐕
+- id: puppy
+  name: Chiot
+  emoji: 🐶
+- id: cat
+  name: Chat
+  emoji: 🐈
+- id: animal
+  name: Animal
+  emoji: 🐾
+- id: veterinarian
+  name: Vétérinaire
+  emoji: 🩺
+- id: leash
+  name: Laisse
+  emoji: 🦮
+- id: walk
+  name: Promenade
+  emoji: 🚶
+- id: bark
+  name: Aboyer
+  emoji: 🔊
+- id: owner
+  name: Maître
+  emoji: 👤
+- id: shelter
+  name: Refuge
+  emoji: 🏠

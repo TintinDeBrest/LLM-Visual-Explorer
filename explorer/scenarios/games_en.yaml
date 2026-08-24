@@ -1,0 +1,35 @@
+family: games
+language: en
+title: Video Games
+description: Exploration of the semantic space of ten iconic video games from different generations and genres.
+objects:
+- id: super_mario
+  name: Super Mario
+  emoji: 🍄
+- id: zelda
+  name: Zelda
+  emoji: 🗡️
+- id: minecraft
+  name: Minecraft
+  emoji: ⛏️
+- id: pokemon
+  name: Pokémon
+  emoji: ⚡
+- id: tetris
+  name: Tetris
+  emoji: 🧱
+- id: pac_man
+  name: Pac-Man
+  emoji: 👻
+- id: fortnite
+  name: Fortnite
+  emoji: 🪂
+- id: the_sims
+  name: The Sims
+  emoji: 🏠
+- id: world_of_warcraft
+  name: World of Warcraft
+  emoji: 🐉
+- id: street_fighter
+  name: Street Fighter
+  emoji: 🥊

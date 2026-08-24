@@ -1,0 +1,35 @@
+family: health
+language: es
+title: Salud y conceptos relacionados
+description: Exploración de un pequeño espacio semántico en torno a la salud y la atención médica.
+objects:
+- id: doctor
+  name: Médico
+  emoji: 🩺
+- id: nurse
+  name: Enfermero
+  emoji: 💉
+- id: hospital
+  name: Hospital
+  emoji: 🏥
+- id: patient
+  name: Paciente
+  emoji: 🧑‍⚕️
+- id: disease
+  name: Enfermedad
+  emoji: 🤒
+- id: diagnosis
+  name: Diagnóstico
+  emoji: 🔎
+- id: treatment
+  name: Tratamiento
+  emoji: 💊
+- id: surgery
+  name: Cirugía
+  emoji: 🏥
+- id: medicine
+  name: Medicamento
+  emoji: 💊
+- id: ambulance
+  name: Ambulancia
+  emoji: 🚑

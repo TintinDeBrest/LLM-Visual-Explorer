@@ -1,0 +1,29 @@
+family: verbs
+language: es
+title: Verbos
+description: 'Exploración de ocho verbos comunes en cuatro grupos: movimiento, comunicación, creación y percepción.'
+objects:
+- id: walk
+  name: Caminar
+  emoji: 🚶
+- id: run
+  name: Correr
+  emoji: 🏃
+- id: speak
+  name: Hablar
+  emoji: 🗣️
+- id: write
+  name: Escribir
+  emoji: ✍️
+- id: build
+  name: Construir
+  emoji: 🏗️
+- id: make
+  name: Fabricar
+  emoji: 🔨
+- id: see
+  name: Ver
+  emoji: 👁️
+- id: listen
+  name: Escuchar
+  emoji: 👂

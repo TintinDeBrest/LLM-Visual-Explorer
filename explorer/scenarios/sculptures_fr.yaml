@@ -1,0 +1,42 @@
+family: sculptures
+language: fr
+title: Sculptures célèbres
+description: Exploration de l’espace sémantique de douze sculptures célèbres issues de différentes époques et traditions artistiques.
+
+objects:
+- id: venus_milo
+  name: Vénus de Milo
+  emoji: 🏛️
+- id: thinker
+  name: Le Penseur de Rodin
+  emoji: 🤔
+- id: pieta
+  name: Pietà de Michel-Ange
+  emoji: 🕊️
+- id: david
+  name: David de Michel-Ange
+  emoji: 🗿
+- id: discobolus
+  name: Le Discobole
+  emoji: 🥏
+- id: winged_victory
+  name: Victoire de Samothrace
+  emoji: 🪽
+- id: kiss_rodin
+  name: Le Baiser de Rodin
+  emoji: 💋
+- id: ecstasy_teresa
+  name: L’Extase de sainte Thérèse
+  emoji: ✨
+- id: apollo_daphne
+  name: Apollon et Daphné
+  emoji: 🌿
+- id: perseus_medusa
+  name: Persée tenant la tête de Méduse
+  emoji: ⚔️
+- id: statue_liberty
+  name: La Statue de la Liberté
+  emoji: 🗽
+- id: christ_redeemer
+  name: Le Christ Rédempteur
+  emoji: ⛰️

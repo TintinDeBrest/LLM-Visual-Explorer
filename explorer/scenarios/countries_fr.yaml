@@ -1,0 +1,35 @@
+family: countries
+language: fr
+title: Pays
+description: Exploration de l'espace sémantique de dix pays répartis sur plusieurs continents.
+objects:
+- id: france
+  name: France
+  emoji: 🇫🇷
+- id: germany
+  name: Allemagne
+  emoji: 🇩🇪
+- id: japan
+  name: Japon
+  emoji: 🇯🇵
+- id: china
+  name: Chine
+  emoji: 🇨🇳
+- id: india
+  name: Inde
+  emoji: 🇮🇳
+- id: united_states
+  name: États-Unis
+  emoji: 🇺🇸
+- id: brazil
+  name: Brésil
+  emoji: 🇧🇷
+- id: egypt
+  name: Égypte
+  emoji: 🇪🇬
+- id: kenya
+  name: Kenya
+  emoji: 🇰🇪
+- id: sweden
+  name: Suède
+  emoji: 🇸🇪

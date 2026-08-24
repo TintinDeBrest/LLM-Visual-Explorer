@@ -1,0 +1,29 @@
+family: verbs
+language: en
+title: Verbs
+description: 'Exploration of eight common verbs in four groups: movement, communication, creation, and perception.'
+objects:
+- id: walk
+  name: Walk
+  emoji: 🚶
+- id: run
+  name: Run
+  emoji: 🏃
+- id: speak
+  name: Speak
+  emoji: 🗣️
+- id: write
+  name: Write
+  emoji: ✍️
+- id: build
+  name: Build
+  emoji: 🏗️
+- id: make
+  name: Make
+  emoji: 🔨
+- id: see
+  name: See
+  emoji: 👁️
+- id: listen
+  name: Listen
+  emoji: 👂

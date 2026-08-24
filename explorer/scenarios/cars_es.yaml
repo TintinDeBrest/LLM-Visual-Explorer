@@ -1,0 +1,41 @@
+family: cars
+language: es
+title: Automóviles icónicos
+description: Exploración del espacio semántico de doce automóviles franceses e internacionales emblemáticos.
+objects:
+- id: peugeot_404
+  name: Peugeot 404
+  emoji: 🇫🇷
+- id: renault_twingo
+  name: Renault Twingo
+  emoji: 🇫🇷
+- id: citroen_2cv
+  name: Citroën 2CV
+  emoji: 🇫🇷
+- id: renault_4
+  name: Renault 4
+  emoji: 🇫🇷
+- id: citroen_ds
+  name: Citroën DS
+  emoji: 🇫🇷
+- id: volkswagen_beetle
+  name: Volkswagen Sedán (Vocho)
+  emoji: 🇩🇪
+- id: mini_cooper
+  name: Mini Cooper
+  emoji: 🇬🇧
+- id: ford_mustang
+  name: Ford Mustang
+  emoji: 🇺🇸
+- id: chevrolet_impala
+  name: Chevrolet Impala
+  emoji: 🇺🇸
+- id: fiat_500
+  name: Fiat 500
+  emoji: 🇮🇹
+- id: porsche_911
+  name: Porsche 911
+  emoji: 🇩🇪
+- id: toyota_land_cruiser
+  name: Toyota Land Cruiser
+  emoji: 🇯🇵

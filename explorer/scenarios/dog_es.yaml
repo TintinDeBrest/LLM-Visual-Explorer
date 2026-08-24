@@ -1,0 +1,35 @@
+family: dog
+language: es
+title: Perro y conceptos relacionados
+description: Exploración de un pequeño espacio semántico en torno al perro y su mundo.
+objects:
+- id: dog
+  name: Perro
+  emoji: 🐕
+- id: puppy
+  name: Cachorro
+  emoji: 🐶
+- id: cat
+  name: Gato
+  emoji: 🐈
+- id: animal
+  name: Animal
+  emoji: 🐾
+- id: veterinarian
+  name: Veterinario
+  emoji: 🩺
+- id: leash
+  name: Correa
+  emoji: 🦮
+- id: walk
+  name: Paseo
+  emoji: 🚶
+- id: bark
+  name: Ladrar
+  emoji: 🔊
+- id: owner
+  name: Dueño
+  emoji: 👤
+- id: shelter
+  name: Refugio
+  emoji: 🏠

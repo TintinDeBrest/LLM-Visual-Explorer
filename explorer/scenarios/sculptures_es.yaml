@@ -1,0 +1,42 @@
+family: sculptures
+language: es
+title: Esculturas famosas
+description: Exploración del espacio semántico de doce esculturas famosas de diferentes épocas y tradiciones artísticas.
+
+objects:
+- id: venus_milo
+  name: Venus de Milo
+  emoji: 🏛️
+- id: thinker
+  name: El Pensador de Rodin
+  emoji: 🤔
+- id: pieta
+  name: La Piedad de Miguel Ángel
+  emoji: 🕊️
+- id: david
+  name: David de Miguel Ángel
+  emoji: 🗿
+- id: discobolus
+  name: El Discóbolo
+  emoji: 🥏
+- id: winged_victory
+  name: Victoria de Samotracia
+  emoji: 🪽
+- id: kiss_rodin
+  name: El Beso de Rodin
+  emoji: 💋
+- id: ecstasy_teresa
+  name: El Éxtasis de Santa Teresa
+  emoji: ✨
+- id: apollo_daphne
+  name: Apolo y Dafne
+  emoji: 🌿
+- id: perseus_medusa
+  name: Perseo con la cabeza de Medusa
+  emoji: ⚔️
+- id: statue_liberty
+  name: La Estatua de la Libertad
+  emoji: 🗽
+- id: christ_redeemer
+  name: Cristo Redentor
+  emoji: ⛰️

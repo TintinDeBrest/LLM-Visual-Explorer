@@ -1,0 +1,35 @@
+family: health
+language: en
+title: Health and Related Concepts
+description: Exploration of a small semantic space centered on health and healthcare.
+objects:
+- id: doctor
+  name: Doctor
+  emoji: 🩺
+- id: nurse
+  name: Nurse
+  emoji: 💉
+- id: hospital
+  name: Hospital
+  emoji: 🏥
+- id: patient
+  name: Patient
+  emoji: 🧑‍⚕️
+- id: disease
+  name: Disease
+  emoji: 🤒
+- id: diagnosis
+  name: Diagnosis
+  emoji: 🔎
+- id: treatment
+  name: Treatment
+  emoji: 💊
+- id: surgery
+  name: Surgery
+  emoji: 🏥
+- id: medicine
+  name: Medicine
+  emoji: 💊
+- id: ambulance
+  name: Ambulance
+  emoji: 🚑

@@ -1,0 +1,36 @@
+family: movies
+language: en
+title: Movies
+description: Exploration of the semantic space of ten iconic films from different genres, periods, and cinematic cultures.
+
+objects:
+- id: star_wars
+  name: Star Wars
+  emoji: 🌌
+- id: titanic
+  name: Titanic
+  emoji: 🚢
+- id: godfather
+  name: The Godfather
+  emoji: 🎩
+- id: matrix
+  name: The Matrix
+  emoji: 💊
+- id: jurassic_park
+  name: Jurassic Park
+  emoji: 🦖
+- id: amelie
+  name: Amélie
+  emoji: 🥄
+- id: intouchables
+  name: The Intouchables
+  emoji: 🤝
+- id: life_beautiful
+  name: Life Is Beautiful
+  emoji: ❤️
+- id: parasite
+  name: Parasite
+  emoji: 🏠
+- id: spirited_away
+  name: Spirited Away
+  emoji: 👻

@@ -1,0 +1,35 @@
+family: musicians
+language: fr
+title: Compositeurs classiques
+description: Exploration de l'espace sémantique de dix compositeurs classiques de différentes périodes musicales.
+objects:
+- id: bach
+  name: Johann Sebastian Bach
+  emoji: 🎼
+- id: mozart
+  name: Wolfgang Amadeus Mozart
+  emoji: 🎼
+- id: beethoven
+  name: Ludwig van Beethoven
+  emoji: 🎼
+- id: rossini
+  name: Gioachino Rossini
+  emoji: 🎼
+- id: schubert
+  name: Franz Schubert
+  emoji: 🎼
+- id: chopin
+  name: Frédéric Chopin
+  emoji: 🎼
+- id: verdi
+  name: Giuseppe Verdi
+  emoji: 🎼
+- id: wagner
+  name: Richard Wagner
+  emoji: 🎼
+- id: tchaikovsky
+  name: Piotr Ilitch Tchaïkovski
+  emoji: 🎼
+- id: debussy
+  name: Claude Debussy
+  emoji: 🎼
