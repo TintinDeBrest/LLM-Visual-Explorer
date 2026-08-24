@@ -6,37 +6,49 @@ description: Exploración del espacio semántico de doce esculturas famosas de d
 objects:
 - id: venus_milo
   name: Venus de Milo
+  short_name: Venus de Milo
   emoji: 🏛️
 - id: thinker
   name: El Pensador de Rodin
+  short_name: Pensador de Rodin
   emoji: 🤔
 - id: pieta
   name: La Piedad de Miguel Ángel
+  short_name: Piedad
   emoji: 🕊️
 - id: david
   name: David de Miguel Ángel
+  short_name: David
   emoji: 🗿
 - id: discobolus
   name: El Discóbolo
+  short_name: Discóbolo
   emoji: 🥏
 - id: winged_victory
   name: Victoria de Samotracia
+  short_name: Victoria de Samotracia
   emoji: 🪽
 - id: kiss_rodin
   name: El Beso de Rodin
+  short_name: Beso de Rodin
   emoji: 💋
 - id: ecstasy_teresa
   name: El Éxtasis de Santa Teresa
+  short_name: Éxtasis de Teresa
   emoji: ✨
 - id: apollo_daphne
   name: Apolo y Dafne
+  short_name: Apolo y Dafne
   emoji: 🌿
 - id: perseus_medusa
   name: Perseo con la cabeza de Medusa
+  short_name: Perseo y Medusa
   emoji: ⚔️
 - id: statue_liberty
   name: La Estatua de la Libertad
+  short_name: Estatua de Libertad
   emoji: 🗽
 - id: christ_redeemer
   name: Cristo Redentor
+  short_name: Cristo Redentor
   emoji: ⛰️

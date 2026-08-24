@@ -6,31 +6,41 @@ description: Exploration of the semantic space of ten iconic films from differen
 objects:
 - id: star_wars
   name: Star Wars
+  short_name: Star Wars
   emoji: 🌌
 - id: titanic
   name: Titanic
+  short_name: Titanic
   emoji: 🚢
 - id: godfather
   name: The Godfather
+  short_name: Godfather
   emoji: 🎩
 - id: matrix
   name: The Matrix
+  short_name: Matrix
   emoji: 💊
 - id: jurassic_park
   name: Jurassic Park
+  short_name: Jurassic Park
   emoji: 🦖
 - id: amelie
   name: Amélie
+  short_name: Amélie
   emoji: 🥄
 - id: intouchables
   name: The Intouchables
+  short_name: Intouchables
   emoji: 🤝
 - id: life_beautiful
   name: Life Is Beautiful
+  short_name: Life Is Beautiful
   emoji: ❤️
 - id: parasite
   name: Parasite
+  short_name: Parasite
   emoji: 🏠
 - id: spirited_away
   name: Spirited Away
+  short_name: Spirited Away
   emoji: 👻

@@ -6,37 +6,49 @@ description: Exploration de l’espace sémantique de douze sculptures célèbre
 objects:
 - id: venus_milo
   name: Vénus de Milo
+  short_name: Vénus de Milo
   emoji: 🏛️
 - id: thinker
   name: Le Penseur de Rodin
+  short_name: Penseur de Rodin
   emoji: 🤔
 - id: pieta
   name: Pietà de Michel-Ange
+  short_name: Pietà
   emoji: 🕊️
 - id: david
   name: David de Michel-Ange
+  short_name: David de Michel-Ange
   emoji: 🗿
 - id: discobolus
   name: Le Discobole
+  short_name: Discobole
   emoji: 🥏
 - id: winged_victory
   name: Victoire de Samothrace
+  short_name: Victoire de Samothrace
   emoji: 🪽
 - id: kiss_rodin
   name: Le Baiser de Rodin
+  short_name: Baiser de Rodin
   emoji: 💋
 - id: ecstasy_teresa
   name: L’Extase de sainte Thérèse
+  short_name: Extase de Thérèse
   emoji: ✨
 - id: apollo_daphne
   name: Apollon et Daphné
+  short_name: Apollon et Daphné
   emoji: 🌿
 - id: perseus_medusa
   name: Persée tenant la tête de Méduse
+  short_name: Persée et Méduse
   emoji: ⚔️
 - id: statue_liberty
   name: La Statue de la Liberté
+  short_name: Statue de Liberté
   emoji: 🗽
 - id: christ_redeemer
   name: Le Christ Rédempteur
+  short_name: Christ Rédempteur
   emoji: ⛰️

@@ -6,31 +6,41 @@ description: Exploración del espacio semántico de diez películas emblemática
 objects:
 - id: star_wars
   name: Star Wars
+  short_name: Star Wars
   emoji: 🌌
 - id: titanic
   name: Titanic
+  short_name: Titanic
   emoji: 🚢
 - id: godfather
   name: El padrino
+  short_name: Padrino
   emoji: 🎩
 - id: matrix
   name: Matrix
+  short_name: Matrix
   emoji: 💊
 - id: jurassic_park
   name: Parque Jurásico
+  short_name: Parque Jurásico
   emoji: 🦖
 - id: amelie
   name: Amélie
+  short_name: Amélie
   emoji: 🥄
 - id: intouchables
   name: Intocable
+  short_name: Intocable
   emoji: 🤝
 - id: life_beautiful
   name: La vida es bella
+  short_name: Vida es bella
   emoji: ❤️
 - id: parasite
   name: Parásitos
+  short_name: Parásitos
   emoji: 🏠
 - id: spirited_away
   name: El viaje de Chihiro
+  short_name: Viaje de Chihiro
   emoji: 👻
