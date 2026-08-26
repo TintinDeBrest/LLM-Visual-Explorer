@@ -8,47 +8,118 @@ objects:
   name: Venus de Milo
   short_name: Venus de Milo
   emoji: 🏛️
+  image: sculptures/venus_milo.jpg
+  image_credit: Livioandronico2013
+  image_license: CC BY-SA 4.0
+  image_license_url: "https://creativecommons.org/licenses/by-sa/4.0/"
+  image_source: "https://commons.wikimedia.org/wiki/File:Front_views_of_the_Venus_de_Milo.jpg"
+
 - id: thinker
   name: The Thinker by Rodin
   short_name: Rodin’s Thinker
   emoji: 🤔
+  image: sculptures/thinker.jpg
+  image_credit: AndrewHorne
+  image_license: Domaine public
+  image_license_url: "https://creativecommons.org/publicdomain/mark/1.0/"
+  image_source: "https://commons.wikimedia.org/wiki/File:The_Thinker,_Rodin.jpg"
+
 - id: pieta
   name: Pietà by Michelangelo
   short_name: Michelangelo’s Pietà
   emoji: 🕊️
+  image: sculptures/pieta.jpg
+  image_credit: Tetraktys
+  image_license: CC BY 2.5
+  image_license_url: "https://creativecommons.org/licenses/by/2.5/"
+  image_source: "https://commons.wikimedia.org/wiki/File:Pieta_de_Michelangelo_-_Vaticano.jpg"
+
 - id: david
   name: David by Michelangelo
   short_name: Michelangelo’s David
   emoji: 🗿
+  image: sculptures/david.jpg
+  image_credit: "Vyacheslav Argenberg / vascoplanet.com"
+  image_license: CC BY 4.0
+  image_license_url: "https://creativecommons.org/licenses/by/4.0/"
+  image_source: "https://commons.wikimedia.org/wiki/File:Florence,_Italy,_Michelangelo%27s_David.jpg"
+
 - id: discobolus
   name: The Discobolus
   short_name: Discobolus
   emoji: 🥏
+  image: sculptures/discobolus.jpg
+  image_credit: Livioandronico2013
+  image_license: CC BY-SA 4.0
+  image_license_url: "https://creativecommons.org/licenses/by-sa/4.0/"
+  image_source: "https://commons.wikimedia.org/wiki/File:Discobolus_in_National_Roman_Museum_Palazzo_Massimo_alle_Terme.JPG"
+
 - id: winged_victory
   name: Winged Victory of Samothrace
   short_name: Winged Victory
   emoji: 🪽
+  image: sculptures/winged_victory.jpg
+  image_credit: Gary Todd
+  image_license: CC0
+  image_license_url: "https://creativecommons.org/publicdomain/zero/1.0/"
+  image_source: "https://commons.wikimedia.org/wiki/File:Winged_Victory_of_Samothrace,_Marble,_c._190_BC,_Louvre,_Paris_(28265400246).jpg"
+
 - id: kiss_rodin
   name: The Kiss by Rodin
   short_name: Rodin’s Kiss
   emoji: 💋
+  image: sculptures/kiss_rodin.jpg
+  image_credit: Artinpl
+  image_license: CC0
+  image_license_url: "https://creativecommons.org/publicdomain/zero/1.0/"
+  image_source: "https://commons.wikimedia.org/wiki/File:Rodin_The_Kiss_01.jpg"
+
 - id: ecstasy_teresa
   name: The Ecstasy of Saint Teresa
   short_name: Saint Teresa’s Ecstasy
   emoji: ✨
+  image: sculptures/ecstasy_teresa.jpg
+  image_credit: Alvesgaspar
+  image_license: CC BY-SA 4.0
+  image_license_url: "https://creativecommons.org/licenses/by-sa/4.0/"
+  image_source: "https://commons.wikimedia.org/wiki/File:Ecstasy_of_Saint_Teresa_September_2015-2a.jpg"
+
 - id: apollo_daphne
   name: Apollo and Daphne
   short_name: Apollo and Daphne
   emoji: 🌿
+  image: sculptures/apollo_daphne.jpg
+  image_credit: Daderot
+  image_license: CC0
+  image_license_url: "https://creativecommons.org/publicdomain/zero/1.0/"
+  image_source: "https://commons.wikimedia.org/wiki/File:Apollo_and_Daphne_by_Bernini_-_Galleria_Borghese_-_Rome,_Italy_-_DSC04587.jpg"
+
 - id: perseus_medusa
   name: Perseus with the Head of Medusa
   short_name: Perseus and Medusa
   emoji: ⚔️
+  image: sculptures/perseus_medusa.jpg
+  image_credit: DS
+  image_license: CC BY-SA 3.0
+  image_license_url: "https://creativecommons.org/licenses/by-sa/3.0/"
+  image_source: "https://commons.wikimedia.org/wiki/File:Persee-florence.jpg"
+
 - id: statue_liberty
   name: The Statue of Liberty
   short_name: Statue of Liberty
   emoji: 🗽
+  image: sculptures/statue_liberty.jpg
+  image_credit: AskALotl
+  image_license: CC0
+  image_license_url: "https://creativecommons.org/publicdomain/zero/1.0/"
+  image_source: "https://commons.wikimedia.org/wiki/File:Front_view_of_Statue_of_Liberty_(cropped).jpg"
+
 - id: christ_redeemer
   name: Christ the Redeemer
   short_name: Christ the Redeemer
   emoji: ⛰️
+  image: sculptures/christ_redeemer.jpg
+  image_credit: Rodrigo Gomes da Paixão
+  image_license: Domaine public
+  image_license_url: "https://creativecommons.org/publicdomain/mark/1.0/"
+  image_source: "https://commons.wikimedia.org/wiki/File:Cristo_Redentor_Rio_de_Janeiro_2.jpg"

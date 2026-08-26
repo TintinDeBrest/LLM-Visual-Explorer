@@ -1,0 +1,243 @@
+fr:
+  choose_scenario: "Choisir le scénario"
+  load_scenario: "Charger le scénario"
+
+  visual_reference: "Référence visuelle"
+  not_sent_to_model: "non transmise au modèle"
+  source: "Source"
+  image_not_found: "Image introuvable : {image_reference}"
+  search_online: "Rechercher en ligne"
+
+  show_catalog: "Voir tous les scénarios"
+  hide_catalog: "Masquer le catalogue"
+  catalog_tooltip: "Afficher ou masquer le catalogue des scénarios"
+
+  export_catalog: "Exporter le catalogue"
+  export_catalog_tooltip: "Créer des pages PNG de quatre scénarios"
+  catalog_exported: "Catalogue exporté"
+  export_failed: "Export impossible : {error}"
+  images_saved: "{count} images enregistrées dans :"
+
+  scenario_loaded: "Scénario chargé"
+  concept_count: "Nombre de concepts"
+
+  initialization_completed: "Initialisation terminée"
+  imports_successful: "Imports réussis"
+  environment_ready: "Environnement prêt"
+
+  embeddings_computed: "Embeddings calculés"
+  intermediate_state_variations_computed: "Variations d’état intermédiaire calculées"
+  predictive_states_computed: "États prédictifs calculés"
+  concepts_compact: "{count} concepts"
+  dimensions_compact: "{count} dimensions"
+
+  pca_projection_computed: "Projection PCA calculée"
+  variance_retained: "{value:.1f} % de variance conservée"
+
+  semantic_map_2d: "Carte sémantique 2D"
+  semantic_planetarium_3d: "Planétarium sémantique 3D"
+
+  similarity_ranking: "Classement des similarités sémantiques"
+  ranking_details: "{count} paires · distances dans la projection 3D"
+  indicative_thresholds: "Seuils indicatifs"
+  high_similarity: "Similarité élevée"
+  medium_similarity: "Similarité moyenne"
+  low_similarity: "Similarité faible"
+  similarity_scale_note: "NB : l’échelle des similarités dépend du modèle. Les valeurs sont surtout comparables à l’intérieur d’un même modèle ; le classement est plus significatif que la valeur absolue."
+  top_semantic_neighbours: "Les {count} voisins sémantiques"
+  hidden_intermediate_pairs: "{count} paires intermédiaires masquées"
+  semantic_antipodes: "Les {count} antipodes sémantiques"
+  similarity_short: "Sim"
+  distance_short: "Dist"
+
+  high_similarity_range: "60–100 %"
+  medium_similarity_range: "30–59 %"
+  low_similarity_range: "< 30 %"
+
+  semantic_core_constructed: "Noyau sémantique construit"
+  progressive_order_details: "{count} concepts · ordre progressif"
+  semantic_strength_short: "Force"
+
+  semantic_strength_planetarium: "Planétarium — Force sémantique"
+
+  semantic_strength_definition_relative: "La force sémantique mesure la similarité moyenne d’un concept avec le noyau déjà constitué au moment de son intégration. En mode relatif, elle est normalisée par la similarité de la paire initiale, dont la force vaut 1."
+  semantic_strength_definition_comparable: "La force sémantique mesure la similarité moyenne d’un concept avec le noyau déjà constitué au moment de son intégration. En mode comparable, elle conserve cette similarité sans normalisation afin de permettre des comparaisons entre scénarios exécutés avec le même modèle."
+
+  copy_prompt: "Copier le prompt"
+  copy_pair_prompt_tooltip: "Copier le prompt pour cette paire"
+  copy_group_prompt_tooltip: "Copier le prompt pour ce groupe"
+  prompt_copied: "Prompt copié !"
+  minimum_four_concepts: "Au moins quatre concepts distincts sont nécessaires."
+  concept_number: "Concept {number} :"
+  four_distinct_concepts: "4 concepts distincts"
+
+  save_planetarium: "Enregistrer le planétarium"
+  save_planetarium_tooltip: "Enregistrer une vue PNG du planétarium"
+  export_failed_short: "Export impossible"
+  planetarium_saved: "Planétarium enregistré"
+  planetarium_saved_in: "Planétarium enregistré dans :"
+
+
+#############################################################################################################
+
+
+en:
+  choose_scenario: "Choose a scenario"
+  load_scenario: "Load the scenario"
+
+  visual_reference: "Visual reference"
+  not_sent_to_model: "not sent to the model"
+  source: "Source"
+  image_not_found: "Image not found: {image_reference}"
+  search_online: "Search online"
+
+  show_catalog: "View all scenarios"
+  hide_catalog: "Hide the catalog"
+  catalog_tooltip: "Show or hide the scenario catalog"
+
+  export_catalog: "Export the catalog"
+  export_catalog_tooltip: "Create PNG pages containing four scenarios"
+  catalog_exported: "Catalog exported"
+  export_failed: "Export failed: {error}"
+  images_saved: "{count} images saved in:"
+
+  scenario_loaded: "Scenario loaded"
+  concept_count: "Number of concepts" 
+
+  initialization_completed: "Initialization completed"
+  imports_successful: "Imports successful"
+  environment_ready: "Environment ready" 
+
+  embeddings_computed: "Embeddings computed"
+  intermediate_state_variations_computed: "Intermediate-state variations computed"
+  predictive_states_computed: "Predictive states computed"
+  concepts_compact: "{count} concepts"
+  dimensions_compact: "{count} dimensions"
+
+  pca_projection_computed: "PCA projection computed"
+  variance_retained: "{value:.1f}% variance retained"
+
+  semantic_map_2d: "2D Semantic Map"
+  semantic_planetarium_3d: "3D Semantic Planetarium"
+
+  similarity_ranking: "Semantic similarity ranking"
+  ranking_details: "{count} pairs · distances in the 3D projection"
+  indicative_thresholds: "Indicative thresholds"
+  high_similarity: "High similarity"
+  medium_similarity: "Medium similarity"
+  low_similarity: "Low similarity"
+  similarity_scale_note: "NB: the similarity scale depends on the model. Values are mainly comparable within the same model; the ranking is more meaningful than the absolute value."
+  top_semantic_neighbours: "Top {count} semantic neighbours"
+  hidden_intermediate_pairs: "{count} intermediate pairs hidden"
+  semantic_antipodes: "{count} semantic antipodes"
+  similarity_short: "Sim"
+  distance_short: "Dist"
+
+  high_similarity_range: "60–100%"
+  medium_similarity_range: "30–59%"
+  low_similarity_range: "< 30%"
+
+  semantic_core_constructed: "Semantic core constructed"
+  progressive_order_details: "{count} concepts · progressive order"
+  semantic_strength_short: "Strength"
+
+  semantic_strength_planetarium: "Planetarium — Semantic Strength"
+
+  semantic_strength_definition_relative: "Semantic strength measures a concept’s average similarity to the core already formed when it is added. In relative mode, it is normalized by the similarity of the initial pair, whose strength is set to 1."
+  semantic_strength_definition_comparable: "Semantic strength measures a concept’s average similarity to the core already formed when it is added. In comparable mode, this similarity is kept without normalization to support comparisons between scenarios run with the same model."
+
+  copy_prompt: "Copy prompt"
+  copy_pair_prompt_tooltip: "Copy the prompt for this pair"
+  copy_group_prompt_tooltip: "Copy the prompt for this group"
+  prompt_copied: "Prompt copied!"
+  minimum_four_concepts: "At least four distinct concepts are required."
+  concept_number: "Concept {number}:"
+  four_distinct_concepts: "4 distinct concepts"
+
+  save_planetarium: "Save planetarium"
+  save_planetarium_tooltip: "Save a PNG view of the planetarium"
+  export_failed_short: "Export failed"
+  planetarium_saved: "Planetarium saved"
+  planetarium_saved_in: "Planetarium saved in:"
+
+
+#############################################################################################################
+
+es:
+  choose_scenario: "Elegir un escenario"
+  load_scenario: "Cargar el escenario"
+
+  visual_reference: "Referencia visual"
+  not_sent_to_model: "no enviada al modelo"
+  source: "Fuente"
+  image_not_found: "Imagen no encontrada: {image_reference}"
+  search_online: "Buscar en línea"
+
+  show_catalog: "Ver todos los escenarios"
+  hide_catalog: "Ocultar el catálogo"
+  catalog_tooltip: "Mostrar u ocultar el catálogo de escenarios"
+
+  export_catalog: "Exportar el catálogo"
+  export_catalog_tooltip: "Crear páginas PNG con cuatro escenarios"
+  catalog_exported: "Catálogo exportado"
+  export_failed: "No se pudo exportar: {error}"
+  images_saved: "{count} imágenes guardadas en:"
+
+  scenario_loaded: "Escenario cargado"
+  concept_count: "Número de conceptos" 
+
+  initialization_completed: "Inicialización completada"
+  imports_successful: "Importaciones realizadas correctamente"
+  environment_ready: "Entorno listo" 
+
+  embeddings_computed: "Embeddings calculados"
+  intermediate_state_variations_computed: "Variaciones del estado intermedio calculadas"
+  predictive_states_computed: "Estados predictivos calculados"
+  concepts_compact: "{count} conceptos"
+  dimensions_compact: "{count} dimensiones"
+
+  pca_projection_computed: "Proyección PCA calculada"
+  variance_retained: "{value:.1f} % de varianza conservada"
+
+  semantic_map_2d: "Mapa semántico 2D"
+  semantic_planetarium_3d: "Planetario semántico 3D"
+
+  similarity_ranking: "Clasificación de similitud semántica"
+  ranking_details: "{count} pares · distancias en la proyección 3D"
+  indicative_thresholds: "Umbrales indicativos"
+  high_similarity: "Similitud alta"
+  medium_similarity: "Similitud media"
+  low_similarity: "Similitud baja"
+  similarity_scale_note: "NB: la escala de similitud depende del modelo. Los valores son comparables principalmente dentro de un mismo modelo; la clasificación es más significativa que el valor absoluto."
+  top_semantic_neighbours: "Los {count} vecinos semánticos más próximos"
+  hidden_intermediate_pairs: "{count} pares intermedios ocultos"
+  semantic_antipodes: "Los {count} antípodas semánticos"
+  similarity_short: "Sim"
+  distance_short: "Dist"
+
+  high_similarity_range: "60–100 %"
+  medium_similarity_range: "30–59 %"
+  low_similarity_range: "< 30 %"
+
+  semantic_core_constructed: "Núcleo semántico construido"
+  progressive_order_details: "{count} conceptos · orden progresivo"
+  semantic_strength_short: "Fuerza"
+
+  semantic_strength_planetarium: "Planetario — Fuerza semántica"
+
+  semantic_strength_definition_relative: "La fuerza semántica mide la similitud media de un concepto con el núcleo ya formado en el momento de su incorporación. En modo relativo, se normaliza mediante la similitud del par inicial, cuya fuerza se fija en 1."
+  semantic_strength_definition_comparable: "La fuerza semántica mide la similitud media de un concepto con el núcleo ya formado en el momento de su incorporación. En modo comparable, esta similitud se conserva sin normalización para permitir comparaciones entre escenarios ejecutados con el mismo modelo."
+
+  copy_prompt: "Copiar el prompt"
+  copy_pair_prompt_tooltip: "Copiar el prompt para este par"
+  copy_group_prompt_tooltip: "Copiar el prompt para este grupo"
+  prompt_copied: "¡Prompt copiado!"
+  minimum_four_concepts: "Se necesitan al menos cuatro conceptos distintos."
+  concept_number: "Concepto {number}:"
+  four_distinct_concepts: "4 conceptos distintos"
+
+  save_planetarium: "Guardar el planetario"
+  save_planetarium_tooltip: "Guardar una vista PNG del planetario"
+  export_failed_short: "No se pudo exportar"
+  planetarium_saved: "Planetario guardado"
+  planetarium_saved_in: "Planetario guardado en:"

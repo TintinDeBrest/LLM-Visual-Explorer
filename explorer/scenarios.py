@@ -6,11 +6,14 @@ from html import escape
 import yaml
 import ipywidgets as widgets
 from IPython.display import display
+from urllib.parse import quote_plus
+from explorer.i18n import tr
 
 from explorer.config import DEFAULT_SCENARIO, SCENARIO_LANGUAGE
 
 SCENARIOS_DIR = Path(__file__).parent / "scenarios"
 CATALOG_EXPORT_DIR = Path(__file__).parent.parent / "catalog_exports"
+IMAGES_DIR = SCENARIOS_DIR.parent / "assets" / "images"
 
 
 def load_scenario(name: str):
@@ -39,20 +42,49 @@ def object_icon(obj):
 def scenario_preview_html(scenario):
     """Create a compact visual preview of a scenario's concepts."""
 
-    concepts = "<br>".join(
-        f"{escape(str(object_icon(obj)))} &nbsp; {escape(str(obj['name']))}"
+    concepts = "".join(
+        f"""
+        <div style="
+            display: grid;
+            grid-template-columns: 26px minmax(0, 1fr);
+            column-gap: 7px;
+            align-items: start;
+            margin: 1px 0;
+        ">
+            <span>{escape(str(object_icon(obj)))}</span>
+            <span>{escape(str(obj['name']))}</span>
+        </div>
+        """
         for obj in scenario["objects"]
     )
 
     return f"""
-    <div style="background: white; color: #161616; font-family: monospace;
-                font-size: 16px; line-height: 1.45; padding: 14px 18px;">
-        <div style="font-family: sans-serif; font-size: 18px; font-weight: 600;">
+    <div style="
+        box-sizing: border-box;
+        background: white;
+        color: #161616;
+        font-family: monospace;
+        font-size: 14px;
+        line-height: 1.35;
+        padding: 14px 18px;
+    ">
+        <div style="
+            font-family: sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+        ">
             {escape(str(scenario['title']))}
         </div>
-        <div style="font-family: sans-serif; font-size: 13px; margin: 4px 0 10px;">
+
+        <div style="
+            font-family: sans-serif;
+            font-size: 13px;
+            line-height: 1.35;
+            margin: 4px 0 10px;
+        ">
             {escape(str(scenario['description']))}
         </div>
+
         {concepts}
     </div>
     """
@@ -432,7 +464,9 @@ def scenario_selector(display_function, selection):
 
     scenario_files = sorted(SCENARIOS_DIR.glob("*.yaml"))
 
-    label_choose = widgets.Label(value="1 Choisir le scénario")
+    label_choose = widgets.Label(
+        value=f"1 {tr('choose_scenario')}"
+    )
 
     scenario_options = []
 
@@ -488,27 +522,213 @@ def scenario_selector(display_function, selection):
         )
     )
 
-    def preview_selected(change=None):
-        preview.value = scenario_preview_html(load_scenario(scenario_dropdown.value))
+    visual_objects = []
 
+    visual_title = widgets.HTML(
+        value=(
+            "<div style='white-space:nowrap'>"
+            f"<b>{tr('visual_reference')}</b> "
+            "<span style='font-size:11px; "
+            "font-weight:normal; color:#666'>"
+            f"({tr('not_sent_to_model')})"
+            "</span>"
+            "</div>"
+        )
+    )
+
+
+    visual_selector = widgets.Dropdown(
+        options=[],
+        description="",
+        layout=widgets.Layout(width="260px"),
+    )
+
+    visual_image = widgets.Image(
+        layout=widgets.Layout(
+            width="240px",
+            margin="8px 0 4px 0",
+        )
+    )
+
+    visual_caption = widgets.HTML()
+
+    visual_panel = widgets.VBox(
+        [
+            visual_title,
+            visual_selector,
+            visual_image,
+            visual_caption,
+        ],
+        layout=widgets.Layout(
+            width="270px",
+            margin="0 0 0 15px",
+            display="none",
+        ),
+    )
+
+
+    def update_visual_image(change=None):
+
+        if not visual_objects or visual_selector.value is None:
+            return
+
+        obj = visual_objects[visual_selector.value]
+        image_reference = obj.get("image")
+
+        if image_reference:
+
+            image_path = IMAGES_DIR / image_reference
+
+            if image_path.exists():
+
+                extension = image_path.suffix.lower().lstrip(".")
+
+                visual_image.format = (
+                    "jpeg" if extension in {"jpg", "jpeg"} else extension
+                )
+                visual_image.value = image_path.read_bytes()
+                visual_image.layout.display = "block"
+
+
+                credit = obj.get("image_credit")
+                license_name = obj.get("image_license")
+                license_url = obj.get("image_license_url")
+                source_url = obj.get("image_source")
+
+                details = []
+
+                if credit:
+                    details.append(escape(str(credit)))
+
+                if license_name:
+                    escaped_license = escape(str(license_name))
+
+                    if license_url:
+                        escaped_license_url = escape(str(license_url), quote=True)
+                        details.append(
+                            f"<a href='{escaped_license_url}' "
+                            f"target='_blank' rel='noopener noreferrer'>"
+                            f"{escaped_license}</a>"
+                        )
+                    else:
+                        details.append(escaped_license)
+
+                if source_url:
+                    escaped_source_url = escape(str(source_url), quote=True)
+                    details.append(
+                        f"<a href='{escaped_source_url}' "
+                        f"target='_blank' rel='noopener noreferrer'>"
+                        f"{tr('source')}</a>"
+                    )
+
+                details_html = " · ".join(details)
+
+                visual_caption.value = (
+                    f"<b>{escape(str(obj['name']))}</b>"
+                    + (
+                        f"<br><span style='font-size:11px; color:#555'>"
+                        f"{details_html}</span>"
+                        if details_html
+                        else ""
+                    )
+                )
+
+
+            else:
+
+                visual_image.value = b""
+                visual_image.layout.display = "none"
+
+                visual_caption.value = (
+                    f"<span style='color:#b00020'>"
+                    f"{escape(tr('image_not_found', image_reference=image_reference))}"
+                    f"</span>"
+                )
+
+
+            return
+
+        search_query = obj.get("search_query")
+
+        visual_image.value = b""
+        visual_image.layout.display = "none"
+
+        search_url = (
+            "https://www.google.com/search?tbm=isch&q="
+            f"{quote_plus(search_query)}"
+        )
+
+        visual_caption.value = (
+            f"<b>{obj['name']}</b><br>"
+            f"<a href='{search_url}' "
+            f"target='_blank' rel='noopener noreferrer'>"
+            f"🔎 {tr('search_online')}"
+            f"</a>"
+        )
+
+
+    def preview_selected(change=None):
+
+        scenario = load_scenario(scenario_dropdown.value)
+
+        preview.value = scenario_preview_html(scenario)
+
+        visual_objects.clear()
+
+        visual_objects.extend(
+            obj
+            for obj in scenario["objects"]
+            if obj.get("image") or obj.get("search_query")
+        )
+
+
+        if not visual_objects:
+
+            visual_selector.options = []
+            visual_image.value = b""
+            visual_caption.value = ""
+            visual_panel.layout.display = "none"
+            return
+
+        visual_selector.options = [
+            (
+                (
+                    f"{obj.get('emoji', '')} "
+                    f"{obj.get('short_name', obj['name'])}"
+                ).strip(),
+                index,
+            )
+            for index, obj in enumerate(visual_objects)
+        ]
+
+        visual_panel.layout.display = "flex"
+        visual_selector.value = 0
+        update_visual_image()
+
+    visual_selector.observe(update_visual_image, names="value")
     scenario_dropdown.observe(preview_selected, names="value")
     preview_selected()
 
+
     row_choose = widgets.VBox([label_choose, scenario_dropdown])
 
-    button_load = widgets.Button(description="2 Charger le scénario")
+    button_load = widgets.Button(
+        description=f"2 {tr('load_scenario')}"
+    )
 
     button_catalog = widgets.Button(
-        description="📚 Voir tous les scénarios",
-        tooltip="Afficher ou masquer le catalogue des scénarios",
+        description=f"📚 {tr('show_catalog')}",
+        tooltip=tr("catalog_tooltip"),
         layout=widgets.Layout(width="200px"),
     )
 
+
     button_export_catalog = widgets.Button(
-        description="🖼️ Exporter le catalogue",
-        tooltip="Créer des pages PNG de quatre scénarios",
+        description=f"🖼️ {tr('export_catalog')}",
+        tooltip=tr("export_catalog_tooltip"),
         layout=widgets.Layout(width="200px"),
     )
+
 
     catalog = widgets.HTML(
         value=scenario_catalog_html(),
@@ -520,7 +740,7 @@ def scenario_selector(display_function, selection):
     )
     catalog_export_output = widgets.Output()
 
-    output = widgets.Output()
+    output = widgets.HTML()
 
     def set_selection(name):
 
@@ -541,13 +761,15 @@ def scenario_selector(display_function, selection):
             for obj in selection["objects"]
         }
 
+
     def load_selected_scenario(b):
 
         set_selection(scenario_dropdown.value)
 
-        with output:
-            output.clear_output()
-            display_function(selection["scenario"])
+        output.value = display_function(
+            selection["scenario"]
+        )
+
 
     button_load.on_click(load_selected_scenario)
 
@@ -555,9 +777,9 @@ def scenario_selector(display_function, selection):
         catalog_is_visible = catalog.layout.display != "none"
         catalog.layout.display = "none" if catalog_is_visible else "block"
         b.description = (
-            "📚 Voir tous les scénarios"
+            f"📚 {tr('show_catalog')}"
             if catalog_is_visible
-            else "📚 Masquer le catalogue"
+            else f"📚 {tr('hide_catalog')}"
         )
 
     button_catalog.on_click(toggle_catalog)
@@ -568,12 +790,17 @@ def scenario_selector(display_function, selection):
 
             try:
                 exported_files = export_scenario_catalog_images()
+
             except Exception as error:
-                print(f"⚠️ Export impossible : {error}")
+                print(f"⚠️ {tr('export_failed', error=error)}")
                 return
 
-            b.description = "✓ Catalogue exporté"
-            print(f"🖼️ {len(exported_files)} images enregistrées dans :")
+            b.description = f"✓ {tr('catalog_exported')}"
+
+            print(
+                f"🖼️ "
+                f"{tr('images_saved', count=len(exported_files))}"
+            )
             print(f"   {exported_files[0].parent}")
 
     button_export_catalog.on_click(export_catalog)
@@ -589,7 +816,7 @@ def scenario_selector(display_function, selection):
         widgets.VBox(
             [
                 widgets.HBox(
-                    [controls, preview],
+                    [controls, preview, visual_panel],
                     layout=widgets.Layout(
                         width="100%",
                         align_items="flex-start",

@@ -17,7 +17,9 @@ PROJECT_ROOT = Path.cwd().parent
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-print(f"Project root: {PROJECT_ROOT}")
+from explorer.feedback import display_feedback
+from explorer.i18n import tr
+
 
 
 # ---------------------------------------------------------
@@ -74,6 +76,7 @@ from explorer.display import (
     display_model,
     display_projection,
     display_scenario,
+    display_semantic_core,
     display_similarity_ranking,
 )
 
@@ -96,4 +99,13 @@ from explorer.scenarios import load_scenario, scenario_selector
 from explorer.similarities import (
     compute_similarity,
     rank_similarity_pairs,
+)
+
+display_feedback(
+    title=tr("initialization_completed"),
+    details=(
+        f"{tr('imports_successful')} · "
+        f"{tr('environment_ready')}"
+    ),
+    status="success",
 )

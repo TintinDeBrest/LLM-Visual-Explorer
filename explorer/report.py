@@ -7,6 +7,7 @@ import base64
 
 from IPython.display import display, HTML
 
+
 from explorer.config import (
     MODEL_ALIAS,
     MODEL_NAME,
@@ -20,6 +21,12 @@ from explorer.display import (
 )
 from explorer.exports import create_planetarium_export_button
 
+from explorer.prompts import (
+    create_group_prompt,
+    create_prompt,
+)
+
+from explorer.i18n import format_percent, tr
 
 def display_report(
     scenario,
@@ -157,7 +164,7 @@ def display_report(
         create_prompt_button(
             best[0],
             best[1],
-            MODEL_ALIAS,
+            MODEL_NAME,
             best[2],
         )
     )
@@ -172,7 +179,7 @@ def display_report(
         create_prompt_button(
             worst[0],
             worst[1],
-            MODEL_ALIAS,
+            MODEL_NAME,
             worst[2],
         )
     )
@@ -215,7 +222,7 @@ def display_report(
     display(
         create_group_selector(
             similarity_pairs,
-            MODEL_ALIAS,
+            MODEL_NAME,
         )
     )
 

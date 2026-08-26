@@ -1,72 +1,92 @@
 # Display pour tous les affichages du notebook
 # ===============================================
 
-import numpy as np
 
 from explorer.config import MODEL_ALIAS, MODEL_TYPE, REPRESENTATION_MODE
+from explorer.i18n import format_number, tr
+from explorer.feedback import display_feedback, feedback_html
+from textwrap import fill
+from explorer.prompts import create_prompt
+
+import numpy as np
 
 
 def display_scenario(scenario):
     """
-    Affiche un résumé compact du scénario chargé.
+    Build a compact summary of the loaded scenario.
     """
-
     title = scenario["title"]
-    n_concepts = len(scenario["objects"])
+    objects = scenario["objects"]
+    n_concepts = len(objects)
 
-    print(f"Scénario chargé : {title} / Nombre de concepts : {n_concepts}")
+    details = (
+        f"{title} · "
+        f"{tr('concept_count')}: {n_concepts}"
+    )
+
+    return feedback_html(
+        title=tr("scenario_loaded"),
+        details=details,
+        status="success",
+    )
 
 
-def display_model(model):
+def display_model(model, concept_count):
     """
-    Affiche les informations principales du modèle d'embeddings.
+    Display a compact summary of the computed semantic representations.
     """
 
-    print("=" * 60)
     if MODEL_TYPE == "generative":
         if REPRESENTATION_MODE == "common_suffix_middle_delta":
-            print("MODÈLE GÉNÉRATIF — VARIATION D'ÉTAT INTERMÉDIAIRE")
+            title_key = "intermediate_state_variations_computed"
         else:
-            print("MODÈLE GÉNÉRATIF — ÉTAT PRÉDICTIF")
+            title_key = "predictive_states_computed"
     else:
-        print("MODÈLE D'EMBEDDINGS")
-    print("=" * 60)
-    print()
+        title_key = "embeddings_computed"
 
-    print("Modèle :")
-    print(f"Nom Générique: {MODEL_ALIAS}")
-    print()
+    embedding_dimension = model.get_embedding_dimension()
 
-    print("Dimension de la représentation :")
-    print(f"  {model.get_embedding_dimension()}")
+    details = " · ".join(
+        [
+            MODEL_ALIAS,
+            tr("concepts_compact", count=concept_count),
+            tr("dimensions_compact", count=embedding_dimension),
+        ]
+    )
 
-    print()
+    display_feedback(
+        title=tr(title_key),
+        details=details,
+        status="success",
+    )
 
 
 def display_projection(pca):
     """
-    Affiche l'information conservée par la projection 3D.
+    Display a compact summary of the computed 3D PCA projection.
 
     Parameters
     ----------
     pca : PCA
-        Objet PCA utilisé pour la projection.
+        PCA object used for the projection.
     """
 
-    explained_variance = pca.explained_variance_ratio_.sum() * 100
-
-    print("=" * 60)
-    print("PROJECTION 3D")
-    print("=" * 60)
-    print()
-
-    print(
-        f"La projection 3D conserve environ "
-        f"{explained_variance:.1f}% "
-        "de la variance des embeddings."
+    explained_variance = (
+        pca.explained_variance_ratio_.sum() * 100
     )
 
-    print()
+    details = " · ".join(
+        [
+            tr("dimensions_compact", count=pca.n_components_),
+            tr("variance_retained", value=explained_variance),
+        ]
+    )
+
+    display_feedback(
+        title=tr("pca_projection_computed"),
+        details=details,
+        status="success",
+    )
 
 
 def display_similarity_ranking(
@@ -107,23 +127,44 @@ def display_similarity_ranking(
     if icons is None:
         icons = {}
 
-    print()
-    print("=" * 80)
-    print("🔗 SEMANTIC SIMILARITY vs 3D PROJECTION DISTANCE")
-    print("=" * 80)
+    display_feedback(
+        title=tr("similarity_ranking"),
+        details=tr(
+            "ranking_details",
+            count=len(similarity_pairs),
+        ),
+        status="success",
+    )
+
     print()
 
-    print("Seuils indicatifs:")
-    print("🟢 60–100 %   Similarité élevée")
-    print("🟡 30–59 %    Similarité moyenne")
-    print("🔴 0–29 %     Similarité faible")
+    print(f"{tr('indicative_thresholds')}:")
+
+    print(
+        f"🟢 {tr('high_similarity_range'):<10} "
+        f"{tr('high_similarity')}"
+    )
+    print(
+        f"🟡 {tr('medium_similarity_range'):<10} "
+        f"{tr('medium_similarity')}"
+    )
+    print(
+        f"🔴 {tr('low_similarity_range'):<10} "
+        f"{tr('low_similarity')}"
+    )
+
     print()
     print(
-        "NB: L'échelle des similarités dépend du modèle. Les valeurs sont "
-        "surtout comparables à l'intérieur d'un même modèle; le classement "
-        "est plus significatif que la valeur absolue."
+        fill(
+            tr("similarity_scale_note"),
+            width=80,
+            subsequent_indent="    ",
+            break_long_words=False,
+            break_on_hyphens=False,
+        )
     )
     print()
+
 
     # ---------------------------------------------------
     # Helper functions
@@ -167,15 +208,19 @@ def display_similarity_ranking(
             f"{emoji_a} {a:<{width_a}} ↔ "
             f"{emoji_b} {b:<{width_b}} "
             f"{bar:<20} "
-            f"Sim: {score:.0%}  "
-            f"Dist: {distance_3d:.1f}"
+            f"{tr('similarity_short')}: {score:.0%}  "
+            f"{tr('distance_short')}: {distance_3d:.1f}"
         )
 
     # ---------------------------------------------------
     # TOP semantic neighbours
     # ---------------------------------------------------
 
-    print("🟢 Les " f"{top_n} voisins sémantiques")
+
+    print(
+        f"🟢 "
+        f"{tr('top_semantic_neighbours', count=top_n)}"
+    )
 
     print("-" * 80)
 
@@ -192,7 +237,13 @@ def display_similarity_ranking(
 
         print()
         print("-" * 80)
-        print(f"              ⋮ {hidden} paires intermédiaires masquées ⋮")
+
+        hidden_message = tr(
+            "hidden_intermediate_pairs",
+            count=hidden,
+        )
+        print(f"              ⋮ {hidden_message} ⋮")
+
         print("-" * 80)
         print()
 
@@ -200,7 +251,10 @@ def display_similarity_ranking(
     # BOTTOM semantic antipodes
     # ---------------------------------------------------
 
-    print(f"🔴 Les {bottom_n} antipodes sémantiques")
+    print(
+        f"🔴 "
+        f"{tr('semantic_antipodes', count=bottom_n)}"
+    )
 
     print("-" * 80)
 
@@ -340,154 +394,40 @@ def display_messages():
     update_display()
 
 
-def create_prompt(
-    concept1,
-    concept2,
-    model_alias,
-    similarity,
-):
-    """
-    Create a ready-to-use prompt for a generative LLM.
-    """
-
-    similarity_percent = round(similarity * 100)
-
-    prompt = f"""# Analyse d'une relation sémantique observée dans un espace vectoriel
-
-Bonjour,
-
-Nous utilisons un modèle de langage spécialisé dans la représentation
-sémantique des mots et concepts.
-
-Ce modèle représente les concepts dans un espace vectoriel
-(embedding space).
-
-Dans une expérience réalisée avec LlmExpl, nous avons observé
-la relation suivante :
-
-Concept A : {concept1}
-Concept B : {concept2}
-
-Modèle utilisé : {model_alias}
-Score de similarité : {similarity_percent} %
-
-Le score est calculé par LlmExpl à partir des embeddings du modèle.
-Il s'agit donc d'une observation quantitative produite par le modèle,
-et non d'une conclusion humaine.
-
-## Votre tâche
-
-Analysez cette relation et expliquez pourquoi le modèle pourrait
-produire ce niveau de proximité ou d'éloignement.
-
-### 1. Observation
-
-Commencez par interpréter le résultat observé :
-
-- La relation vous paraît-elle intuitivement surprenante ou attendue ?
-- Le score obtenu vous paraît-il cohérent avec la relation entre
-  les deux concepts ?
-- Existe-t-il une différence entre la proximité intuitive pour un
-  humain et celle observée dans l'espace sémantique du modèle ?
-
-### 2. Explication
-
-Proposez plusieurs explications possibles à ce résultat.
-
-Vous pouvez notamment examiner :
-
-- les catégories ou propriétés communes ;
-- les contextes linguistiques dans lesquels les concepts apparaissent ;
-- les associations culturelles ou encyclopédiques ;
-- les relations fonctionnelles ou contextuelles ;
-- les différences importantes entre les deux concepts.
-
-Donnez des exemples concrets lorsque cela aide à comprendre le résultat.
-
-### 3. Nuances et contre-arguments
-
-Présentez les interprétations alternatives ou les limites de votre analyse.
-
-En particulier, évitez de supposer qu'une proximité entre deux embeddings
-signifie que le modèle « comprend » les concepts de la même manière
-qu'un humain.
-
-### 4. Synthèse
-
-Terminez par un tableau synthétique :
-
-| Élément | Analyse |
-|---|---|
-| Relation observée | ... |
-| Score | ... |
-| Explication principale | ... |
-| Explications alternatives | ... |
-| Élément surprenant | ... |
-| Point de vigilance | ... |
-
-Puis donnez une courte conclusion en 2 ou 3 phrases répondant à la question :
-
-Pourquoi cette relation peut-elle être observée dans l'espace sémantique
-de ce modèle ?
-
-## Règles importantes
-
-- Analysez uniquement la relation {concept1} ↔ {concept2}
-  et le résultat fourni.
-- Ne refaites pas l'expérience et ne proposez pas une autre mesure.
-- Ne remplacez pas le résultat observé par votre propre estimation
-  de la similarité.
-- Ne partez pas dans une explication générale du fonctionnement
-  des LLMs.
-- Distinguez clairement ce qui est observé de ce qui est interprété.
-- Une explication plausible n'est pas nécessairement la cause réelle
-  du comportement du modèle.
-- Si le résultat vous paraît contre-intuitif, dites-le clairement
-  plutôt que de chercher à le justifier artificiellement.
-"""
-
-    return prompt
-
-
 def create_prompt_button(
     concept1,
     concept2,
-    model_alias,
+    model_name,
     similarity,
 ):
     """
     Create a button that copies a ready-to-use LLM prompt
     to the user's clipboard.
     """
-
     import ipywidgets as widgets
-    from IPython.display import display, Javascript
-    import json
+    import pyperclip
 
     prompt = create_prompt(
         concept1,
         concept2,
-        model_alias,
+        model_name,
         similarity,
     )
 
     button = widgets.Button(
-        description="📋 Copier le prompt",
-        tooltip="Copier le prompt pour cette paire",
-        layout=widgets.Layout(width="160px"),
+        description=f"📋 {tr('copy_prompt')}",
+        tooltip=tr("copy_pair_prompt_tooltip"),
+        layout=widgets.Layout(width="180px"),
     )
 
     def copy_prompt(button):
+        try:
+            pyperclip.copy(prompt)
+        except pyperclip.PyperclipException:
+            button.description = "⚠️ Copy failed"
+            return
 
-        prompt_js = json.dumps(prompt)
-
-        display(Javascript(f"""
-            navigator.clipboard.writeText({prompt_js}).then(function() {{
-                console.log("Prompt copied");
-            }});
-            """))
-
-        button.description = "✓ Prompt copié !"
+        button.description = f"✓ {tr('prompt_copied')}"
 
     button.on_click(copy_prompt)
 
@@ -496,18 +436,15 @@ def create_prompt_button(
 
 def create_pair_selector(
     similarity_pairs,
-    model_alias,
+    model_name,
 ):
     """
     Create a dropdown allowing the user to select any
     concept pair and copy its corresponding LLM prompt.
     """
-
     import ipywidgets as widgets
-    from IPython.display import display, Javascript
-    import json
+    import pyperclip
 
-    # Create the list displayed in the dropdown
     options = [
         (
             f"{pair[0]} ↔ {pair[1]} — {pair[2]:.0%}",
@@ -523,31 +460,28 @@ def create_pair_selector(
     )
 
     button = widgets.Button(
-        description="📋 Copier le prompt",
-        tooltip="Copier le prompt pour cette paire",
-        layout=widgets.Layout(width="160px"),
+        description=f"📋 {tr('copy_prompt')}",
+        tooltip=tr("copy_pair_prompt_tooltip"),
+        layout=widgets.Layout(width="180px"),
     )
 
     def copy_selected_prompt(button):
-
         pair = selector.value
 
         prompt = create_prompt(
             pair[0],
             pair[1],
-            model_alias,
+            model_name,
             pair[2],
         )
 
-        prompt_js = json.dumps(prompt)
+        try:
+            pyperclip.copy(prompt)
+        except pyperclip.PyperclipException:
+            button.description = "⚠️ Copy failed"
+            return
 
-        display(Javascript(f"""
-            navigator.clipboard.writeText({prompt_js}).then(function() {{
-                console.log("Prompt copied");
-            }});
-            """))
-
-        button.description = "✓ Prompt copié !"
+        button.description = f"✓ {tr('prompt_copied')}"
 
     button.on_click(copy_selected_prompt)
 
@@ -556,7 +490,7 @@ def create_pair_selector(
 
 def create_group_selector(
     similarity_pairs,
-    model_alias,
+    model_name,
 ):
     """
     Create four concept dropdowns and copy a prompt describing
@@ -576,7 +510,7 @@ def create_group_selector(
                 concepts.append(concept)
 
     if len(concepts) < 4:
-        raise ValueError("Au moins quatre concepts distincts sont nécessaires.")
+        raise ValueError(tr("minimum_four_concepts"))
 
     similarity_lookup = {
         frozenset((concept_a, concept_b)): score
@@ -587,7 +521,10 @@ def create_group_selector(
         widgets.Dropdown(
             options=concepts,
             value=concepts[index],
-            description=f"Concept {index + 1} :",
+            description=tr(
+                "concept_number",
+                number=index + 1,
+            ),
             layout=widgets.Layout(width="300px"),
             style={"description_width": "80px"},
         )
@@ -595,110 +532,143 @@ def create_group_selector(
     ]
 
     button = widgets.Button(
-        description="📋 Copier le prompt",
-        tooltip="Copier le prompt pour ce groupe",
-        layout=widgets.Layout(width="160px"),
+        description=f"📋 {tr('copy_prompt')}",
+        tooltip=tr("copy_group_prompt_tooltip"),
+        layout=widgets.Layout(width="180px"),
     )
 
     def reset_button(change):
-        button.description = "📋 Copier le prompt"
+        button.description = f"📋 {tr('copy_prompt')}"
 
     for selector in selectors:
         selector.observe(reset_button, names="value")
 
     def copy_group_prompt(button):
-
-        selected_concepts = [selector.value for selector in selectors]
+        selected_concepts = [
+            selector.value
+            for selector in selectors
+        ]
 
         if len(set(selected_concepts)) < 4:
-            button.description = "⚠ 4 concepts distincts"
+            button.description = (
+                f"⚠ {tr('four_distinct_concepts')}"
+            )
             return
 
         selected_pairs = [
             (
                 concept_a,
                 concept_b,
-                similarity_lookup[frozenset((concept_a, concept_b))],
+                similarity_lookup[
+                    frozenset((concept_a, concept_b))
+                ],
             )
-            for concept_a, concept_b in combinations(selected_concepts, 2)
+            for concept_a, concept_b in combinations(
+                selected_concepts,
+                2,
+            )
         ]
 
-        concept_lines = "\n".join(
-            f"- {concept}" for concept in selected_concepts
+        prompt = create_group_prompt(
+            selected_concepts=selected_concepts,
+            selected_pairs=selected_pairs,
+            model_name=model_name,
         )
-        similarity_lines = "\n".join(
-            f"- {concept_a} ↔ {concept_b} : {score:.1%}"
-            for concept_a, concept_b, score in selected_pairs
-        )
-
-        prompt = f"""# Analyse d'un groupe observé dans un espace vectoriel
-
-Nous observons dans un espace d'embeddings les quatre concepts suivants :
-
-{concept_lines}
-
-Modèle utilisé : {model_alias}
-
-Similarités observées :
-{similarity_lines}
-
-Analysez ce groupe comme une structure sémantique.
-
-Identifiez :
-- les proximités intuitives ;
-- les proximités surprenantes ;
-- les éventuels sous-groupes ou concepts atypiques ;
-- plusieurs hypothèses pouvant expliquer cette géométrie.
-
-Distinguez clairement :
-1. ce qui est directement observable dans les scores ;
-2. ce qui relève d'une interprétation ;
-3. ce qui relève d'une hypothèse explicative.
-
-Ne supposez pas que le modèle « comprend » ces concepts comme un humain.
-N'inventez pas de propriétés du corpus d'entraînement qui ne peuvent pas
-être établies à partir des données fournies.
-
-Pour chaque hypothèse proposée :
-
-- indiquez explicitement quelles données supplémentaires seraient
-  nécessaires pour la vérifier ou la réfuter ;
-- précisez si ces données sont présentes ou absentes des informations
-  fournies ;
-- ne donnez aucun exemple de contexte supposé du corpus comme s'il avait
-  été observé.
-
-Dans la synthèse, ne transformez pas les hypothèses proposées en
-explications causales établies.
-
-Terminez par une conclusion constructive distinguant clairement :
-
-1. l'enseignement principal que les données permettent réellement de
-   retenir ;
-2. une ou deux interprétations plausibles et utiles, présentées
-   explicitement comme des interprétations et non comme des faits ;
-3. la principale limite empêchant une conclusion causale ;
-4. une expérience simple qui permettrait d'aller plus loin.
-
-N'attribuez pas de probabilité à ces interprétations et ne désignez pas
-l'une d'elles comme l'explication principale lorsque les données ne
-permettent pas de les départager.
-
-Ne terminez pas seulement par « on ne peut pas conclure ». Formulez ce que
-l'observation nous apprend malgré les incertitudes, sans renoncer aux
-limites nécessaires.
-"""
 
         prompt_js = json.dumps(prompt)
 
-        display(Javascript(f"""
-            navigator.clipboard.writeText({prompt_js}).then(function() {{
-                console.log("Prompt copied");
-            }});
-            """))
+        display(
+            Javascript(
+                f"""
+                navigator.clipboard.writeText(
+                    {prompt_js}
+                ).then(function() {{
+                    console.log("Prompt copied");
+                }});
+                """
+            )
+        )
 
         button.description = "✓ Prompt copié !"
 
     button.on_click(copy_group_prompt)
 
     return widgets.VBox([*selectors, button])
+
+def display_semantic_core(
+    core_order,
+    semantic_strength,
+    strength_mode,
+):
+
+    """
+    Display the progressive semantic-core construction.
+    """
+
+    concept_width = max(
+        len(str(concept))
+        for concept in core_order
+    )
+
+    rank_width = len(str(len(core_order)))
+
+    display_feedback(
+        title=tr("semantic_core_constructed"),
+        details=tr(
+            "progressive_order_details",
+            count=len(core_order),
+        ),
+        status="success",
+    )
+    definition_key = (
+        "semantic_strength_definition_relative"
+        if strength_mode == "relative"
+        else "semantic_strength_definition_comparable"
+    )
+
+    print()
+    print(
+        fill(
+            tr(definition_key),
+            width=80,
+            subsequent_indent="    ",
+            break_long_words=False,
+            break_on_hyphens=False,
+        )
+    )
+    print()
+
+    print()
+
+    for rank, concept in enumerate(core_order, start=1):
+        strength = semantic_strength[concept]
+        formatted_strength = format_number(
+            strength,
+            decimals=3,
+        )
+
+        print(
+            f"{rank:>{rank_width}} | "
+            f"{concept:<{concept_width}} | "
+            f"{tr('semantic_strength_short')}: "
+            f"{formatted_strength}"
+        )
+
+def scenario_feedback_html(scenario):
+    """
+    Return the loaded-scenario feedback card as HTML.
+    """
+    title = scenario["title"]
+    objects = scenario["objects"]
+    n_concepts = len(objects)
+
+    details = (
+        f"{title} · "
+        f"{tr('concept_count')}: {n_concepts}"
+    )
+
+    return feedback_html(
+        title=tr("scenario_loaded"),
+        details=details,
+        status="success",
+    )

@@ -6,7 +6,7 @@
 import csv
 from datetime import datetime
 from pathlib import Path
-
+from explorer.i18n import tr
 
 def exploration_output_dir(scenario_name, model_alias):
     """Return and create the output directory for an exploration."""
@@ -168,30 +168,36 @@ def create_planetarium_export_button(
     import ipywidgets as widgets
 
     button = widgets.Button(
-        description="📷 Enregistrer le planétarium",
-        tooltip="Enregistrer une vue PNG du planétarium",
+        description=f"📷 {tr('save_planetarium')}",
+        tooltip=tr("save_planetarium_tooltip"),
         layout=widgets.Layout(width="220px"),
     )
-    output = widgets.Output()
+
+    output = widgets.HTML()
+
 
     def export_planetarium(b):
-        with output:
-            output.clear_output()
+        output.value = ""
 
-            try:
-                output_path = save_planetarium_png(
-                    figure,
-                    scenario_name,
-                    model_alias,
-                )
-            except Exception as error:
-                b.description = "⚠️ Export impossible"
-                print(f"Export impossible : {error}")
-                return
+        try:
+            output_path = save_planetarium_png(
+                figure,
+                scenario_name,
+                model_alias,
+            )
 
-            b.description = "✓ Planétarium enregistré"
-            print("📷 Planétarium enregistré dans :")
-            print(f"   {output_path}")
+        except Exception as error:
+            b.description = f"⚠️ {tr('export_failed_short')}"
+            output.value = tr("export_failed", error=error)
+            return
+
+        b.description = f"✓ {tr('planetarium_saved')}"
+
+        output.value = (
+            f"📷 {tr('planetarium_saved_in')}<br>"
+            f"&nbsp;&nbsp;&nbsp;{output_path}"
+        )
+
 
     button.on_click(export_planetarium)
 

@@ -14,11 +14,11 @@
 # PREDICTIVE_STATE_SUFFIX = "\n:"
 
 # MiniLM multilingue
-# MODEL_ALIAS = "MiniLM"
-# MODEL_NAME = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
-# MODEL_TYPE = "embedding"
-# REPRESENTATION_MODE = "sentence_embedding"
-# PREDICTIVE_STATE_SUFFIX = ""
+MODEL_ALIAS = "MiniLM"
+MODEL_NAME = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+MODEL_TYPE = "embedding"
+REPRESENTATION_MODE = "sentence_embedding"
+PREDICTIVE_STATE_SUFFIX = ""
 
 # GPT-2 — essai exploratoire avec mean pooling, centrage par scénario
 # et normalisation. Modèle génératif anglais, non spécialisé dans les
@@ -44,24 +44,24 @@
 # PREDICTIVE_STATE_SUFFIX = ""
 
 # LaBSE — multilingual model designed for cross-language alignment
-MODEL_ALIAS = "LaBSE"
-MODEL_NAME = "sentence-transformers/LaBSE"
-MODEL_TYPE = "embedding"
-REPRESENTATION_MODE = "sentence_embedding"
-PREDICTIVE_STATE_SUFFIX = ""
+# MODEL_ALIAS = "LaBSE"
+# MODEL_NAME = "sentence-transformers/LaBSE"
+# MODEL_TYPE = "embedding"
+# REPRESENTATION_MODE = "sentence_embedding"
+# PREDICTIVE_STATE_SUFFIX = ""
 
 # ---------------------------------------------------------------------
 # Defaults
 # ---------------------------------------------------------------------
 
-DEFAULT_SCENARIO = "animals_fr"
+DEFAULT_SCENARIO = "super_scenario_en"
 DEFAULT_PROJECTION = "PCA"
 
 # Scenario language filter: "all", "fr", "en", or "es"
-SCENARIO_LANGUAGE = "all"
+SCENARIO_LANGUAGE = "en"
 
-# Current interface language
-LANGUAGE = "fr"
+# Interface language: "fr", "en", or "es"
+INTERFACE_LANGUAGE = "en"
 
 # ---------------------------------------------------------------------
 # Display
