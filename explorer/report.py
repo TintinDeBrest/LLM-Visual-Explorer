@@ -1,9 +1,11 @@
-"""
-Fonctions pour LLM VISUAL EXPLORER report
-"""
+# ====================================================================
+# report.py
+# ====================================================================
+
+import textwrap
+import base64
 
 from pathlib import Path
-import base64
 
 from IPython.display import display, HTML
 
@@ -14,19 +16,30 @@ from explorer.config import (
     MODEL_TYPE,
     REPRESENTATION_MODE,
 )
+
 from explorer.display import (
     create_group_selector,
     create_pair_selector,
     create_prompt_button,
 )
+
 from explorer.exports import create_planetarium_export_button
+from explorer.i18n import tr
 
-from explorer.prompts import (
-    create_group_prompt,
-    create_prompt,
-)
 
-from explorer.i18n import format_percent, tr
+def print_wrapped(text, width=88):
+    """
+    Print long report text with controlled line wrapping.
+    """
+    print(
+        textwrap.fill(
+            text,
+            width=width,
+            break_long_words=False,
+            break_on_hyphens=False,
+        )
+    )
+
 
 def display_report(
     scenario,
@@ -37,21 +50,25 @@ def display_report(
     scenario_name=None,
     planetarium_figure=None,
 ):
+    """
+    Display a summary report of the current exploration.
+    """
+
     export_scenario_name = scenario_name or scenario.get("_name")
 
     if planetarium_figure is not None and not export_scenario_name:
         raise ValueError(
-            "Le nom YAML du scénario est nécessaire pour exporter le planétarium."
+            tr("scenario_name_required_for_planetarium")
         )
 
-    logo_path = Path(__file__).resolve().parent.parent / "images" / "LlmExpl_logo.png"
+    logo_path = (
+        Path(__file__).resolve().parent.parent
+        / "images"
+        / "LlmExpl_logo.png"
+    )
 
     with open(logo_path, "rb") as f:
         logo_data = base64.b64encode(f.read()).decode()
-
-    """
-    Display a summary report of the current exploration.
-    """
 
     explained = pca.explained_variance_ratio_ * 100
     total = explained.sum()
@@ -62,24 +79,28 @@ def display_report(
     print()
     print("=" * 70)
 
-    display(HTML(f"""
-        <div style="
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        ">
-            <img
-                src="data:image/png;base64,{logo_data}"
-                width="55"
-            >
-            <span style="
-                font-size: 1.5em;
-                font-weight: bold;
+    display(
+        HTML(
+            f"""
+            <div style="
+                display: flex;
+                align-items: center;
+                gap: 12px;
             ">
-                LLM VISUAL EXPLORER REPORT
-            </span>
-        </div>
-        """))
+                <img
+                    src="data:image/png;base64,{logo_data}"
+                    width="55"
+                >
+                <span style="
+                    font-size: 1.5em;
+                    font-weight: bold;
+                ">
+                    {tr("report_title")}
+                </span>
+            </div>
+            """
+        )
+    )
 
     print("=" * 70)
     print()
@@ -88,21 +109,42 @@ def display_report(
     # General information
     # ---------------------------------------------------------
 
-    print(f"Scenario              : {scenario['title']}")
+    print(
+        f"{tr('report_scenario'):<22}: "
+        f"{scenario['title']}"
+    )
+
     print(scenario["description"])
     print()
-    print(f"Model alias           : {MODEL_ALIAS}")
-    print(f"Technical Model       : {MODEL_NAME}")
-    print(f"Number of concepts    : {len(concepts)}")
+
+    print(
+        f"{tr('report_model_alias'):<22}: "
+        f"{MODEL_ALIAS}"
+    )
+
+    print(
+        f"{tr('report_technical_model'):<22}: "
+        f"{MODEL_NAME}"
+    )
+
+    print(
+        f"{tr('report_concept_count'):<22}: "
+        f"{len(concepts)}"
+    )
+
     if MODEL_TYPE == "generative":
         dimension_label = (
-            "Intermediate-state delta dimension"
+            tr("report_intermediate_state_delta_dimension")
             if REPRESENTATION_MODE == "common_suffix_middle_delta"
-            else "Predictive state dimension"
+            else tr("report_predictive_state_dimension")
         )
     else:
-        dimension_label = "Embedding dimension"
-    print(f"{dimension_label:<22}: {embedding_dimension}")
+        dimension_label = tr("report_embedding_dimension")
+
+    print(
+        f"{dimension_label:<22}: "
+        f"{embedding_dimension}"
+    )
 
     print()
 
@@ -111,14 +153,16 @@ def display_report(
     # ---------------------------------------------------------
 
     print("-" * 70)
-    print("📐 PROJECTION 3D (PCA)")
+    print(f"📐 {tr('report_projection_3d')}")
     print("-" * 70)
-
     print()
 
     print(
-        f"{embedding_dimension} dimensions → 3D préserve "
-        f"{total:.1f}% de la structure sémantique"
+        tr(
+            "report_pca_summary",
+            dimension=embedding_dimension,
+            variance=f"{total:.1f}",
+        )
     )
 
     print()
@@ -128,14 +172,19 @@ def display_report(
     # ---------------------------------------------------------
 
     print("-" * 70)
-    print("🔗 OBSERVATIONS SEMANTIQUES")
+    print(f"🔗 {tr('report_semantic_observations')}")
     print("-" * 70)
-
     print()
 
-    print(f"🥇 Paire la plus proche : " f"{best[0]} ↔ {best[1]} ({best[2]:.0%})")
+    print(
+        f"🥇 {tr('closest_pair')} : "
+        f"{best[0]} ↔ {best[1]} ({best[2]:.0%})"
+    )
 
-    print(f"🔻 Paire la plus éloignée : " f"{worst[0]} ↔ {worst[1]} ({worst[2]:.0%})")
+    print(
+        f"🔻 {tr('farthest_pair')} : "
+        f"{worst[0]} ↔ {worst[1]} ({worst[2]:.0%})"
+    )
 
     print()
 
@@ -144,21 +193,19 @@ def display_report(
     # ---------------------------------------------------------
 
     print("-" * 70)
-    print("🚀 ALLEZ PLUS LOIN")
+    print(f"🚀 {tr('report_go_further')}")
     print("-" * 70)
-
     print()
 
-    print("Une proximité ou un éloignement peut être surprenant.")
-
-    print("Choisissez une paire qui vous intrigue et soumettez-la grâce à ces ")
-    print("prompt à un LLM génératif pour obtenir une analyse qualitative.")
-
+    print_wrapped(tr("report_pair_intro"))
     print()
 
     # Closest pair
 
-    print(f"🥇 Paire la plus proche : " f"{best[0]} ↔ {best[1]} ({best[2]:.0%})")
+    print(
+        f"🥇 {tr('closest_pair')} : "
+        f"{best[0]} ↔ {best[1]} ({best[2]:.0%})"
+    )
 
     display(
         create_prompt_button(
@@ -173,7 +220,10 @@ def display_report(
 
     # Farthest pair
 
-    print(f"🔻 Paire la plus éloignée : " f"{worst[0]} ↔ {worst[1]} ({worst[2]:.0%})")
+    print(
+        f"🔻 {tr('farthest_pair')} : "
+        f"{worst[0]} ↔ {worst[1]} ({worst[2]:.0%})"
+    )
 
     display(
         create_prompt_button(
@@ -188,12 +238,12 @@ def display_report(
 
     # Any pair
 
-    print("🔎 EXPLORER UNE AUTRE PAIRE")
+    print(f"🔎 {tr('explore_another_pair')}")
 
     display(
         create_pair_selector(
             similarity_pairs,
-            MODEL_ALIAS,
+            MODEL_NAME,
         )
     )
 
@@ -201,23 +251,10 @@ def display_report(
 
     # Concept group
 
-    print(
-        "Avec quatre concepts, vous pouvez explorer une petite structure "
-        "sémantique :"
-    )
-    print("proximités, oppositions, sous-groupes ou concept atypique.")
-    print(
-        "Modifiez la sélection si vous le souhaitez, puis soumettez le prompt "
-        "à un LLM génératif"
-    )
-    print(
-        "pour obtenir des pistes d'interprétation et imaginer de nouvelles "
-        "expériences."
-    )
-
+    print_wrapped(tr("report_group_intro"))
     print()
 
-    print("🧩 EXPLORER UN GROUPE DE 4 CONCEPTS")
+    print(f"🧩 {tr('explore_group_four')}")
 
     display(
         create_group_selector(
@@ -228,8 +265,12 @@ def display_report(
 
     print()
 
+    # Planetarium export
+
     if planetarium_figure is not None:
-        print("📷 ENREGISTRER LE PLANÉTARIUM")
+        print(
+            f"📷 {tr('save_planetarium').upper()}"
+        )
 
         display(
             create_planetarium_export_button(
@@ -241,17 +282,15 @@ def display_report(
 
         print()
 
-    print(
-        "Note : LlmExpl révèle des structures dans l'espace sémantique, "
-        "mais ne donne pas d'explications."
-    )
+    # ---------------------------------------------------------
+    # Interpretation note
+    # ---------------------------------------------------------
 
-    print(
-        "Coller ces prompts pour interroger un LLM génératif (ChatGPT, Gemini, Claude ...)"
-    )
-    print("peut vous aider à expliquer ces structures ")
 
+    print_wrapped(tr("report_interpretation_note"))
+    print_wrapped(tr("report_llm_prompt_note"))
     print()
+
     """
     # ---------------------------------------------------------
     # Data export
@@ -260,7 +299,6 @@ def display_report(
     print("-" * 70)
     print("💾 EXPORT DES DONNÉES")
     print("-" * 70)
-
     print()
 
     print(
@@ -275,4 +313,5 @@ def display_report(
     print("  • projection.csv    → coordonnées PCA")
     print("  • similarities.csv  → similarités sémantiques")
     """
+
     print()
