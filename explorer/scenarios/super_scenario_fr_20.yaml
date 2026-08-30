@@ -1,0 +1,75 @@
+family: super_scenario
+language: fr
+title: Super scénario — 20 concepts
+description: Exploration contrôlée de 5 catégories sémantiques équilibrées, avec 4 concepts par catégorie.
+
+objects:
+# Animaux
+- id: dog
+  name: Chien
+  emoji: 🐶
+- id: lion
+  name: Lion
+  emoji: 🦁
+- id: dolphin
+  name: Dauphin
+  emoji: 🐬
+- id: eagle
+  name: Aigle
+  emoji: 🦅
+
+# Plantes
+- id: oak
+  name: Chêne
+  emoji: 🌳
+- id: rose
+  name: Rose
+  emoji: 🌹
+- id: cactus
+  name: Cactus
+  emoji: 🌵
+- id: fir
+  name: Sapin
+  emoji: 🌲
+
+# Métiers
+- id: doctor
+  name: Médecin
+  emoji: 🩺
+- id: engineer
+  name: Ingénieur
+  emoji: 👷
+- id: lawyer
+  name: Avocat
+  emoji: ⚖️
+- id: baker
+  name: Boulanger
+  emoji: 🥖
+
+# Objets
+- id: hammer
+  name: Marteau
+  emoji: 🔨
+- id: chair
+  name: Chaise
+  emoji: 🪑
+- id: car
+  name: Voiture
+  emoji: 🚗
+- id: phone
+  name: Téléphone
+  emoji: 📱
+
+# Abstractions
+- id: love
+  name: Amour
+  emoji: ❤️
+- id: freedom
+  name: Liberté
+  emoji: 🕊️
+- id: justice
+  name: Justice
+  emoji: ⚖️
+- id: truth
+  name: Vérité
+  emoji: 💡

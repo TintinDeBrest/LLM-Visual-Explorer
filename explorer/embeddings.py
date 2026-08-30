@@ -1,5 +1,4 @@
 # embeddings
-# PhL 28jul26
 ########################################################################
 
 # Std lib
@@ -17,14 +16,12 @@ from sentence_transformers.sentence_transformer.modules import (
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 # Project lib
-from explorer.config import (
-    MODEL_NAME,
-    MODEL_TYPE,
-    PREDICTIVE_STATE_SUFFIX,
-    REPRESENTATION_MODE,
-)
 
-_model = None  # Cached SentenceTransformer instance
+import explorer.config as config
+
+
+_model = None
+_loaded_model_name = None
 
 
 class PredictiveStateModel:
@@ -89,19 +86,22 @@ class PredictiveStateModel:
     def encode(self, sentences, convert_to_numpy=True):
         """Return each concept's variation from a suffix-only reference state."""
 
-        prepared_sentences = [
-            f"{sentence}{PREDICTIVE_STATE_SUFFIX}" for sentence in sentences
+        predictive_state_suffix = config.get_model_config()[
+            "predictive_state_suffix"
         ]
+
+        prepared_sentences = [
+            f"{sentence}{predictive_state_suffix}" for sentence in sentences
+        ]
+
         predictive_states, last_token_ids = self._extract_last_states(
             prepared_sentences
         )
 
         if self.reference_predictive_state is None:
             reference_states, reference_token_ids = self._extract_last_states(
-                [PREDICTIVE_STATE_SUFFIX]
+                [predictive_state_suffix]
             )
-            self.reference_predictive_state = reference_states[0].detach()
-            self.reference_last_token_id = reference_token_ids[0].detach()
 
         if (
             torch.unique(last_token_ids).numel() != 1
@@ -130,10 +130,11 @@ def configure_gpt2_padding(tokenizer, model_config):
         model_config.pad_token_id = tokenizer.pad_token_id
 
 
-def load_gpt2_mean_pooling_model():
+def load_gpt2_mean_pooling_model(model_name):
     """Build a fixed-size GPT-2 embedding model with mean pooling."""
 
-    transformer = Transformer(MODEL_NAME)
+    transformer = Transformer(model_name)
+
     configure_gpt2_padding(transformer.tokenizer, transformer.model.config)
 
     pooling = Pooling(
@@ -158,30 +159,43 @@ def center_and_normalize_embeddings(embeddings):
 
 
 def load_model():
-    """Load the embedding model only once."""
+    """Load and cache the currently selected model."""
 
-    global _model
+    global _model, _loaded_model_name
 
-    if _model is None:
-        print(f"Loading model: {MODEL_NAME}")
+    model_config = config.get_model_config()
 
-        if MODEL_TYPE == "generative":
-            if REPRESENTATION_MODE != "common_suffix_middle_delta":
+    model_name = model_config["name"]
+    model_type = model_config["type"]
+    representation_mode = model_config["representation_mode"]
+
+    if _model is None or _loaded_model_name != model_name:
+
+        print(f"Loading model: {model_name}")
+
+        if model_type == "generative":
+            if representation_mode != "common_suffix_middle_delta":
                 raise ValueError(
                     "Unsupported generative representation mode: "
-                    f"{REPRESENTATION_MODE}"
+                    f"{representation_mode}"
                 )
 
-            _model = PredictiveStateModel(MODEL_NAME)
-        elif MODEL_NAME == "openai-community/gpt2":
-            _model = load_gpt2_mean_pooling_model()
+            _model = PredictiveStateModel(model_name)
+
+        elif model_name == "openai-community/gpt2":
+            _model = load_gpt2_mean_pooling_model(model_name)
+
         else:
-            _model = SentenceTransformer(MODEL_NAME)
+            _model = SentenceTransformer(model_name)
+
+        _loaded_model_name = model_name
 
     return _model
 
 
-def compute_embeddings(concepts: str | Sequence[str]) -> np.ndarray:
+def compute_embeddings(
+    concepts: str | Sequence[str],
+) -> np.ndarray:
     """
     Compute embeddings for one or more concepts or sentences.
 
@@ -206,7 +220,9 @@ def compute_embeddings(concepts: str | Sequence[str]) -> np.ndarray:
         convert_to_numpy=True,
     )
 
-    if MODEL_NAME == "openai-community/gpt2":
+    model_name = config.get_model_config()["name"]
+
+    if model_name == "openai-community/gpt2":
         return center_and_normalize_embeddings(embeddings)
 
     return embeddings

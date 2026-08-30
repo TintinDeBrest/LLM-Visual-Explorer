@@ -1,14 +1,13 @@
-# Display pour tous les affichages du notebook
+# Display functions for whole notebook
 # ===============================================
 
+import numpy as np
+import explorer.config as config
 
-from explorer.config import MODEL_ALIAS, MODEL_TYPE, REPRESENTATION_MODE
 from explorer.i18n import format_number, tr
 from explorer.feedback import display_feedback, feedback_html
 from textwrap import fill
 from explorer.prompts import create_prompt
-
-import numpy as np
 
 
 def display_scenario(scenario):
@@ -36,8 +35,14 @@ def display_model(model, concept_count):
     Display a compact summary of the computed semantic representations.
     """
 
-    if MODEL_TYPE == "generative":
-        if REPRESENTATION_MODE == "common_suffix_middle_delta":
+    model_config = config.get_model_config()
+
+    model_alias = model_config["alias"]
+    model_type = model_config["type"]
+    representation_mode = model_config["representation_mode"]
+
+    if model_type == "generative":
+        if representation_mode == "common_suffix_middle_delta":
             title_key = "intermediate_state_variations_computed"
         else:
             title_key = "predictive_states_computed"
@@ -48,7 +53,7 @@ def display_model(model, concept_count):
 
     details = " · ".join(
         [
-            MODEL_ALIAS,
+            model_alias,
             tr("concepts_compact", count=concept_count),
             tr("dimensions_compact", count=embedding_dimension),
         ]

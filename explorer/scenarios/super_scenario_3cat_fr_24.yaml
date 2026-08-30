@@ -1,0 +1,35 @@
+family: super_scenario_3cat
+language: fr
+title: Super scénario 3 catégories — 24 concepts
+description: Exploration contrôlée de 3 catégories sémantiques très distinctes, avec 8 concepts par catégorie.
+
+objects:
+# Animaux
+- {id: dog, name: Chien, emoji: 🐶}
+- {id: lion, name: Lion, emoji: 🦁}
+- {id: dolphin, name: Dauphin, emoji: 🐬}
+- {id: eagle, name: Aigle, emoji: 🦅}
+- {id: horse, name: Cheval, emoji: 🐴}
+- {id: butterfly, name: Papillon, emoji: 🦋}
+- {id: shark, name: Requin, emoji: 🦈}
+- {id: wolf, name: Loup, emoji: 🐺}
+
+# Métiers
+- {id: doctor, name: Médecin, emoji: 🩺}
+- {id: engineer, name: Ingénieur, emoji: 👷}
+- {id: lawyer, name: Avocat, emoji: ⚖️}
+- {id: baker, name: Boulanger, emoji: 🥖}
+- {id: professor, name: Professeur, emoji: 👨‍🏫}
+- {id: plumber, name: Plombier, emoji: 🔧}
+- {id: researcher, name: Chercheur, emoji: 🔬}
+- {id: farmer, name: Agriculteur, emoji: 👨‍🌾}
+
+# Objets
+- {id: hammer, name: Marteau, emoji: 🔨}
+- {id: chair, name: Chaise, emoji: 🪑}
+- {id: car, name: Voiture, emoji: 🚗}
+- {id: phone, name: Téléphone, emoji: 📱}
+- {id: book, name: Livre, emoji: 📖}
+- {id: knife, name: Couteau, emoji: 🔪}
+- {id: computer, name: Ordinateur, emoji: 💻}
+- {id: suitcase, name: Valise, emoji: 🧳}

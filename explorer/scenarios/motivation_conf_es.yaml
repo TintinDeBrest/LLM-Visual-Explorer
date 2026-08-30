@@ -1,0 +1,20 @@
+family: semantic_map
+language: es
+
+title: Mapa semántico — conferencia motivacional
+
+description: Conceptos utilizados por Patrick Grim para ilustrar la organización de un mapa semántico.
+
+objects:
+- {id: mango, name: Mango, emoji: 🥭}
+- {id: apricot, name: Albaricoque, emoji: 🍑}
+- {id: blueberry, name: Arándano, emoji: 🫐}
+- {id: grape, name: Uva, emoji: 🍇}
+- {id: bear, name: Oso, emoji: 🐻}
+- {id: wolverine, name: Glotón, emoji: 🐾}
+- {id: cow, name: Vaca, emoji: 🐄}
+- {id: dog, name: Perro, emoji: 🐶}
+- {id: wolf, name: Lobo, emoji: 🐺}
+- {id: coyote, name: Coyote, emoji: 🐺}
+- {id: alligator, name: Aligátor, emoji: 🐊}
+- {id: crocodile, name: Cocodrilo, emoji: 🐊}

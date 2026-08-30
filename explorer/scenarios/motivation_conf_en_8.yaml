@@ -1,0 +1,30 @@
+family: semantic_map
+language: en
+title: Motivation conference semantic map
+description: Concepts used to illustrate the intuition of a semantic map.
+
+objects:
+- id: dog
+  name: Dog
+  emoji: 🐕
+- id: wolf
+  name: Wolf
+  emoji: 🐺
+- id: coyote
+  name: Coyote
+  emoji: 🐺
+- id: crocodile
+  name: Crocodile
+  emoji: 🐊
+- id: alligator
+  name: Alligator
+  emoji: 🐊
+- id: mango
+  name: Mango
+  emoji: 🥭
+- id: apricot
+  name: Apricot
+  emoji: 🍑
+- id: grape
+  name: Grape
+  emoji: 🍇

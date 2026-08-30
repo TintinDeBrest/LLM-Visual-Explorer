@@ -68,7 +68,7 @@ import plotly.graph_objects as go
 # LLM Visual Explorer modules
 # ---------------------------------------------------------
 
-from explorer.config import MODEL_NAME, MODEL_ALIAS, PLANETARIUM_STRENGTH_MODE
+import explorer.config as config
 
 from explorer.dataframe import create_dataframe
 

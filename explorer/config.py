@@ -3,7 +3,7 @@
 # ====================================================================
 
 # ---------------------------------------------------------------------
-# AI Model
+# Former experimental models — kept for reference
 # ---------------------------------------------------------------------
 
 # Petit modèle génératif — état interne utilisé avant la prédiction suivante
@@ -13,12 +13,6 @@
 # REPRESENTATION_MODE = "common_suffix_middle_delta"
 # PREDICTIVE_STATE_SUFFIX = "\n:"
 
-# MiniLM multilingue
-MODEL_ALIAS = "MiniLM"
-MODEL_NAME = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
-MODEL_TYPE = "embedding"
-REPRESENTATION_MODE = "sentence_embedding"
-PREDICTIVE_STATE_SUFFIX = ""
 
 # GPT-2 — essai exploratoire avec mean pooling, centrage par scénario
 # et normalisation. Modèle génératif anglais, non spécialisé dans les
@@ -29,26 +23,68 @@ PREDICTIVE_STATE_SUFFIX = ""
 # REPRESENTATION_MODE = "mean_pooling_centered"
 # PREDICTIVE_STATE_SUFFIX = ""
 
-# BERT
-# MODEL_ALIAS = "BERT"
-# MODEL_NAME = "sentence-transformers/bert-base-nli-mean-tokens"
-# MODEL_TYPE = "embedding"
-# REPRESENTATION_MODE = "sentence_embedding"
-# PREDICTIVE_STATE_SUFFIX = ""
+# ---------------------------------------------------------------------
+# Model profiles
+# ---------------------------------------------------------------------
 
-# MPNet multilingue, présenté simplement comme "MPNet" dans LlmExpl.
-# MODEL_ALIAS = "MPNet"
-# MODEL_NAME = "sentence-transformers/paraphrase-multilingual-mpnet-base-v2"
-# MODEL_TYPE = "embedding"
-# REPRESENTATION_MODE = "sentence_embedding"
-# PREDICTIVE_STATE_SUFFIX = ""
+MODEL_PROFILES = {
+    "MiniLM": {
+        "alias": "MiniLM",
+        "name": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+        "type": "embedding",
+        "representation_mode": "sentence_embedding",
+        "predictive_state_suffix": "",
+    },
 
-# LaBSE — multilingual model designed for cross-language alignment
-# MODEL_ALIAS = "LaBSE"
-# MODEL_NAME = "sentence-transformers/LaBSE"
-# MODEL_TYPE = "embedding"
-# REPRESENTATION_MODE = "sentence_embedding"
-# PREDICTIVE_STATE_SUFFIX = ""
+    "MPNet": {
+        "alias": "MPNet",
+        "name": "sentence-transformers/paraphrase-multilingual-mpnet-base-v2",
+        "type": "embedding",
+        "representation_mode": "sentence_embedding",
+        "predictive_state_suffix": "",
+    },
+
+    "BERT": {
+        "alias": "BERT",
+        "name": "sentence-transformers/bert-base-nli-mean-tokens",
+        "type": "embedding",
+        "representation_mode": "sentence_embedding",
+        "predictive_state_suffix": "",
+    },
+
+    "LaBSE": {
+        "alias": "LaBSE",
+        "name": "sentence-transformers/LaBSE",
+        "type": "embedding",
+        "representation_mode": "sentence_embedding",
+        "predictive_state_suffix": "",
+    },
+}
+
+
+# ---------------------------------------------------------------------
+# Active model
+# ---------------------------------------------------------------------
+
+ACTIVE_MODEL = "MiniLM"
+
+
+def get_model_config():
+    """Return the configuration of the currently selected model."""
+    return MODEL_PROFILES[ACTIVE_MODEL]
+
+
+# ---------------------------------------------------------------------
+# Backward-compatible constants
+# ---------------------------------------------------------------------
+
+_model_config = get_model_config()
+
+MODEL_ALIAS = _model_config["alias"]
+MODEL_NAME = _model_config["name"]
+MODEL_TYPE = _model_config["type"]
+REPRESENTATION_MODE = _model_config["representation_mode"]
+PREDICTIVE_STATE_SUFFIX = _model_config["predictive_state_suffix"]
 
 # ---------------------------------------------------------------------
 # Defaults
@@ -58,10 +94,10 @@ DEFAULT_SCENARIO = "super_scenario_en"
 DEFAULT_PROJECTION = "PCA"
 
 # Scenario language filter: "all", "fr", "en", or "es"
-SCENARIO_LANGUAGE = "en"
+SCENARIO_LANGUAGE = "all"
 
 # Interface language: "fr", "en", or "es"
-INTERFACE_LANGUAGE = "en"
+INTERFACE_LANGUAGE = "es"
 
 # ---------------------------------------------------------------------
 # Display
@@ -77,6 +113,6 @@ SHOW_ICONS = True
 
 # Planetarium: "relative" maximise le contraste dans un scénario ;
 # "comparable" conserve les forces absolues pour comparer des scénarios.
-PLANETARIUM_STRENGTH_MODE = "comparable"
+PLANETARIUM_STRENGTH_MODE = "relative"
 
 

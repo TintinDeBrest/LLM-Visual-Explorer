@@ -1,0 +1,24 @@
+family: semantic_map
+language: fr
+
+title: Carte sémantique — conférence motivationnelle
+
+description: Concepts utilisés par Patrick Grim pour illustrer l'organisation d'une carte sémantique.
+
+objects:
+
+# Fruits
+- {id: mango, name: Mangue, emoji: 🥭}
+- {id: apricot, name: Abricot, emoji: 🍑}
+- {id: blueberry, name: Myrtille, emoji: 🫐}
+- {id: grape, name: Raisin, emoji: 🍇}
+
+# Animaux
+- {id: bear, name: Ours, emoji: 🐻}
+- {id: wolverine, name: Glouton, emoji: 🐾}
+- {id: cow, name: Vache, emoji: 🐄}
+- {id: dog, name: Chien, emoji: 🐶}
+- {id: wolf, name: Loup, emoji: 🐺}
+- {id: coyote, name: Coyote, emoji: 🐺}
+- {id: alligator, name: Alligator, emoji: 🐊}
+- {id: crocodile, name: Crocodile, emoji: 🐊}

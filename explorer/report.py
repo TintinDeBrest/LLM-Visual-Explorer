@@ -5,17 +5,14 @@
 import textwrap
 import base64
 
+import explorer.config as config
+
 from pathlib import Path
 
 from IPython.display import display, HTML
 
+import explorer.config as config
 
-from explorer.config import (
-    MODEL_ALIAS,
-    MODEL_NAME,
-    MODEL_TYPE,
-    REPRESENTATION_MODE,
-)
 
 from explorer.display import (
     create_group_selector,
@@ -53,6 +50,13 @@ def display_report(
     """
     Display a summary report of the current exploration.
     """
+
+    model_config = config.get_model_config()
+
+    model_alias = model_config["alias"]
+    model_name = model_config["name"]
+    model_type = model_config["type"]
+    representation_mode = model_config["representation_mode"]
 
     export_scenario_name = scenario_name or scenario.get("_name")
 
@@ -119,12 +123,12 @@ def display_report(
 
     print(
         f"{tr('report_model_alias'):<22}: "
-        f"{MODEL_ALIAS}"
+        f"{model_alias}"
     )
 
     print(
         f"{tr('report_technical_model'):<22}: "
-        f"{MODEL_NAME}"
+        f"{model_name}"
     )
 
     print(
@@ -132,10 +136,10 @@ def display_report(
         f"{len(concepts)}"
     )
 
-    if MODEL_TYPE == "generative":
+    if model_type == "generative":
         dimension_label = (
             tr("report_intermediate_state_delta_dimension")
-            if REPRESENTATION_MODE == "common_suffix_middle_delta"
+            if representation_mode == "common_suffix_middle_delta"
             else tr("report_predictive_state_dimension")
         )
     else:
@@ -211,7 +215,7 @@ def display_report(
         create_prompt_button(
             best[0],
             best[1],
-            MODEL_NAME,
+            model_name,
             best[2],
         )
     )
@@ -229,7 +233,7 @@ def display_report(
         create_prompt_button(
             worst[0],
             worst[1],
-            MODEL_NAME,
+            model_name,
             worst[2],
         )
     )
@@ -243,7 +247,7 @@ def display_report(
     display(
         create_pair_selector(
             similarity_pairs,
-            MODEL_NAME,
+            model_name,
         )
     )
 
@@ -259,7 +263,7 @@ def display_report(
     display(
         create_group_selector(
             similarity_pairs,
-            MODEL_NAME,
+            model_name,
         )
     )
 
@@ -276,7 +280,7 @@ def display_report(
             create_planetarium_export_button(
                 planetarium_figure,
                 export_scenario_name,
-                MODEL_ALIAS,
+                model_alias,
             )
         )
 
