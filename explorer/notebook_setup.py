@@ -101,11 +101,14 @@ from explorer.similarities import (
     rank_similarity_pairs,
 )
 
-display_feedback(
-    title=tr("initialization_completed"),
-    details=(
-        f"{tr('imports_successful')} · "
-        f"{tr('environment_ready')}"
-    ),
-    status="success",
-)
+def display_initialization_feedback():
+    """Display feedback when notebook initialization is complete."""
+
+    display_feedback(
+        title=tr("initialization_completed"),
+        details=(
+            f"{tr('imports_successful')} · "
+            f"{tr('environment_ready')}"
+        ),
+        status="success",
+    )

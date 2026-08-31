@@ -36,3 +36,38 @@ def model_selector():
     display(selector)
 
     # return selector
+
+def language_selector():
+
+    """Display the interface language selector and update the active language."""
+
+    selector = widgets.Dropdown(
+
+        options=[
+            ("English", "en"),
+            ("Français", "fr"),
+            ("Español", "es"),
+        ],
+
+        value=config.INTERFACE_LANGUAGE,
+
+        description="Language:",
+
+        style={"description_width": "initial"},
+
+        layout=widgets.Layout(width="260px"),
+    )
+
+    def update_interface_language(change):
+
+        if change["name"] == "value":
+            config.INTERFACE_LANGUAGE = change["new"]
+
+    selector.observe(
+        update_interface_language,
+        names="value",
+    )
+
+    display(selector)
+
+    # return selector

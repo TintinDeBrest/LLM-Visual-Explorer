@@ -1,0 +1,20 @@
+family: guitar_heroes
+language: es
+
+title: Guitar Heroes
+
+description: Guitarristas legendarios de diferentes tradiciones musicales, generaciones y países.
+
+objects:
+
+  # Guitar heroes
+  - {id: jimi_hendrix, name: Jimi Hendrix, emoji: 🎸}
+  - {id: carlos_santana, name: Carlos Santana, emoji: 🪇}
+  - {id: jimmy_page, name: Jimmy Page, emoji: ⚡}
+  - {id: eric_clapton, name: Eric Clapton, emoji: 🎵}
+  - {id: ritchie_blackmore, name: Ritchie Blackmore, emoji: 🌈}
+  - {id: david_gilmour, name: David Gilmour, emoji: 🌙}
+  - {id: mark_knopfler, name: Mark Knopfler, emoji: 🎶}
+  - {id: jeff_beck, name: Jeff Beck, emoji: 🔥}
+  - {id: eddie_van_halen, name: Eddie Van Halen, emoji: 🤘}
+  - {id: paco_de_lucia, name: Paco de Lucía, emoji: 💃}
