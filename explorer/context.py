@@ -12,7 +12,7 @@ from transformers import AutoTokenizer, AutoModel
 from torch.nn.functional import cosine_similarity
 from IPython.display import display, HTML, clear_output
 
-from explorer.config import INTERFACE_LANGUAGE
+from explorer import config
 
 
 MODEL_ID = "sentence-transformers/LaBSE"
@@ -648,7 +648,7 @@ def _plot_experiment(
         template="plotly_white",
 
         height=540,
-        width=1150,
+        autosize=True,
 
         title=(
             f'{texts["figure_title"]} '
@@ -675,7 +675,7 @@ def context_explorer(language=None):
 
     language = (
         language
-        or INTERFACE_LANGUAGE
+        or config.INTERFACE_LANGUAGE
         or "en"
     ).lower()
 
