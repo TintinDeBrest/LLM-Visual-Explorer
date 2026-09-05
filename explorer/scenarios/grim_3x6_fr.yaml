@@ -1,0 +1,78 @@
+family: grim_3x6
+language: fr
+title: Grim 3×6
+
+description: "Extension équilibrée du scénario de Patrick Grim avec trois familles sémantiques de six concepts : fruits, animaux et artistes rock."
+
+objects:
+  - id: mango
+    name: Mangue
+    emoji: 🥭
+
+  - id: apricot
+    name: Abricot
+    emoji: 🍑
+
+  - id: blueberry
+    name: Myrtille
+    emoji: 🫐
+
+  - id: grape
+    name: Raisin
+    emoji: 🍇
+
+  - id: apple
+    name: Pomme
+    emoji: 🍎
+
+  - id: orange
+    name: Orange
+    emoji: 🍊
+
+  - id: bear
+    name: Ours
+    emoji: 🐻
+
+  - id: cow
+    name: Vache
+    emoji: 🐄
+
+  - id: dog
+    name: Chien
+    emoji: 🐶
+
+  - id: wolf
+    name: Loup
+    emoji: 🐺
+
+  - id: alligator
+    name: Alligator
+    emoji: 🐊
+
+  - id: crocodile
+    name: Crocodile
+    emoji: 🐊
+
+  - id: beatles
+    name: Beatles
+    emoji: 🎸
+
+  - id: rolling_stones
+    name: Rolling Stones
+    emoji: 🎸
+
+  - id: nirvana
+    name: Nirvana
+    emoji: 🎸
+
+  - id: acdc
+    name: AC/DC
+    emoji: 🎸
+
+  - id: elvis
+    name: Elvis
+    emoji: 🎤
+
+  - id: pink_floyd
+    name: Pink Floyd
+    emoji: 🎸

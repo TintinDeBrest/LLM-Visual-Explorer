@@ -1,0 +1,94 @@
+# ============================================================
+# LlmExpl scenario — YAML format v1
+#
+# Filename convention:
+#   <scenario_identifier>_<language>.yaml
+#
+# Example:
+#   animals_en.yaml
+#   Grim_3x6_en.yaml
+#
+# Only "concept" is used as input to the language model.
+# All other fields are metadata.
+#
+# See SCENARIO_FORMAT.md for the complete specification.
+# ============================================================
+
+
+# ------------------------------------------------------------
+# Scenario metadata
+# ------------------------------------------------------------
+
+family: example
+language: en
+
+title: Example scenario
+description: Short description of the purpose of this scenario.
+
+
+# ------------------------------------------------------------
+# Concepts
+# ------------------------------------------------------------
+
+concepts:
+
+  # ----------------------------------------------------------
+  # Minimal concept
+  # ----------------------------------------------------------
+
+  - concept: First concept
+
+
+  # ----------------------------------------------------------
+  # Concept with common metadata
+  # ----------------------------------------------------------
+
+  - id: second_concept
+    concept: Second concept
+    short_name: Second
+    category: example_category
+    emoji: 🔹
+
+
+  # ----------------------------------------------------------
+  # Multilingual / semantically equivalent concept
+  #
+  # concept_id identifies the underlying human concept.
+  # language identifies the language of this particular entry.
+  # ----------------------------------------------------------
+
+  - id: third_concept_fr
+    concept_id: third_concept
+    language: fr
+    concept: Troisième concept
+    emoji: 🔸
+
+
+  # ----------------------------------------------------------
+  # Concept with a local visual reference
+  #
+  # The image is displayed to the user.
+  # It is NOT sent to the language model.
+  # ----------------------------------------------------------
+
+  - id: visual_concept
+    concept: Visual concept
+    emoji: 🖼️
+
+    image: example/image.jpg
+    image_credit: Author name
+    image_license: CC BY-SA 4.0
+    image_license_url: https://creativecommons.org/licenses/by-sa/4.0/
+    image_source: https://example.org/original-image
+
+
+  # ----------------------------------------------------------
+  # Visual reference not distributed with LlmExpl
+  #
+  # search_query can be used, notably for copyright reasons,
+  # to help the user find the visual reference independently.
+  # ----------------------------------------------------------
+
+  - id: external_visual
+    concept: External visual concept
+    search_query: Example artwork artist

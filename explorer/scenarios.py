@@ -15,6 +15,186 @@ SCENARIOS_DIR = Path(__file__).parent / "scenarios"
 CATALOG_EXPORT_DIR = Path(__file__).parent.parent / "catalog_exports"
 IMAGES_DIR = SCENARIOS_DIR.parent / "assets" / "images"
 
+USER_SCENARIO_METADATA = {
+    "fr": {
+        "title": "Mon scénario",
+        "description": "Scénario personnel créé dans LlmExpl.",
+    },
+    "en": {
+        "title": "My scenario",
+        "description": "Personal scenario created in LlmExpl.",
+    },
+    "es": {
+        "title": "Mi escenario",
+        "description": "Escenario personal creado en LlmExpl.",
+    },
+}
+
+
+def _normalize_scenario(scenario, name):
+    """Normalize legacy and v1 YAML into the canonical v1 schema.
+
+    Canonical in-memory schema:
+
+        scenario["concepts"] = [
+            {"concept": "Dog", ...},
+            ...
+        ]
+
+    During the transition, a derived ``scenario["objects"]`` compatibility
+    view is also provided for older modules/notebooks.  It contains ``name``
+    as an alias of ``concept`` but is not the canonical representation.
+    """
+
+    if not isinstance(scenario, dict):
+        raise ValueError(f"Invalid scenario file: {name}.yaml")
+
+    scenario = dict(scenario)
+
+    if "concepts" in scenario and "objects" in scenario:
+        raise ValueError(
+            f"Scenario {name}.yaml must not define both 'concepts' and 'objects'."
+        )
+
+    canonical_concepts = []
+
+    # ------------------------------------------------------------
+    # Canonical v1 (plus the old minimal string-list form used by
+    # user_en.yaml / user_es.yaml during the transition).
+    # ------------------------------------------------------------
+    if "concepts" in scenario:
+        raw_concepts = scenario["concepts"]
+
+        if not isinstance(raw_concepts, list):
+            raise ValueError(
+                f"The concepts field must be a list in {name}.yaml"
+            )
+
+        for index, item in enumerate(raw_concepts, start=1):
+
+            # Legacy minimal form:
+            # concepts:
+            #   - Dog
+            if isinstance(item, str):
+                text = item.strip()
+
+                if not text:
+                    continue
+
+                concept = {
+                    "id": f"concept_{index:02d}",
+                    "concept": text,
+                }
+
+            # Canonical v1:
+            # concepts:
+            #   - concept: Dog
+            elif isinstance(item, dict):
+                concept = dict(item)
+
+                # Temporary compatibility with a possible intermediate
+                # concepts/name representation.
+                if "concept" not in concept and "name" in concept:
+                    concept["concept"] = concept.pop("name")
+
+                text = str(concept.get("concept", "")).strip()
+
+                if not text:
+                    raise ValueError(
+                        f"Missing 'concept' in {name}.yaml at entry {index}."
+                    )
+
+                concept["concept"] = text
+                concept.setdefault("id", f"concept_{index:02d}")
+
+            else:
+                raise ValueError(
+                    f"Invalid concept entry in {name}.yaml at entry {index}."
+                )
+
+            canonical_concepts.append(concept)
+
+    # ------------------------------------------------------------
+    # Legacy format:
+    # objects:
+    #   - name: Dog
+    # ------------------------------------------------------------
+    elif "objects" in scenario:
+        raw_objects = scenario["objects"]
+
+        if not isinstance(raw_objects, list):
+            raise ValueError(
+                f"The objects field must be a list in {name}.yaml"
+            )
+
+        for index, item in enumerate(raw_objects, start=1):
+            if not isinstance(item, dict):
+                raise ValueError(
+                    f"Invalid object entry in {name}.yaml at entry {index}."
+                )
+
+            concept = dict(item)
+
+            if "concept" in concept:
+                text = str(concept["concept"]).strip()
+                concept.pop("name", None)
+            elif "name" in concept:
+                text = str(concept.pop("name")).strip()
+            else:
+                raise ValueError(
+                    f"Missing 'name' in legacy scenario {name}.yaml "
+                    f"at entry {index}."
+                )
+
+            if not text:
+                raise ValueError(
+                    f"Empty concept in {name}.yaml at entry {index}."
+                )
+
+            concept["concept"] = text
+            concept.setdefault("id", f"concept_{index:02d}")
+            canonical_concepts.append(concept)
+
+    else:
+        raise ValueError(
+            f"Scenario {name}.yaml must define 'concepts' "
+            f"or legacy 'objects'."
+        )
+
+    if not canonical_concepts:
+        raise ValueError(f"Scenario {name}.yaml contains no concepts.")
+
+    scenario["concepts"] = canonical_concepts
+
+    # ------------------------------------------------------------
+    # Temporary compatibility view for display.py, user_scenario.py
+    # and the current notebook.  New code should use
+    # scenario["concepts"] / concept["concept"].
+    # ------------------------------------------------------------
+    scenario["objects"] = [
+        {**concept, "name": concept["concept"]}
+        for concept in canonical_concepts
+    ]
+
+    # ------------------------------------------------------------
+    # Metadata compatibility.
+    # User scenarios historically contain only a list of strings.
+    # Other legacy scenarios keep their existing metadata unchanged.
+    # ------------------------------------------------------------
+    if name.startswith("user_"):
+        inferred_language = name.rsplit("_", maxsplit=1)[-1]
+        language = scenario.setdefault("language", inferred_language)
+        metadata = USER_SCENARIO_METADATA.get(
+            language,
+            USER_SCENARIO_METADATA["en"],
+        )
+
+        scenario.setdefault("family", "user")
+        scenario.setdefault("title", metadata["title"])
+        scenario.setdefault("description", metadata["description"])
+
+    return scenario
+
 
 def load_scenario(name: str):
     """
@@ -28,6 +208,7 @@ def load_scenario(name: str):
     with open(filename, "r", encoding="utf-8") as f:
         scenario = yaml.safe_load(f)
 
+    scenario = _normalize_scenario(scenario, name)
     scenario["_name"] = name
 
     return scenario
@@ -52,10 +233,10 @@ def scenario_preview_html(scenario):
             margin: 1px 0;
         ">
             <span>{escape(str(object_icon(obj)))}</span>
-            <span>{escape(str(obj['name']))}</span>
+            <span>{escape(str(obj['concept']))}</span>
         </div>
         """
-        for obj in scenario["objects"]
+        for obj in scenario["concepts"]
     )
 
     return f"""
@@ -107,10 +288,10 @@ def scenario_catalog_html():
                 <span class="llmexpl-catalog-emoji">
                     {escape(str(object_icon(obj)))}
                 </span>
-                <span>{escape(str(obj["name"]))}</span>
+                <span>{escape(str(obj["concept"]))}</span>
             </div>
             """
-            for obj in scenario["objects"]
+            for obj in scenario["concepts"]
         )
 
         cards.append(f"""
@@ -293,7 +474,7 @@ def export_scenario_catalog_images(
             + 10
             + len(description_lines) * description_line_height
             + 16
-            + len(scenario["objects"]) * concept_line_height
+            + len(scenario["concepts"]) * concept_line_height
         )
 
         return {
@@ -414,11 +595,11 @@ def export_scenario_catalog_images(
 
             cursor_y += 14
 
-            for obj in scenario["objects"]:
+            for obj in scenario["concepts"]:
                 draw_emoji(image, (text_x, cursor_y - 2), object_icon(obj))
                 draw.text(
                     (text_x + 40, cursor_y),
-                    str(obj["name"]),
+                    str(obj["concept"]),
                     font=concept_font,
                     fill="#161616",
                 )
@@ -624,7 +805,7 @@ def scenario_selector(display_function, selection):
                 details_html = " · ".join(details)
 
                 visual_caption.value = (
-                    f"<b>{escape(str(obj['name']))}</b>"
+                    f"<b>{escape(str(obj['concept']))}</b>"
                     + (
                         f"<br><span style='font-size:11px; color:#555'>"
                         f"{details_html}</span>"
@@ -659,7 +840,7 @@ def scenario_selector(display_function, selection):
         )
 
         visual_caption.value = (
-            f"<b>{obj['name']}</b><br>"
+            f"<b>{obj['concept']}</b><br>"
             f"<a href='{search_url}' "
             f"target='_blank' rel='noopener noreferrer'>"
             f"🔎 {tr('search_online')}"
@@ -677,7 +858,7 @@ def scenario_selector(display_function, selection):
 
         visual_objects.extend(
             obj
-            for obj in scenario["objects"]
+            for obj in scenario["concepts"]
             if obj.get("image") or obj.get("search_query")
         )
 
@@ -694,7 +875,7 @@ def scenario_selector(display_function, selection):
             (
                 (
                     f"{obj.get('emoji', '')} "
-                    f"{obj.get('short_name', obj['name'])}"
+                    f"{obj.get('short_name', obj['concept'])}"
                 ).strip(),
                 index,
             )
@@ -746,19 +927,25 @@ def scenario_selector(display_function, selection):
 
         selection["scenario_name"] = name
         selection["scenario"] = load_scenario(name)
+        canonical_concepts = selection["scenario"]["concepts"]
+
+        # Public semantic input used by the rest of LlmExpl.
         selection["concepts"] = [
-            obj["name"] for obj in selection["scenario"]["objects"]
+            obj["concept"] for obj in canonical_concepts
         ]
+
+        # Temporary compatibility aliases used by the current notebook.
+        # These can disappear once the notebook has migrated to v1 names.
         selection["objects"] = selection["scenario"]["objects"]
 
         selection["icons"] = {
-            obj["name"]: object_icon(obj)
-            for obj in selection["objects"]
+            obj["concept"]: object_icon(obj)
+            for obj in canonical_concepts
         }
 
         selection["short_names"] = {
-            obj["name"]: obj.get("short_name", obj["name"])
-            for obj in selection["objects"]
+            obj["concept"]: obj.get("short_name", obj["concept"])
+            for obj in canonical_concepts
         }
 
 
