@@ -3,9 +3,9 @@ language: es
 title: Bandas de rock
 description: Exploración del espacio semántico de bandas emblemáticas de distintos estilos y épocas.
 
-objects:
+concepts:
 - id: beatles
-  name: The Beatles
+  concept: The Beatles
   emoji: 🎸
   image: rockbands/beatles.jpg
   image_credit: "United Press International / Library of Congress"
@@ -14,7 +14,7 @@ objects:
   image_source: "https://commons.wikimedia.org/wiki/File:The_Beatles_members_at_New_York_City_in_1964.jpg"
 
 - id: abba
-  name: ABBA
+  concept: ABBA
   emoji: 🕺
   image: rockbands/abba.png
   image_credit: "AVRO / Netherlands Institute for Sound and Vision"
@@ -23,7 +23,7 @@ objects:
   image_source: "https://commons.wikimedia.org/wiki/File:ABBA_-_TopPop_1974_5.png"
 
 - id: queen
-  name: Queen
+  concept: Queen
   emoji: 👑
   image: rockbands/queen.png
   image_credit: "Eddie, Raph_PH — montage : Impromptu"
@@ -32,7 +32,7 @@ objects:
   image_source: "https://commons.wikimedia.org/wiki/File:Queen_members_montage.png"
 
 - id: rolling_stones
-  name: The Rolling Stones
+  concept: The Rolling Stones
   emoji: 👅
   image: rockbands/rolling_stones.jpg
   image_credit: "Jim Pietryga"
@@ -41,7 +41,7 @@ objects:
   image_source: "https://commons.wikimedia.org/wiki/File:The_Rolling_Stones_Summerfest_in_Milwaukee_-_2015.jpg"
 
 - id: led_zeppelin
-  name: Led Zeppelin
+  concept: Led Zeppelin
   emoji: ⚡
   image: rockbands/led_zeppelin.jpg
   image_credit: "Montage : Sabrebd — Jim Summaria, Dina Regine, Klaus Hiltscher"
@@ -50,7 +50,7 @@ objects:
   image_source: "https://commons.wikimedia.org/wiki/File:LedZeppelinmontage.jpg"
 
 - id: acdc
-  name: AC/DC
+  concept: AC/DC
   emoji: ⚡
   image: rockbands/acdc.jpg
   image_credit: "Doctoracdc72"
@@ -59,7 +59,7 @@ objects:
   image_source: "https://commons.wikimedia.org/wiki/File:ACDC_Tacoma.jpg"
 
 - id: pink_floyd
-  name: Pink Floyd
+  concept: Pink Floyd
   emoji: 🌈
   image: rockbands/pink_floyd.jpg
   image_credit: "U.S. Environmental Protection Agency / NARA"
@@ -68,7 +68,7 @@ objects:
   image_source: "https://commons.wikimedia.org/wiki/File:ROCK_CONCERT._(FROM_THE_SITES_EXHIBITION._FOR_OTHER_IMAGES_IN_THIS_ASSIGNMENT,_SEE_FICHE_NUMBERS_42,_97.)_-_NARA_-_553890_(cropped).jpg"
 
 - id: nirvana
-  name: Nirvana
+  concept: Nirvana
   emoji: 🎤
   image: rockbands/nirvana.jpg
   image_credit: "P.B. Rage"
@@ -77,7 +77,7 @@ objects:
   image_source: "https://commons.wikimedia.org/wiki/File:Nirvana_around_1992.jpg"
 
 - id: metallica
-  name: Metallica
+  concept: Metallica
   emoji: 🤘
   image: rockbands/metallica.jpg
   image_credit: "Kreepin Deth"
@@ -86,12 +86,12 @@ objects:
   image_source: "https://commons.wikimedia.org/wiki/File:Metallica_at_The_O2_Arena_London_2008.jpg"
 
 - id: telephone
-  name: Téléphone
+  concept: Téléphone
   emoji: ☎️
   search_query: "groupe Téléphone formation originale Jean-Louis Aubert Louis Bertignac Corine Marienneau Richard Kolinka"
 
 - id: u2
-  name: U2
+  concept: U2
   emoji: ☘️
   image: rockbands/u2.jpg
   image_credit: "swimfinfan"

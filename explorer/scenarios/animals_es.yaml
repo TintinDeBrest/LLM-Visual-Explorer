@@ -4,47 +4,47 @@ title: Animales
 
 description: Exploración del espacio semántico de once animales pertenecientes a distintos grandes grupos del reino animal.
 
-objects:
+concepts:
   - id: cat
-    name: Gato
+    concept: Gato
     emoji: 🐱
 
   - id: dog
-    name: Perro
+    concept: Perro
     emoji: 🐶
 
   - id: lion
-    name: León
+    concept: León
     emoji: 🦁
 
   - id: wolf
-    name: Lobo
+    concept: Lobo
     emoji: 🐺
 
   - id: dolphin
-    name: Delfín
+    concept: Delfín
     emoji: 🐬
 
   - id: sardine
-    name: Sardina
+    concept: Sardina
     emoji: 🐟
 
   - id: rooster
-    name: Gallo
+    concept: Gallo
     emoji: 🐓
 
   - id: eagle
-    name: Águila
+    concept: Águila
     emoji: 🦅
 
   - id: owl
-    name: Búho
+    concept: Búho
     emoji: 🦉
 
   - id: butterfly
-    name: Mariposa
+    concept: Mariposa
     emoji: 🦋
 
   - id: ant
-    name: Hormiga
+    concept: Hormiga
     emoji: 🐜

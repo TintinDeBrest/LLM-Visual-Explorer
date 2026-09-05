@@ -3,34 +3,34 @@ title: Animaux — préfixe génétique
 description: "Exploration des mêmes animaux que le scénario neutre, précédés du préfixe « Génétique : », afin d'observer l'effet de ce contexte biologique sur leurs représentations."
 
 
-objects:
+concepts:
 
-  - name: "Génétique : Chat"
+  - concept: "Génétique : Chat"
     emoji: 🐱
 
-  - name: "Génétique : Chien"
+  - concept: "Génétique : Chien"
     emoji: 🐶
 
-  - name: "Génétique : Lion"
+  - concept: "Génétique : Lion"
     emoji: 🦁
 
-  - name: "Génétique : Loup"
+  - concept: "Génétique : Loup"
     emoji: 🐺
 
-  - name: "Génétique : Dauphin"
+  - concept: "Génétique : Dauphin"
     emoji: 🐬
 
-  - name: "Génétique : Sardine"
+  - concept: "Génétique : Sardine"
     emoji: 🐟
 
-  - name: "Génétique : Coq"
+  - concept: "Génétique : Coq"
     emoji: 🐓
 
-  - name: "Génétique : Hibou"
+  - concept: "Génétique : Hibou"
     emoji: 🦉
 
-  - name: "Génétique : Papillon"
+  - concept: "Génétique : Papillon"
     emoji: 🦋
 
-  - name: "Génétique : Fourmi"
+  - concept: "Génétique : Fourmi"
     emoji: 🐜

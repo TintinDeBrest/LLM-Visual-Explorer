@@ -4,47 +4,47 @@ title: Animals
 
 description: Exploration of the semantic space of eleven animals belonging to different major groups of the animal kingdom.
 
-objects:
+concepts:
   - id: cat
-    name: Cat
+    concept: Cat
     emoji: 🐱
 
   - id: dog
-    name: Dog
+    concept: Dog
     emoji: 🐶
 
   - id: lion
-    name: Lion
+    concept: Lion
     emoji: 🦁
 
   - id: wolf
-    name: Wolf
+    concept: Wolf
     emoji: 🐺
 
   - id: dolphin
-    name: Dolphin
+    concept: Dolphin
     emoji: 🐬
 
   - id: sardine
-    name: Sardine
+    concept: Sardine
     emoji: 🐟
 
   - id: rooster
-    name: Rooster
+    concept: Rooster
     emoji: 🐓
 
   - id: eagle
-    name: Eagle
+    concept: Eagle
     emoji: 🦅
 
   - id: owl
-    name: Owl
+    concept: Owl
     emoji: 🦉
 
   - id: butterfly
-    name: Butterfly
+    concept: Butterfly
     emoji: 🦋
 
   - id: ant
-    name: Ant
+    concept: Ant
     emoji: 🐜

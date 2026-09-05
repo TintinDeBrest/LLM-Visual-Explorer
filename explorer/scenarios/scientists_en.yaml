@@ -2,43 +2,43 @@ family: scientists
 language: en
 title: Scientists
 description: Exploration of the semantic space of thirteen major scientists from different disciplines.
-objects:
+concepts:
 - id: newton
-  name: Newton
+  concept: Newton
   emoji: 🍎
 - id: einstein
-  name: Einstein
+  concept: Einstein
   emoji: 🌌
 - id: pasteur
-  name: Pasteur
+  concept: Pasteur
   emoji: 🦠
 - id: darwin
-  name: Darwin
+  concept: Darwin
   emoji: 🧬
 - id: curie
-  name: Curie
+  concept: Curie
   emoji: ⚛️
 - id: lavoisier
-  name: Lavoisier
+  concept: Lavoisier
   emoji: ⚗️
 - id: pare
-  name: Paré
+  concept: Paré
   emoji: 🩺
 - id: galileo
-  name: Galileo Galilei
+  concept: Galileo Galilei
   emoji: 🔭
 - id: faraday
-  name: Faraday
+  concept: Faraday
   emoji: ⚡
 - id: carnot
-  name: Carnot
+  concept: Carnot
   emoji: ⚡
 - id: maxwell
-  name: Maxwell
+  concept: Maxwell
   emoji: ⚡
 - id: ada_lovelace
-  name: Ada Lovelace
+  concept: Ada Lovelace
   emoji: 💻
 - id: turing
-  name: Turing
+  concept: Turing
   emoji: 💻

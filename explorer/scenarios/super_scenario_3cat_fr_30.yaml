@@ -3,39 +3,39 @@ language: fr
 title: Super scénario 3 catégories — 30 concepts
 description: Exploration contrôlée de 3 catégories sémantiques très distinctes, avec 10 concepts par catégorie.
 
-objects:
+concepts:
 # Animaux
-- {id: dog, name: Chien, emoji: 🐶}
-- {id: lion, name: Lion, emoji: 🦁}
-- {id: dolphin, name: Dauphin, emoji: 🐬}
-- {id: eagle, name: Aigle, emoji: 🦅}
-- {id: horse, name: Cheval, emoji: 🐴}
-- {id: butterfly, name: Papillon, emoji: 🦋}
-- {id: shark, name: Requin, emoji: 🦈}
-- {id: wolf, name: Loup, emoji: 🐺}
-- {id: owl, name: Hibou, emoji: 🦉}
-- {id: ant, name: Fourmi, emoji: 🐜}
+- {id: dog, concept: Chien, emoji: 🐶}
+- {id: lion, concept: Lion, emoji: 🦁}
+- {id: dolphin, concept: Dauphin, emoji: 🐬}
+- {id: eagle, concept: Aigle, emoji: 🦅}
+- {id: horse, concept: Cheval, emoji: 🐴}
+- {id: butterfly, concept: Papillon, emoji: 🦋}
+- {id: shark, concept: Requin, emoji: 🦈}
+- {id: wolf, concept: Loup, emoji: 🐺}
+- {id: owl, concept: Hibou, emoji: 🦉}
+- {id: ant, concept: Fourmi, emoji: 🐜}
 
 # Métiers
-- {id: doctor, name: Médecin, emoji: 🩺}
-- {id: engineer, name: Ingénieur, emoji: 👷}
-- {id: lawyer, name: Avocat, emoji: ⚖️}
-- {id: baker, name: Boulanger, emoji: 🥖}
-- {id: professor, name: Professeur, emoji: 👨‍🏫}
-- {id: plumber, name: Plombier, emoji: 🔧}
-- {id: researcher, name: Chercheur, emoji: 🔬}
-- {id: farmer, name: Agriculteur, emoji: 👨‍🌾}
-- {id: architect, name: Architecte, emoji: 📐}
-- {id: nurse, name: Infirmier, emoji: 🧑‍⚕️}
+- {id: doctor, concept: Médecin, emoji: 🩺}
+- {id: engineer, concept: Ingénieur, emoji: 👷}
+- {id: lawyer, concept: Avocat, emoji: ⚖️}
+- {id: baker, concept: Boulanger, emoji: 🥖}
+- {id: professor, concept: Professeur, emoji: 👨‍🏫}
+- {id: plumber, concept: Plombier, emoji: 🔧}
+- {id: researcher, concept: Chercheur, emoji: 🔬}
+- {id: farmer, concept: Agriculteur, emoji: 👨‍🌾}
+- {id: architect, concept: Architecte, emoji: 📐}
+- {id: nurse, concept: Infirmier, emoji: 🧑‍⚕️}
 
 # Objets
-- {id: hammer, name: Marteau, emoji: 🔨}
-- {id: chair, name: Chaise, emoji: 🪑}
-- {id: car, name: Voiture, emoji: 🚗}
-- {id: phone, name: Téléphone, emoji: 📱}
-- {id: book, name: Livre, emoji: 📖}
-- {id: knife, name: Couteau, emoji: 🔪}
-- {id: computer, name: Ordinateur, emoji: 💻}
-- {id: suitcase, name: Valise, emoji: 🧳}
-- {id: lamp, name: Lampe, emoji: 💡}
-- {id: bottle, name: Bouteille, emoji: 🍾}
+- {id: hammer, concept: Marteau, emoji: 🔨}
+- {id: chair, concept: Chaise, emoji: 🪑}
+- {id: car, concept: Voiture, emoji: 🚗}
+- {id: phone, concept: Téléphone, emoji: 📱}
+- {id: book, concept: Livre, emoji: 📖}
+- {id: knife, concept: Couteau, emoji: 🔪}
+- {id: computer, concept: Ordinateur, emoji: 💻}
+- {id: suitcase, concept: Valise, emoji: 🧳}
+- {id: lamp, concept: Lampe, emoji: 💡}
+- {id: bottle, concept: Bouteille, emoji: 🍾}

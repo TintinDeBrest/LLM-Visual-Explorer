@@ -4,34 +4,34 @@ description: >
   Exploration de la capacité d'un modèle de langage à rapprocher
   des expressions de sens proche malgré des formulations différentes.
 
-objects:
+concepts:
 
-  - name: Être très heureux
+  - concept: Être très heureux
     emoji: 😄
 
-  - name: Avoir le cœur léger
+  - concept: Avoir le cœur léger
     emoji: ❤️
 
-  - name: Être très triste
+  - concept: Être très triste
     emoji: 😢
 
-  - name: Avoir le moral à zéro
+  - concept: Avoir le moral à zéro
     emoji: 😞
 
-  - name: Être très fatigué
+  - concept: Être très fatigué
     emoji: 😴
 
-  - name: Être sur les rotules
+  - concept: Être sur les rotules
     emoji: 🥱
 
-  - name: Comprendre enfin
+  - concept: Comprendre enfin
     emoji: 💡
 
-  - name: Voir le bout du tunnel
+  - concept: Voir le bout du tunnel
     emoji: 🔦
 
-  - name: Être très énervé
+  - concept: Être très énervé
     emoji: 😡
 
-  - name: Voir rouge
+  - concept: Voir rouge
     emoji: 🔴

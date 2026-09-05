@@ -3,34 +3,34 @@ title: Animaux — préfixe concept
 description: "Scénario témoin utilisant le préfixe neutre « Concept : » pour distinguer l'effet d'un texte commun de celui du mot « Zoologie »."
 
 
-objects:
+concepts:
 
-  - name: "Concept : Chat"
+  - concept: "Concept : Chat"
     emoji: 🐱
 
-  - name: "Concept : Chien"
+  - concept: "Concept : Chien"
     emoji: 🐶
 
-  - name: "Concept : Lion"
+  - concept: "Concept : Lion"
     emoji: 🦁
 
-  - name: "Concept : Loup"
+  - concept: "Concept : Loup"
     emoji: 🐺
 
-  - name: "Concept : Dauphin"
+  - concept: "Concept : Dauphin"
     emoji: 🐬
 
-  - name: "Concept : Sardine"
+  - concept: "Concept : Sardine"
     emoji: 🐟
 
-  - name: "Concept : Coq"
+  - concept: "Concept : Coq"
     emoji: 🐓
 
-  - name: "Concept : Hibou"
+  - concept: "Concept : Hibou"
     emoji: 🦉
 
-  - name: "Concept : Papillon"
+  - concept: "Concept : Papillon"
     emoji: 🦋
 
-  - name: "Concept : Fourmi"
+  - concept: "Concept : Fourmi"
     emoji: 🐜

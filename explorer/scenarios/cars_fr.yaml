@@ -3,9 +3,9 @@ language: fr
 title: Voitures iconiques
 description: Exploration de l'espace sémantique de douze voitures françaises et internationales emblématiques.
 
-objects:
+concepts:
 - id: peugeot_404
-  name: Peugeot 404
+  concept: Peugeot 404
   emoji: 🇫🇷
   image: cars/peugeot_404.jpg
   image_credit: "Jeremy"
@@ -14,7 +14,7 @@ objects:
   image_source: "https://commons.wikimedia.org/wiki/File:1969_Peugeot_404_sedan_(28295183763).jpg"
 
 - id: renault_twingo
-  name: Renault Twingo
+  concept: Renault Twingo
   emoji: 🇫🇷
   image: cars/renault_twingo.jpg
   image_credit: "Thomas Doerfer"
@@ -23,7 +23,7 @@ objects:
   image_source: "https://commons.wikimedia.org/wiki/File:Renault_Twingo_I_Liberty.JPG"
 
 - id: citroen_2cv
-  name: Citroën 2CV
+  concept: Citroën 2CV
   emoji: 🇫🇷
   image: cars/citroen_2cv.jpg
   image_credit: "Oxyman"
@@ -32,7 +32,7 @@ objects:
   image_source: "https://commons.wikimedia.org/wiki/File:Citroën_2CV_Charleston.jpg"
 
 - id: renault_4
-  name: Renault 4L
+  concept: Renault 4L
   emoji: 🇫🇷
   image: cars/renault_4.jpg
   image_credit: "Berthold Werner"
@@ -41,7 +41,7 @@ objects:
   image_source: "https://commons.wikimedia.org/wiki/File:Renault_R4_BW_2016-07-17_13-45-32.jpg"
 
 - id: citroen_ds
-  name: Citroën DS
+  concept: Citroën DS
   emoji: 🇫🇷
   image: cars/citroen_ds.jpg
   image_credit: "Vauxford"
@@ -50,7 +50,7 @@ objects:
   image_source: "https://commons.wikimedia.org/wiki/File:1973_Citroen_DS_20_2.0_Front.jpg"
 
 - id: volkswagen_beetle
-  name: Volkswagen Coccinelle
+  concept: Volkswagen Coccinelle
   emoji: 🇩🇪
   image: cars/volkswagen_beetle.jpg
   image_credit: "Sherwin"
@@ -59,7 +59,7 @@ objects:
   image_source: "https://commons.wikimedia.org/wiki/File:Volkswagen_Beetle_in_Durban,_South_Africa.jpg"
 
 - id: mini_cooper
-  name: Mini Cooper
+  concept: Mini Cooper
   emoji: 🇬🇧
   image: cars/mini_cooper.jpg
   image_credit: "Allen Watkin"
@@ -68,7 +68,7 @@ objects:
   image_source: "https://commons.wikimedia.org/wiki/File:Mini_Cooper_Classic_(2237006146).jpg"
 
 - id: ford_mustang
-  name: Ford Mustang
+  concept: Ford Mustang
   emoji: 🇺🇸
   image: cars/ford_mustang.jpg
   image_credit: "Ad Meskens"
@@ -77,7 +77,7 @@ objects:
   image_source: "https://commons.wikimedia.org/wiki/File:1965_Mustang_4.jpg"
 
 - id: chevrolet_impala
-  name: Chevrolet Impala
+  concept: Chevrolet Impala
   emoji: 🇺🇸
   image: cars/chevrolet_impala.jpg
   image_credit: "MercurySable99"
@@ -86,7 +86,7 @@ objects:
   image_source: "https://commons.wikimedia.org/wiki/File:1964_Chevrolet_Impala_Super_Sport_convertible,_front_left,_06-08-2024.jpg"
 
 - id: fiat_500
-  name: Fiat 500
+  concept: Fiat 500
   emoji: 🇮🇹
   image: cars/fiat_500.jpg
   image_credit: "Stefan Flöper"
@@ -95,7 +95,7 @@ objects:
   image_source: "https://commons.wikimedia.org/wiki/File:Fiat_500.jpg"
 
 - id: porsche_911
-  name: Porsche 911
+  concept: Porsche 911
   emoji: 🇩🇪
   image: cars/porsche_911.jpg
   image_credit: "Alexander Migl"
@@ -104,7 +104,7 @@ objects:
   image_source: "https://commons.wikimedia.org/wiki/File:Porsche_911_classic_coupes_F_(1970)_Solitude_Revival_2022_1X7A0361.jpg"
 
 - id: toyota_land_cruiser
-  name: Toyota Land Cruiser
+  concept: Toyota Land Cruiser
   emoji: 🇯🇵
   image: cars/toyota_land_cruiser.jpg
   image_credit: "Rendywardana"

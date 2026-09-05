@@ -2,34 +2,34 @@ family: health
 language: fr
 title: Santé et apparentés
 description: Exploration d'un petit espace sémantique autour de la santé et des soins.
-objects:
+concepts:
 - id: doctor
-  name: Médecin
+  concept: Médecin
   emoji: 🩺
 - id: nurse
-  name: Infirmier
+  concept: Infirmier
   emoji: 💉
 - id: hospital
-  name: Hôpital
+  concept: Hôpital
   emoji: 🏥
 - id: patient
-  name: Patient
+  concept: Patient
   emoji: 🧑‍⚕️
 - id: disease
-  name: Maladie
+  concept: Maladie
   emoji: 🤒
 - id: diagnosis
-  name: Diagnostic
+  concept: Diagnostic
   emoji: 🔎
 - id: treatment
-  name: Traitement
+  concept: Traitement
   emoji: 💊
 - id: surgery
-  name: Chirurgie
+  concept: Chirurgie
   emoji: 🏥
 - id: medicine
-  name: Médicament
+  concept: Médicament
   emoji: 💊
 - id: ambulance
-  name: Ambulance
+  concept: Ambulance
   emoji: 🚑

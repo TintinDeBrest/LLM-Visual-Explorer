@@ -5,16 +5,16 @@ title: Guitar Heroes
 
 description: Guitaristes légendaires issus de différentes traditions musicales, générations et pays.
 
-objects:
+concepts:
 
   # Guitar heroes
-  - {id: jimi_hendrix, name: Jimi Hendrix, emoji: 🎸}
-  - {id: carlos_santana, name: Carlos Santana, emoji: 🪇}
-  - {id: jimmy_page, name: Jimmy Page, emoji: ⚡}
-  - {id: eric_clapton, name: Eric Clapton, emoji: 🎵}
-  - {id: ritchie_blackmore, name: Ritchie Blackmore, emoji: 🌈}
-  - {id: david_gilmour, name: David Gilmour, emoji: 🌙}
-  - {id: mark_knopfler, name: Mark Knopfler, emoji: 🎶}
-  - {id: jeff_beck, name: Jeff Beck, emoji: 🔥}
-  - {id: eddie_van_halen, name: Eddie Van Halen, emoji: 🤘}
-  - {id: paco_de_lucia, name: Paco de Lucía, emoji: 💃}
+  - {id: jimi_hendrix, concept: Jimi Hendrix, emoji: 🎸}
+  - {id: carlos_santana, concept: Carlos Santana, emoji: 🪇}
+  - {id: jimmy_page, concept: Jimmy Page, emoji: ⚡}
+  - {id: eric_clapton, concept: Eric Clapton, emoji: 🎵}
+  - {id: ritchie_blackmore, concept: Ritchie Blackmore, emoji: 🌈}
+  - {id: david_gilmour, concept: David Gilmour, emoji: 🌙}
+  - {id: mark_knopfler, concept: Mark Knopfler, emoji: 🎶}
+  - {id: jeff_beck, concept: Jeff Beck, emoji: 🔥}
+  - {id: eddie_van_halen, concept: Eddie Van Halen, emoji: 🤘}
+  - {id: paco_de_lucia, concept: Paco de Lucía, emoji: 💃}

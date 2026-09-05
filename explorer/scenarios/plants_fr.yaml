@@ -2,34 +2,34 @@ family: plants
 language: fr
 title: Plantes
 description: Exploration de l'espace sémantique de dix plantes appartenant à plusieurs grandes familles botaniques.
-objects:
+concepts:
 - id: oak
-  name: Chêne
+  concept: Chêne
   emoji: 🌳
 - id: pine
-  name: Pin
+  concept: Pin
   emoji: 🌲
 - id: rose
-  name: Rose
+  concept: Rose
   emoji: 🌹
 - id: tulip
-  name: Tulipe
+  concept: Tulipe
   emoji: 🌷
 - id: orchid
-  name: Orchidée
+  concept: Orchidée
   emoji: 🪷
 - id: sunflower
-  name: Tournesol
+  concept: Tournesol
   emoji: 🌻
 - id: bamboo
-  name: Bambou
+  concept: Bambou
   emoji: 🎍
 - id: cactus
-  name: Cactus
+  concept: Cactus
   emoji: 🌵
 - id: fern
-  name: Fougère
+  concept: Fougère
   emoji: 🌿
 - id: moss
-  name: Mousse
+  concept: Mousse
   emoji: 🍀

@@ -2,34 +2,34 @@ family: plants
 language: es
 title: Plantas
 description: Exploración del espacio semántico de diez plantas de varios grandes grupos botánicos.
-objects:
+concepts:
 - id: oak
-  name: Roble
+  concept: Roble
   emoji: 🌳
 - id: pine
-  name: Pino
+  concept: Pino
   emoji: 🌲
 - id: rose
-  name: Rosa
+  concept: Rosa
   emoji: 🌹
 - id: tulip
-  name: Tulipán
+  concept: Tulipán
   emoji: 🌷
 - id: orchid
-  name: Orquídea
+  concept: Orquídea
   emoji: 🪷
 - id: sunflower
-  name: Girasol
+  concept: Girasol
   emoji: 🌻
 - id: bamboo
-  name: Bambú
+  concept: Bambú
   emoji: 🎍
 - id: cactus
-  name: Cactus
+  concept: Cactus
   emoji: 🌵
 - id: fern
-  name: Helecho
+  concept: Helecho
   emoji: 🌿
 - id: moss
-  name: Musgo
+  concept: Musgo
   emoji: 🍀

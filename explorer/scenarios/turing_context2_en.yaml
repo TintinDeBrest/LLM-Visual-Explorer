@@ -3,27 +3,27 @@ language: en
 title: Turing–Lovelace Semantic Context Experiment
 description: Experiment comparing Ada Lovelace and Alan Turing through related but lexically different descriptions of their lives and contributions.
 
-objects:
+concepts:
 - id: ada_name
-  name: Ada Lovelace
+  concept: Ada Lovelace
   emoji: 💻
 
 - id: turing_name
-  name: Alan Turing
+  concept: Alan Turing
   emoji: 💻
 
 - id: ada_biography
-  name: Ada Lovelace collaborated with Charles Babbage on the Analytical Engine.
+  concept: Ada Lovelace collaborated with Charles Babbage on the Analytical Engine.
   emoji: ⚙️
 
 - id: turing_biography
-  name: Alan Turing worked at Bletchley Park and helped decipher Enigma.
+  concept: Alan Turing worked at Bletchley Park and helped decipher Enigma.
   emoji: 🔐
 
 - id: ada_contribution
-  name: Ada Lovelace described a sequence of operations that could be performed by a mechanical engine.
+  concept: Ada Lovelace described a sequence of operations that could be performed by a mechanical engine.
   emoji: 📜
 
 - id: turing_contribution
-  name: Alan Turing formalized computation through an abstract machine capable of executing instructions.
+  concept: Alan Turing formalized computation through an abstract machine capable of executing instructions.
   emoji: 🧠

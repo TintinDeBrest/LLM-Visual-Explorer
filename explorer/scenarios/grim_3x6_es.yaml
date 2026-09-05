@@ -4,75 +4,75 @@ title: Grim 3×6
 
 description: "Extensión equilibrada del escenario de Patrick Grim con tres familias semánticas de seis conceptos: frutas, animales y artistas de rock."
 
-objects:
+concepts:
   - id: mango
-    name: Mango
+    concept: Mango
     emoji: 🥭
 
   - id: apricot
-    name: Albaricoque
+    concept: Albaricoque
     emoji: 🍑
 
   - id: blueberry
-    name: Arándano
+    concept: Arándano
     emoji: 🫐
 
   - id: grape
-    name: Uva
+    concept: Uva
     emoji: 🍇
 
   - id: apple
-    name: Manzana
+    concept: Manzana
     emoji: 🍎
 
   - id: orange
-    name: Naranja
+    concept: Naranja
     emoji: 🍊
 
   - id: bear
-    name: Oso
+    concept: Oso
     emoji: 🐻
 
   - id: cow
-    name: Vaca
+    concept: Vaca
     emoji: 🐄
 
   - id: dog
-    name: Perro
+    concept: Perro
     emoji: 🐶
 
   - id: wolf
-    name: Lobo
+    concept: Lobo
     emoji: 🐺
 
   - id: alligator
-    name: Aligátor
+    concept: Aligátor
     emoji: 🐊
 
   - id: crocodile
-    name: Cocodrilo
+    concept: Cocodrilo
     emoji: 🐊
 
   - id: beatles
-    name: Beatles
+    concept: Beatles
     emoji: 🎸
 
   - id: rolling_stones
-    name: Rolling Stones
+    concept: Rolling Stones
     emoji: 🎸
 
   - id: nirvana
-    name: Nirvana
+    concept: Nirvana
     emoji: 🎸
 
   - id: acdc
-    name: AC/DC
+    concept: AC/DC
     emoji: 🎸
 
   - id: elvis
-    name: Elvis
+    concept: Elvis
     emoji: 🎤
 
   - id: pink_floyd
-    name: Pink Floyd
+    concept: Pink Floyd
     emoji: 🎸

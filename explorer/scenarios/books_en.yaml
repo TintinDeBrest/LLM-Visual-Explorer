@@ -4,51 +4,51 @@ title: Iconic Books
 
 description: Exploration of the semantic space of twelve major works of world literature, both classic and contemporary.
 
-objects:
+concepts:
   - id: the_little_prince
-    name: The Little Prince
+    concept: The Little Prince
     emoji: 🌟
 
   - id: don_quixote
-    name: Don Quixote
+    concept: Don Quixote
     emoji: 🐴
 
   - id: the_lord_of_the_rings
-    name: The Lord of the Rings
+    concept: The Lord of the Rings
     emoji: 💍
 
   - id: harry_potter
-    name: Harry Potter
+    concept: Harry Potter
     emoji: 🪄
 
   - id: one_hundred_years_of_solitude
-    name: One Hundred Years of Solitude
+    concept: One Hundred Years of Solitude
     emoji: 🦋
 
   - id: les_miserables
-    name: Les Misérables
+    concept: Les Misérables
     emoji: 🇫🇷
 
   - id: nineteen_eighty_four
-    name: "1984"
+    concept: "1984"
     emoji: 👁️
 
   - id: the_stranger
-    name: The Stranger
+    concept: The Stranger
     emoji: ☀️
 
   - id: pride_and_prejudice
-    name: Pride and Prejudice
+    concept: Pride and Prejudice
     emoji: 💌
 
   - id: moby_dick
-    name: Moby Dick
+    concept: Moby Dick
     emoji: 🐋
 
   - id: crime_and_punishment
-    name: Crime and Punishment
+    concept: Crime and Punishment
     emoji: ⚖️
 
   - id: alice_in_wonderland
-    name: Alice in Wonderland
+    concept: Alice in Wonderland
     emoji: 🐇

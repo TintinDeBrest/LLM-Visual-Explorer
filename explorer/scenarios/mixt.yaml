@@ -3,22 +3,22 @@ title: Mixte
 description:
     Analogie célèbre de Word2Vec: roi-homme+femme=reine
 
-objects:
+concepts:
 
-  - name: Roi
+  - concept: Roi
     category: Humain
 
-  - name: Reine
+  - concept: Reine
     category: Humain
 
-  - name: Homme
+  - concept: Homme
     category: Humain
 
-  - name: Femme
+  - concept: Femme
     category: Humain
 
-  - name: Pomme
+  - concept: Pomme
     category: Fruit
 
-  - name: Orange
+  - concept: Orange
     category: Fruit

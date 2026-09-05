@@ -4,93 +4,93 @@ title: Concepts multilingues FR–EN–ES
 
 description: Exploration de l'espace sémantique multilingue à travers cinq triplets de concepts français, anglais et espagnols partageant le même sens.
 
-objects:
+concepts:
   - id: dog_fr
     concept_id: dog
     language: fr
-    name: Chien
+    concept: Chien
     emoji: 🐶
 
   - id: dog_en
     concept_id: dog
     language: en
-    name: Dog
+    concept: Dog
     emoji: 🐶
 
   - id: dog_es
     concept_id: dog
     language: es
-    name: Perro
+    concept: Perro
     emoji: 🐶
 
   - id: house_fr
     concept_id: house
     language: fr
-    name: Maison
+    concept: Maison
     emoji: 🏠
 
   - id: house_en
     concept_id: house
     language: en
-    name: House
+    concept: House
     emoji: 🏠
 
   - id: house_es
     concept_id: house
     language: es
-    name: Casa
+    concept: Casa
     emoji: 🏠
 
   - id: car_fr
     concept_id: car
     language: fr
-    name: Voiture
+    concept: Voiture
     emoji: 🚗
 
   - id: car_en
     concept_id: car
     language: en
-    name: Car
+    concept: Car
     emoji: 🚗
 
   - id: car_es
     concept_id: car
     language: es
-    name: Automóvil
+    concept: Automóvil
     emoji: 🚗
 
   - id: tree_fr
     concept_id: tree
     language: fr
-    name: Arbre
+    concept: Arbre
     emoji: 🌳
 
   - id: tree_en
     concept_id: tree
     language: en
-    name: Tree
+    concept: Tree
     emoji: 🌳
 
   - id: tree_es
     concept_id: tree
     language: es
-    name: Árbol
+    concept: Árbol
     emoji: 🌳
 
   - id: love_fr
     concept_id: love
     language: fr
-    name: Amour
+    concept: Amour
     emoji: ❤️
 
   - id: love_en
     concept_id: love
     language: en
-    name: Love
+    concept: Love
     emoji: ❤️
 
   - id: love_es
     concept_id: love
     language: es
-    name: Amor
+    concept: Amor
     emoji: ❤️

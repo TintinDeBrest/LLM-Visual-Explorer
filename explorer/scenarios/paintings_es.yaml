@@ -3,81 +3,81 @@ language: es
 title: Pinturas famosas
 description: Exploración del espacio semántico de trece pinturas famosas que representan diferentes épocas y tradiciones artísticas.
 
-objects:
+concepts:
 - id: mona_lisa
-  name: La Gioconda
+  concept: La Gioconda
   short_name: Gioconda
   emoji: 🖼️
   image: paintings/mona_lisa.jpg
 
 - id: starry_night
-  name: La noche estrellada
+  concept: La noche estrellada
   short_name: Noche estrellada
   emoji: 🌌
   image: paintings/starry_night.jpg
 
 - id: guernica
-  name: Guernica
+  concept: Guernica
   short_name: Guernica
   emoji: 🕊️
   search_query: "Guernica Pablo Picasso 1937 painting"
 
 - id: persistence_memory
-  name: La persistencia de la memoria
+  concept: La persistencia de la memoria
   short_name: Persistencia
   emoji: ⏳
   search_query: "The Persistence of Memory Salvador Dalí 1931 painting"
 
 - id: scream
-  name: El grito
+  concept: El grito
   short_name: Grito
   emoji: 😱
   image: paintings/scream.jpg
 
 - id: girl_pearl
-  name: La joven de la perla
+  concept: La joven de la perla
   short_name: Joven de perla
   emoji: 👩
   image: paintings/girl_pearl.jpg
 
 - id: birth_venus
-  name: El nacimiento de Venus
+  concept: El nacimiento de Venus
   short_name: Nacimiento de Venus
   emoji: 🐚
   image: paintings/birth_venus.jpg
 
 - id: meninas
-  name: Las meninas
+  concept: Las meninas
   short_name: Meninas
   emoji: 👑
   image: paintings/meninas.jpg
 
 - id: impression_sunrise
-  name: Impresión, sol naciente
+  concept: Impresión, sol naciente
   short_name: Sol naciente
   emoji: 🌅
   image: paintings/impression_sunrise.jpg
 
 - id: liberty_people
-  name: La Libertad guiando al pueblo
+  concept: La Libertad guiando al pueblo
   short_name: Libertad
   emoji: 🇫🇷
   image: paintings/liberty_people.jpg
 
 - id: kiss
-  name: El beso
+  concept: El beso
   short_name: Beso de Klimt
   emoji: 💋
   image: paintings/kiss.jpg
 
 - id: american_gothic
-  name: Gótico estadounidense
+  concept: Gótico estadounidense
   short_name: Gótico estadounidense
   emoji: 🏠
   image: paintings/american_gothic.jpg
 
 - id: great_wave
-  name: La gran ola de Kanagawa
+  concept: La gran ola de Kanagawa
   short_name: Gran ola
   emoji: 🌊
   image: paintings/great_wave.jpg

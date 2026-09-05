@@ -3,34 +3,34 @@ title: Animaux — préfixe chromosome
 description: "Exploration des mêmes animaux que le scénario neutre, précédés du préfixe « Chromosome : », afin d'observer l'effet de ce contexte biologique spécialisé sur leurs représentations."
 
 
-objects:
+concepts:
 
-  - name: "Chromosome : Chat"
+  - concept: "Chromosome : Chat"
     emoji: 🐱
 
-  - name: "Chromosome : Chien"
+  - concept: "Chromosome : Chien"
     emoji: 🐶
 
-  - name: "Chromosome : Lion"
+  - concept: "Chromosome : Lion"
     emoji: 🦁
 
-  - name: "Chromosome : Loup"
+  - concept: "Chromosome : Loup"
     emoji: 🐺
 
-  - name: "Chromosome : Dauphin"
+  - concept: "Chromosome : Dauphin"
     emoji: 🐬
 
-  - name: "Chromosome : Sardine"
+  - concept: "Chromosome : Sardine"
     emoji: 🐟
 
-  - name: "Chromosome : Coq"
+  - concept: "Chromosome : Coq"
     emoji: 🐓
 
-  - name: "Chromosome : Hibou"
+  - concept: "Chromosome : Hibou"
     emoji: 🦉
 
-  - name: "Chromosome : Papillon"
+  - concept: "Chromosome : Papillon"
     emoji: 🦋
 
-  - name: "Chromosome : Fourmi"
+  - concept: "Chromosome : Fourmi"
     emoji: 🐜

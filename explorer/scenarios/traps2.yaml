@@ -2,69 +2,69 @@ title: Pièges sémantiques 2
 
 description: Exploration de différentes relations sémantiques entre expressions françaises.
 
-objects:
+concepts:
 
   # Fatigue : synonymie / conséquence
 
-  - name: Être très fatigué
+  - concept: Être très fatigué
     emoji: 😴
 
-  - name: Être sur les rotules
+  - concept: Être sur les rotules
     emoji: 🥱
 
-  - name: Dormir très peu
+  - concept: Dormir très peu
     emoji: 🌙
 
 
   # Émotions opposées
 
-  - name: Être très heureux
+  - concept: Être très heureux
     emoji: 😄
 
-  - name: Être très triste
+  - concept: Être très triste
     emoji: 😢
 
 
   # Colère : état / manifestation
 
-  - name: Être très énervé
+  - concept: Être très énervé
     emoji: 😡
 
-  - name: Voir rouge
+  - concept: Voir rouge
     emoji: 🔴
 
 
   # Difficulté / résolution
 
-  - name: Voir le bout du tunnel
+  - concept: Voir le bout du tunnel
     emoji: 🔦
 
-  - name: Comprendre enfin
+  - concept: Comprendre enfin
     emoji: 💡
 
-  - name: Trouver la solution
+  - concept: Trouver la solution
     emoji: 🧩
 
 
   # Tristesse / état moral
 
-  - name: Avoir le moral à zéro
+  - concept: Avoir le moral à zéro
     emoji: 😞
 
 
   # Effort / épuisement
 
-  - name: Travailler sans relâche
+  - concept: Travailler sans relâche
     emoji: 💪
 
 
   # Métaphore / état positif
 
-  - name: Avoir le cœur léger
+  - concept: Avoir le cœur léger
     emoji: ❤️
 
 
   # Opposition / état négatif
 
-  - name: Perdre espoir
+  - concept: Perdre espoir
     emoji: 💔

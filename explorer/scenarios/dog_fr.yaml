@@ -2,34 +2,34 @@ family: dog
 language: fr
 title: Chien et apparentés
 description: Exploration d'un petit espace sémantique autour du chien et de son univers.
-objects:
+concepts:
 - id: dog
-  name: Chien
+  concept: Chien
   emoji: 🐕
 - id: puppy
-  name: Chiot
+  concept: Chiot
   emoji: 🐶
 - id: cat
-  name: Chat
+  concept: Chat
   emoji: 🐈
 - id: animal
-  name: Animal
+  concept: Animal
   emoji: 🐾
 - id: veterinarian
-  name: Vétérinaire
+  concept: Vétérinaire
   emoji: 🩺
 - id: leash
-  name: Laisse
+  concept: Laisse
   emoji: 🦮
 - id: walk
-  name: Promenade
+  concept: Promenade
   emoji: 🚶
 - id: bark
-  name: Aboyer
+  concept: Aboyer
   emoji: 🔊
 - id: owner
-  name: Maître
+  concept: Maître
   emoji: 👤
 - id: shelter
-  name: Refuge
+  concept: Refuge
   emoji: 🏠

@@ -3,43 +3,43 @@ language: fr
 title: Super scénario — 30 concepts
 description: Exploration contrôlée de 5 catégories sémantiques équilibrées, avec 6 concepts par catégorie.
 
-objects:
+concepts:
 # Animaux
-- {id: dog, name: Chien, emoji: 🐶}
-- {id: lion, name: Lion, emoji: 🦁}
-- {id: dolphin, name: Dauphin, emoji: 🐬}
-- {id: eagle, name: Aigle, emoji: 🦅}
-- {id: horse, name: Cheval, emoji: 🐴}
-- {id: butterfly, name: Papillon, emoji: 🦋}
+- {id: dog, concept: Chien, emoji: 🐶}
+- {id: lion, concept: Lion, emoji: 🦁}
+- {id: dolphin, concept: Dauphin, emoji: 🐬}
+- {id: eagle, concept: Aigle, emoji: 🦅}
+- {id: horse, concept: Cheval, emoji: 🐴}
+- {id: butterfly, concept: Papillon, emoji: 🦋}
 
 # Plantes
-- {id: oak, name: Chêne, emoji: 🌳}
-- {id: rose, name: Rose, emoji: 🌹}
-- {id: cactus, name: Cactus, emoji: 🌵}
-- {id: fir, name: Sapin, emoji: 🌲}
-- {id: tulip, name: Tulipe, emoji: 🌷}
-- {id: bamboo, name: Bambou, emoji: 🎋}
+- {id: oak, concept: Chêne, emoji: 🌳}
+- {id: rose, concept: Rose, emoji: 🌹}
+- {id: cactus, concept: Cactus, emoji: 🌵}
+- {id: fir, concept: Sapin, emoji: 🌲}
+- {id: tulip, concept: Tulipe, emoji: 🌷}
+- {id: bamboo, concept: Bambou, emoji: 🎋}
 
 # Métiers
-- {id: doctor, name: Médecin, emoji: 🩺}
-- {id: engineer, name: Ingénieur, emoji: 👷}
-- {id: lawyer, name: Avocat, emoji: ⚖️}
-- {id: baker, name: Boulanger, emoji: 🥖}
-- {id: professor, name: Professeur, emoji: 👨‍🏫}
-- {id: plumber, name: Plombier, emoji: 🔧}
+- {id: doctor, concept: Médecin, emoji: 🩺}
+- {id: engineer, concept: Ingénieur, emoji: 👷}
+- {id: lawyer, concept: Avocat, emoji: ⚖️}
+- {id: baker, concept: Boulanger, emoji: 🥖}
+- {id: professor, concept: Professeur, emoji: 👨‍🏫}
+- {id: plumber, concept: Plombier, emoji: 🔧}
 
 # Objets
-- {id: hammer, name: Marteau, emoji: 🔨}
-- {id: chair, name: Chaise, emoji: 🪑}
-- {id: car, name: Voiture, emoji: 🚗}
-- {id: phone, name: Téléphone, emoji: 📱}
-- {id: book, name: Livre, emoji: 📖}
-- {id: knife, name: Couteau, emoji: 🔪}
+- {id: hammer, concept: Marteau, emoji: 🔨}
+- {id: chair, concept: Chaise, emoji: 🪑}
+- {id: car, concept: Voiture, emoji: 🚗}
+- {id: phone, concept: Téléphone, emoji: 📱}
+- {id: book, concept: Livre, emoji: 📖}
+- {id: knife, concept: Couteau, emoji: 🔪}
 
 # Abstractions
-- {id: love, name: Amour, emoji: ❤️}
-- {id: freedom, name: Liberté, emoji: 🕊️}
-- {id: justice, name: Justice, emoji: ⚖️}
-- {id: truth, name: Vérité, emoji: 💡}
-- {id: happiness, name: Bonheur, emoji: 😊}
-- {id: courage, name: Courage, emoji: 🦁}
+- {id: love, concept: Amour, emoji: ❤️}
+- {id: freedom, concept: Liberté, emoji: 🕊️}
+- {id: justice, concept: Justice, emoji: ⚖️}
+- {id: truth, concept: Vérité, emoji: 💡}
+- {id: happiness, concept: Bonheur, emoji: 😊}
+- {id: courage, concept: Courage, emoji: 🦁}

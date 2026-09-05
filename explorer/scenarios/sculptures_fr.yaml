@@ -3,9 +3,9 @@ language: fr
 title: Sculptures célèbres
 description: Exploration de l’espace sémantique de douze sculptures célèbres issues de différentes époques et traditions artistiques.
 
-objects:
+concepts:
 - id: venus_milo
-  name: Vénus de Milo
+  concept: Vénus de Milo
   short_name: Vénus de Milo
   emoji: 🏛️
   image: sculptures/venus_milo.jpg
@@ -15,7 +15,7 @@ objects:
   image_source: "https://commons.wikimedia.org/wiki/File:Front_views_of_the_Venus_de_Milo.jpg"
   
 - id: thinker
-  name: Le Penseur de Rodin
+  concept: Le Penseur de Rodin
   short_name: Penseur de Rodin
   emoji: 🤔
   image: sculptures/thinker.jpg
@@ -26,7 +26,7 @@ objects:
 
 
 - id: pieta
-  name: Pietà de Michel-Ange
+  concept: Pietà de Michel-Ange
   short_name: Pietà
   emoji: 🕊️
   image: sculptures/pieta.jpg
@@ -36,7 +36,7 @@ objects:
   image_source: "https://commons.wikimedia.org/wiki/File:Pieta_de_Michelangelo_-_Vaticano.jpg"
 
 - id: david
-  name: David de Michel-Ange
+  concept: David de Michel-Ange
   short_name: David de Michel-Ange
   emoji: 🗿
   image: sculptures/david.jpg
@@ -47,7 +47,7 @@ objects:
 
 
 - id: discobolus
-  name: Le Discobole
+  concept: Le Discobole
   short_name: Discobole
   emoji: 🥏
   image: sculptures/discobolus.jpg
@@ -57,7 +57,7 @@ objects:
   image_source: "https://commons.wikimedia.org/wiki/File:Discobolus_in_National_Roman_Museum_Palazzo_Massimo_alle_Terme.JPG"
 
 - id: winged_victory
-  name: Victoire de Samothrace
+  concept: Victoire de Samothrace
   short_name: Victoire de Samothrace
   emoji: 🪽
   image: sculptures/winged_victory.jpg
@@ -67,7 +67,7 @@ objects:
   image_source: "https://commons.wikimedia.org/wiki/File:Winged_Victory_of_Samothrace,_Marble,_c._190_BC,_Louvre,_Paris_(28265400246).jpg"
 
 - id: kiss_rodin
-  name: Le Baiser de Rodin
+  concept: Le Baiser de Rodin
   short_name: Baiser de Rodin
   emoji: 💋
   image: sculptures/kiss_rodin.jpg
@@ -77,7 +77,7 @@ objects:
   image_source: "https://commons.wikimedia.org/wiki/File:Rodin_The_Kiss_01.jpg"
 
 - id: ecstasy_teresa
-  name: L’Extase de sainte Thérèse
+  concept: L’Extase de sainte Thérèse
   short_name: Extase de Thérèse
   emoji: ✨
   image: sculptures/ecstasy_teresa.jpg
@@ -87,7 +87,7 @@ objects:
   image_source: "https://commons.wikimedia.org/wiki/File:Ecstasy_of_Saint_Teresa_September_2015-2a.jpg"
 
 - id: apollo_daphne
-  name: Apollon et Daphné
+  concept: Apollon et Daphné
   short_name: Apollon et Daphné
   emoji: 🌿
   image: sculptures/apollo_daphne.jpg
@@ -97,7 +97,7 @@ objects:
   image_source: "https://commons.wikimedia.org/wiki/File:Apollo_and_Daphne_by_Bernini_-_Galleria_Borghese_-_Rome,_Italy_-_DSC04587.jpg"
 
 - id: perseus_medusa
-  name: Persée tenant la tête de Méduse
+  concept: Persée tenant la tête de Méduse
   short_name: Persée et Méduse
   emoji: ⚔️
   image: sculptures/perseus_medusa.jpg
@@ -107,7 +107,7 @@ objects:
   image_source: "https://commons.wikimedia.org/wiki/File:Persee-florence.jpg"
 
 - id: statue_liberty
-  name: La Statue de la Liberté
+  concept: La Statue de la Liberté
   short_name: Statue de Liberté
   emoji: 🗽
   image: sculptures/statue_liberty.jpg
@@ -117,7 +117,7 @@ objects:
   image_source: "https://commons.wikimedia.org/wiki/File:Front_view_of_Statue_of_Liberty_(cropped).jpg"
 
 - id: christ_redeemer
-  name: Le Christ Rédempteur
+  concept: Le Christ Rédempteur
   short_name: Christ Rédempteur
   emoji: ⛰️
   image: sculptures/christ_redeemer.jpg

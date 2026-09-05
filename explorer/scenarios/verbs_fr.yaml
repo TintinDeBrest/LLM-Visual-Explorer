@@ -2,28 +2,28 @@ family: verbs
 language: fr
 title: Verbes
 description: 'Exploration de huit verbes courants regroupés en quatre familles : mouvement, communication, création et perception.'
-objects:
+concepts:
 - id: walk
-  name: Marcher
+  concept: Marcher
   emoji: 🚶
 - id: run
-  name: Courir
+  concept: Courir
   emoji: 🏃
 - id: speak
-  name: Parler
+  concept: Parler
   emoji: 🗣️
 - id: write
-  name: Écrire
+  concept: Écrire
   emoji: ✍️
 - id: build
-  name: Construire
+  concept: Construire
   emoji: 🏗️
 - id: make
-  name: Fabriquer
+  concept: Fabriquer
   emoji: 🔨
 - id: see
-  name: Voir
+  concept: Voir
   emoji: 👁️
 - id: listen
-  name: Écouter
+  concept: Écouter
   emoji: 👂

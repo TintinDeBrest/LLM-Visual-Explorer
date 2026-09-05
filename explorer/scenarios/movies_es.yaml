@@ -3,63 +3,63 @@ language: es
 title: Películas
 description: Exploración del espacio semántico de diez películas emblemáticas de diferentes géneros, épocas y culturas cinematográficas.
 
-objects:
+concepts:
 - id: star_wars
-  name: Star Wars
+  concept: Star Wars
   short_name: Star Wars
   emoji: 🌌
   search_query: "Star Wars 1977 original official movie poster"
 
 - id: titanic
-  name: Titanic
+  concept: Titanic
   short_name: Titanic
   emoji: 🚢
   search_query: "Titanic 1997 official movie poster James Cameron"
 
 - id: godfather
-  name: El padrino
+  concept: El padrino
   short_name: Padrino
   emoji: 🎩
   search_query: "The Godfather 1972 original official movie poster"
 
 - id: matrix
-  name: Matrix
+  concept: Matrix
   short_name: Matrix
   emoji: 💊
   search_query: "The Matrix 1999 original official movie poster"
 
 - id: jurassic_park
-  name: Parque Jurásico
+  concept: Parque Jurásico
   short_name: Parque Jurásico
   emoji: 🦖
   search_query: "Jurassic Park 1993 original official movie poster"
 
 - id: amelie
-  name: Amélie
+  concept: Amélie
   short_name: Amélie
   emoji: 🥄
   search_query: "Amélie 2001 original French movie poster"
 
 - id: intouchables
-  name: Intocable
+  concept: Intocable
   short_name: Intocable
   emoji: 🤝
   search_query: "Intouchables 2011 original French movie poster"
 
 - id: life_beautiful
-  name: La vida es bella
+  concept: La vida es bella
   short_name: Vida es bella
   emoji: ❤️
   search_query: "La vita è bella 1997 original Italian movie poster"
 
 - id: parasite
-  name: Parásitos
+  concept: Parásitos
   short_name: Parásitos
   emoji: 🏠
   search_query: "Parasite 2019 original Korean movie poster Bong Joon-ho"
 
 - id: spirited_away
-  name: El viaje de Chihiro
+  concept: El viaje de Chihiro
   short_name: Viaje de Chihiro
   emoji: 👻
   search_query: "Spirited Away 2001 original Japanese movie poster"

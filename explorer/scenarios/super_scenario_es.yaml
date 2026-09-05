@@ -2,61 +2,61 @@ family: super_scenario
 language: es
 title: Superescenario mixto
 description: Exploración de un espacio semántico que combina naturaleza, objetos, profesiones, acciones e ideas abstractas.
-objects:
+concepts:
 - id: tree
-  name: Árbol
+  concept: Árbol
   emoji: 🌳
 - id: dog
-  name: Perro
+  concept: Perro
   emoji: 🐶
 - id: bird
-  name: Pájaro
+  concept: Pájaro
   emoji: 🐦
 - id: flower
-  name: Flor
+  concept: Flor
   emoji: 🌸
 - id: dolphin
-  name: Delfín
+  concept: Delfín
   emoji: 🐬
 - id: house
-  name: Casa
+  concept: Casa
   emoji: 🏠
 - id: car
-  name: Automóvil
+  concept: Automóvil
   emoji: 🚗
 - id: computer
-  name: Computadora
+  concept: Computadora
   emoji: 💻
 - id: book
-  name: Libro
+  concept: Libro
   emoji: 📖
 - id: hammer
-  name: Martillo
+  concept: Martillo
   emoji: 🔨
 - id: engineer
-  name: Ingeniero
+  concept: Ingeniero
   emoji: 👷
 - id: researcher
-  name: Investigador
+  concept: Investigador
   emoji: 🔬
 - id: professor
-  name: Profesor
+  concept: Profesor
   emoji: 👨‍🏫
 - id: lawyer
-  name: Abogado
+  concept: Abogado
   emoji: ⚖️
 - id: write
-  name: Escribir
+  concept: Escribir
   emoji: ✍️
 - id: speak
-  name: Hablar
+  concept: Hablar
   emoji: 🗣️
 - id: love
-  name: Amor
+  concept: Amor
   emoji: ❤️
 - id: learn
-  name: Aprender
+  concept: Aprender
   emoji: 🧠
 - id: freedom
-  name: Libertad
+  concept: Libertad
   emoji: 🕊️

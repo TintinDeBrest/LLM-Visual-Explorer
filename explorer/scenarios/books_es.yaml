@@ -4,51 +4,51 @@ title: Libros icónicos
 
 description: Exploración del espacio semántico de doce grandes obras de la literatura mundial, tanto clásicas como contemporáneas.
 
-objects:
+concepts:
   - id: the_little_prince
-    name: El principito
+    concept: El principito
     emoji: 🌟
 
   - id: don_quixote
-    name: Don Quijote de la Mancha
+    concept: Don Quijote de la Mancha
     emoji: 🐴
 
   - id: the_lord_of_the_rings
-    name: El Señor de los Anillos
+    concept: El Señor de los Anillos
     emoji: 💍
 
   - id: harry_potter
-    name: Harry Potter
+    concept: Harry Potter
     emoji: 🪄
 
   - id: one_hundred_years_of_solitude
-    name: Cien años de soledad
+    concept: Cien años de soledad
     emoji: 🦋
 
   - id: les_miserables
-    name: Los miserables
+    concept: Los miserables
     emoji: 🇫🇷
 
   - id: nineteen_eighty_four
-    name: "1984"
+    concept: "1984"
     emoji: 👁️
 
   - id: the_stranger
-    name: El extranjero
+    concept: El extranjero
     emoji: ☀️
 
   - id: pride_and_prejudice
-    name: Orgullo y prejuicio
+    concept: Orgullo y prejuicio
     emoji: 💌
 
   - id: moby_dick
-    name: Moby Dick
+    concept: Moby Dick
     emoji: 🐋
 
   - id: crime_and_punishment
-    name: Crimen y castigo
+    concept: Crimen y castigo
     emoji: ⚖️
 
   - id: alice_in_wonderland
-    name: Alicia en el país de las maravillas
+    concept: Alicia en el país de las maravillas
     emoji: 🐇

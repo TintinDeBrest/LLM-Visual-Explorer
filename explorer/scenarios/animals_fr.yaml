@@ -4,47 +4,47 @@ title: Animaux
 
 description: Exploration de l'espace sémantique de onze animaux appartenant à différents grands groupes du règne animal.
 
-objects:
+concepts:
   - id: cat
-    name: Chat
+    concept: Chat
     emoji: 🐱
 
   - id: dog
-    name: Chien
+    concept: Chien
     emoji: 🐶
 
   - id: lion
-    name: Lion
+    concept: Lion
     emoji: 🦁
 
   - id: wolf
-    name: Loup
+    concept: Loup
     emoji: 🐺
 
   - id: dolphin
-    name: Dauphin
+    concept: Dauphin
     emoji: 🐬
 
   - id: sardine
-    name: Sardine
+    concept: Sardine
     emoji: 🐟
 
   - id: rooster
-    name: Coq
+    concept: Coq
     emoji: 🐓
 
   - id: eagle
-    name: Aigle
+    concept: Aigle
     emoji: 🦅
 
   - id: owl
-    name: Hibou
+    concept: Hibou
     emoji: 🦉
 
   - id: butterfly
-    name: Papillon
+    concept: Papillon
     emoji: 🦋
 
   - id: ant
-    name: Fourmi
+    concept: Fourmi
     emoji: 🐜

@@ -2,28 +2,28 @@ family: verbs
 language: en
 title: Verbs
 description: 'Exploration of eight common verbs in four groups: movement, communication, creation, and perception.'
-objects:
+concepts:
 - id: walk
-  name: Walk
+  concept: Walk
   emoji: 🚶
 - id: run
-  name: Run
+  concept: Run
   emoji: 🏃
 - id: speak
-  name: Speak
+  concept: Speak
   emoji: 🗣️
 - id: write
-  name: Write
+  concept: Write
   emoji: ✍️
 - id: build
-  name: Build
+  concept: Build
   emoji: 🏗️
 - id: make
-  name: Make
+  concept: Make
   emoji: 🔨
 - id: see
-  name: See
+  concept: See
   emoji: 👁️
 - id: listen
-  name: Listen
+  concept: Listen
   emoji: 👂

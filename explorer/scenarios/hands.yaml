@@ -2,34 +2,34 @@ title: Expressions avec main
 
 description: Exploration de la façon dont un modèle de langage représente des expressions françaises contenant le mot « main ».
 
-objects:
+concepts:
 
-  - name: Donner un coup de main
+  - concept: Donner un coup de main
     emoji: 🤝
 
-  - name: Donner la main
+  - concept: Donner la main
     emoji: 🫱
 
-  - name: Prendre en main
+  - concept: Prendre en main
     emoji: ✋
 
-  - name: Avoir la main verte
+  - concept: Avoir la main verte
     emoji: 🌱
 
-  - name: Avoir la main lourde
+  - concept: Avoir la main lourde
     emoji: 💪
 
-  - name: Passer la main
+  - concept: Passer la main
     emoji: 🔄
 
-  - name: Mettre la main à la pâte
+  - concept: Mettre la main à la pâte
     emoji: 🍞
 
-  - name: En venir aux mains
+  - concept: En venir aux mains
     emoji: 👊
 
-  - name: De première main
+  - concept: De première main
     emoji: 🥇
 
-  - name: Sous la main
+  - concept: Sous la main
     emoji: 👋

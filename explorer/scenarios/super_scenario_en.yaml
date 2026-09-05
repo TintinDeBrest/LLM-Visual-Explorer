@@ -2,61 +2,61 @@ family: super_scenario
 language: en
 title: Mixed Super Scenario
 description: Exploration of a semantic space combining nature, objects, professions, actions, and abstract ideas.
-objects:
+concepts:
 - id: tree
-  name: Tree
+  concept: Tree
   emoji: 🌳
 - id: dog
-  name: Dog
+  concept: Dog
   emoji: 🐶
 - id: bird
-  name: Bird
+  concept: Bird
   emoji: 🐦
 - id: flower
-  name: Flower
+  concept: Flower
   emoji: 🌸
 - id: dolphin
-  name: Dolphin
+  concept: Dolphin
   emoji: 🐬
 - id: house
-  name: House
+  concept: House
   emoji: 🏠
 - id: car
-  name: Car
+  concept: Car
   emoji: 🚗
 - id: computer
-  name: Computer
+  concept: Computer
   emoji: 💻
 - id: book
-  name: Book
+  concept: Book
   emoji: 📖
 - id: hammer
-  name: Hammer
+  concept: Hammer
   emoji: 🔨
 - id: engineer
-  name: Engineer
+  concept: Engineer
   emoji: 👷
 - id: researcher
-  name: Researcher
+  concept: Researcher
   emoji: 🔬
 - id: professor
-  name: Professor
+  concept: Professor
   emoji: 👨‍🏫
 - id: lawyer
-  name: Lawyer
+  concept: Lawyer
   emoji: ⚖️
 - id: write
-  name: Write
+  concept: Write
   emoji: ✍️
 - id: speak
-  name: Speak
+  concept: Speak
   emoji: 🗣️
 - id: love
-  name: Love
+  concept: Love
   emoji: ❤️
 - id: learn
-  name: Learn
+  concept: Learn
   emoji: 🧠
 - id: freedom
-  name: Freedom
+  concept: Freedom
   emoji: 🕊️

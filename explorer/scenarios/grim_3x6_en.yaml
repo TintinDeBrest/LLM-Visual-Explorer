@@ -4,75 +4,75 @@ title: Grim 3×6
 
 description: "Balanced extension of Patrick Grim's scenario with three semantic families of six concepts: fruits, animals, and rock artists."
 
-objects:
+concepts:
   - id: mango
-    name: Mango
+    concept: Mango
     emoji: 🥭
 
   - id: apricot
-    name: Apricot
+    concept: Apricot
     emoji: 🍑
 
   - id: blueberry
-    name: Blueberry
+    concept: Blueberry
     emoji: 🫐
 
   - id: grape
-    name: Grape
+    concept: Grape
     emoji: 🍇
 
   - id: apple
-    name: Apple
+    concept: Apple
     emoji: 🍎
 
   - id: orange
-    name: Orange
+    concept: Orange
     emoji: 🍊
 
   - id: bear
-    name: Bear
+    concept: Bear
     emoji: 🐻
 
   - id: cow
-    name: Cow
+    concept: Cow
     emoji: 🐄
 
   - id: dog
-    name: Dog
+    concept: Dog
     emoji: 🐶
 
   - id: wolf
-    name: Wolf
+    concept: Wolf
     emoji: 🐺
 
   - id: alligator
-    name: Alligator
+    concept: Alligator
     emoji: 🐊
 
   - id: crocodile
-    name: Crocodile
+    concept: Crocodile
     emoji: 🐊
 
   - id: beatles
-    name: Beatles
+    concept: Beatles
     emoji: 🎸
 
   - id: rolling_stones
-    name: Rolling Stones
+    concept: Rolling Stones
     emoji: 🎸
 
   - id: nirvana
-    name: Nirvana
+    concept: Nirvana
     emoji: 🎸
 
   - id: acdc
-    name: AC/DC
+    concept: AC/DC
     emoji: 🎸
 
   - id: elvis
-    name: Elvis
+    concept: Elvis
     emoji: 🎤
 
   - id: pink_floyd
-    name: Pink Floyd
+    concept: Pink Floyd
     emoji: 🎸

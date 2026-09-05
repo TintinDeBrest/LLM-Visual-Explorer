@@ -2,31 +2,31 @@ title: Outils Geek
 
 description: "Exploration de l'espace sémantique de huit objets technologiques modernes regroupés en quatre familles : informatique, mobilité, création numérique et observation."
 
-objects:
+concepts:
 
-  - name: Ordinateur
+  - concept: Ordinateur
     emoji: 💻
 
-  - name: Smartphone
+  - concept: Smartphone
     emoji: 📱
 
-  - name: Tablette
+  - concept: Tablette
     emoji: 📲
 
-  - name: Imprimante 3D
+  - concept: Imprimante 3D
     emoji: 🖨️
 
-  - name: Drone
+  - concept: Drone
     emoji: 🚁
 
-  - name: Console
+  - concept: Console
     emoji: 🎮
 
-  - name: Casque VR
+  - concept: Casque VR
     emoji: 🥽
 
-  - name: Télescope
+  - concept: Télescope
     emoji: 🔭
 
-  - name: Caméra
+  - concept: Caméra
     emoji: 📷

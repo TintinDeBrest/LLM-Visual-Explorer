@@ -2,34 +2,34 @@ family: authors
 language: en
 title: Authors
 description: Exploration of the semantic space of ten major authors of world literature.
-objects:
+concepts:
 - id: shakespeare
-  name: William Shakespeare
+  concept: William Shakespeare
   emoji: 🇬🇧
 - id: victor_hugo
-  name: Victor Hugo
+  concept: Victor Hugo
   emoji: 🇫🇷
 - id: cervantes
-  name: Cervantes
+  concept: Cervantes
   emoji: 🇪🇸
 - id: camus
-  name: Albert Camus
+  concept: Albert Camus
   emoji: 🇫🇷
 - id: hemingway
-  name: Ernest Hemingway
+  concept: Ernest Hemingway
   emoji: 🇺🇸
 - id: poe
-  name: Edgar Allan Poe
+  concept: Edgar Allan Poe
   emoji: 🇺🇸
 - id: tolstoy
-  name: Leo Tolstoy
+  concept: Leo Tolstoy
   emoji: 🇷🇺
 - id: dante
-  name: Dante
+  concept: Dante
   emoji: 🇮🇹
 - id: goethe
-  name: Goethe
+  concept: Goethe
   emoji: 🇩🇪
 - id: garcia_marquez
-  name: García Márquez
+  concept: García Márquez
   emoji: 🇨🇴

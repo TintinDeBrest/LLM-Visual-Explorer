@@ -3,63 +3,63 @@ language: en
 title: Movies
 description: Exploration of the semantic space of ten iconic films from different genres, periods, and cinematic cultures.
 
-objects:
+concepts:
 - id: star_wars
-  name: Star Wars
+  concept: Star Wars
   short_name: Star Wars
   emoji: 🌌
   search_query: "Star Wars 1977 original official movie poster"
 
 - id: titanic
-  name: Titanic
+  concept: Titanic
   short_name: Titanic
   emoji: 🚢
   search_query: "Titanic 1997 official movie poster James Cameron"
 
 - id: godfather
-  name: The Godfather
+  concept: The Godfather
   short_name: Godfather
   emoji: 🎩
   search_query: "The Godfather 1972 original official movie poster"
 
 - id: matrix
-  name: The Matrix
+  concept: The Matrix
   short_name: Matrix
   emoji: 💊
   search_query: "The Matrix 1999 original official movie poster"
 
 - id: jurassic_park
-  name: Jurassic Park
+  concept: Jurassic Park
   short_name: Jurassic Park
   emoji: 🦖
   search_query: "Jurassic Park 1993 original official movie poster"
 
 - id: amelie
-  name: Amélie
+  concept: Amélie
   short_name: Amélie
   emoji: 🥄
   search_query: "Amélie 2001 original French movie poster"
 
 - id: intouchables
-  name: The Intouchables
+  concept: The Intouchables
   short_name: Intouchables
   emoji: 🤝
   search_query: "Intouchables 2011 original French movie poster"
 
 - id: life_beautiful
-  name: Life Is Beautiful
+  concept: Life Is Beautiful
   short_name: Life Is Beautiful
   emoji: ❤️
   search_query: "La vita è bella 1997 original Italian movie poster"
 
 - id: parasite
-  name: Parasite
+  concept: Parasite
   short_name: Parasite
   emoji: 🏠
   search_query: "Parasite 2019 original Korean movie poster Bong Joon-ho"
 
 - id: spirited_away
-  name: Spirited Away
+  concept: Spirited Away
   short_name: Spirited Away
   emoji: 👻
   search_query: "Spirited Away 2001 original Japanese movie poster"

@@ -3,28 +3,28 @@ language: en
 title: Motivation conference semantic map
 description: Concepts used to illustrate the intuition of a semantic map.
 
-objects:
+concepts:
 - id: dog
-  name: Dog
+  concept: Dog
   emoji: 🐕
 - id: wolf
-  name: Wolf
+  concept: Wolf
   emoji: 🐺
 - id: coyote
-  name: Coyote
+  concept: Coyote
   emoji: 🐺
 - id: crocodile
-  name: Crocodile
+  concept: Crocodile
   emoji: 🐊
 - id: alligator
-  name: Alligator
+  concept: Alligator
   emoji: 🐊
 - id: mango
-  name: Mango
+  concept: Mango
   emoji: 🥭
 - id: apricot
-  name: Apricot
+  concept: Apricot
   emoji: 🍑
 - id: grape
-  name: Grape
+  concept: Grape
   emoji: 🍇

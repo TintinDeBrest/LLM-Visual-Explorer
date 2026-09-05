@@ -2,34 +2,34 @@ family: health
 language: en
 title: Health and Related Concepts
 description: Exploration of a small semantic space centered on health and healthcare.
-objects:
+concepts:
 - id: doctor
-  name: Doctor
+  concept: Doctor
   emoji: 🩺
 - id: nurse
-  name: Nurse
+  concept: Nurse
   emoji: 💉
 - id: hospital
-  name: Hospital
+  concept: Hospital
   emoji: 🏥
 - id: patient
-  name: Patient
+  concept: Patient
   emoji: 🧑‍⚕️
 - id: disease
-  name: Disease
+  concept: Disease
   emoji: 🤒
 - id: diagnosis
-  name: Diagnosis
+  concept: Diagnosis
   emoji: 🔎
 - id: treatment
-  name: Treatment
+  concept: Treatment
   emoji: 💊
 - id: surgery
-  name: Surgery
+  concept: Surgery
   emoji: 🏥
 - id: medicine
-  name: Medicine
+  concept: Medicine
   emoji: 💊
 - id: ambulance
-  name: Ambulance
+  concept: Ambulance
   emoji: 🚑

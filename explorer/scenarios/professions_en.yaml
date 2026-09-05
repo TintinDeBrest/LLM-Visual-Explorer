@@ -4,43 +4,43 @@ title: Professions
 
 description: Exploration of the semantic space of ten professions representing different fields of human activity.
 
-objects:
+concepts:
   - id: doctor
-    name: Doctor
+    concept: Doctor
     emoji: 🩺
 
   - id: nurse
-    name: Nurse
+    concept: Nurse
     emoji: 💉
 
   - id: engineer
-    name: Engineer
+    concept: Engineer
     emoji: 👷
 
   - id: researcher
-    name: Researcher
+    concept: Researcher
     emoji: 🔬
 
   - id: professor
-    name: Professor
+    concept: Professor
     emoji: 👨‍🏫
 
   - id: lawyer
-    name: Lawyer
+    concept: Lawyer
     emoji: ⚖️
 
   - id: journalist
-    name: Journalist
+    concept: Journalist
     emoji: 📰
 
   - id: baker
-    name: Baker
+    concept: Baker
     emoji: 🥖
 
   - id: carpenter
-    name: Carpenter
+    concept: Carpenter
     emoji: 🪚
 
   - id: pilot
-    name: Pilot
+    concept: Pilot
     emoji: ✈️

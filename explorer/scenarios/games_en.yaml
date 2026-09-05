@@ -3,59 +3,59 @@ language: en
 title: Video Games
 description: Exploration of the semantic space of iconic video games from different generations and genres.
 
-objects:
+concepts:
 - id: super_mario
-  name: Super Mario
+  concept: Super Mario
   emoji: 🍄
   search_query: "Super Mario Bros 1985 NES iconic official artwork gameplay"
 
 - id: zelda
-  name: Zelda
+  concept: Zelda
   emoji: 🗡️
   search_query: "The Legend of Zelda Link Zelda iconic official artwork"
 
 - id: minecraft
-  name: Minecraft
+  concept: Minecraft
   emoji: ⛏️
   search_query: "Minecraft iconic official key art gameplay"
 
 - id: pokemon
-  name: Pokémon
+  concept: Pokémon
   emoji: ⚡
   search_query: "Pokémon Pikachu iconic official game artwork"
 
 - id: tetris
-  name: Tetris
+  concept: Tetris
   emoji: 🧱
   search_query: "classic Tetris iconic gameplay screen"
 
 - id: pac_man
-  name: Pac-Man
+  concept: Pac-Man
   emoji: 👻
   search_query: "Pac-Man original arcade iconic maze gameplay screen"
 
 - id: space_invaders
-  name: Space Invaders
+  concept: Space Invaders
   emoji: 👾
   search_query: "Space Invaders 1978 original arcade iconic gameplay screen"
 
 - id: fortnite
-  name: Fortnite
+  concept: Fortnite
   emoji: 🪂
   search_query: "Fortnite Battle Royale iconic official key art"
 
 - id: the_sims
-  name: The Sims
+  concept: The Sims
   emoji: 🏠
   search_query: "The Sims original 2000 game iconic cover plumbob"
 
 - id: world_of_warcraft
-  name: World of Warcraft
+  concept: World of Warcraft
   emoji: 🐉
   search_query: "World of Warcraft 2004 original official game cover"
 
 - id: street_fighter
-  name: Street Fighter
+  concept: Street Fighter
   emoji: 🥊
   search_query: "Street Fighter II 1991 iconic official artwork gameplay"
 

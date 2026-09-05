@@ -3,27 +3,27 @@ language: multilingual
 title: Turing–Lovelace Multilingual Experiment
 description: Experiment comparing semantically related descriptions of Ada Lovelace and Alan Turing in English, French, and Spanish.
 
-objects:
+concepts:
 - id: ada_en
-  name: Ada Lovelace described a sequence of operations that could be performed by a mechanical engine.
+  concept: Ada Lovelace described a sequence of operations that could be performed by a mechanical engine.
   emoji: 🇬🇧
 
 - id: ada_fr
-  name: Ada Lovelace a décrit une suite d’opérations pouvant être exécutées par une machine mécanique.
+  concept: Ada Lovelace a décrit une suite d’opérations pouvant être exécutées par une machine mécanique.
   emoji: 🇫🇷
 
 - id: ada_es
-  name: Ada Lovelace describió una secuencia de operaciones que podía ser ejecutada por una máquina mecánica.
+  concept: Ada Lovelace describió una secuencia de operaciones que podía ser ejecutada por una máquina mecánica.
   emoji: 🇪🇸
 
 - id: turing_en
-  name: Alan Turing formalized computation through an abstract machine capable of executing instructions.
+  concept: Alan Turing formalized computation through an abstract machine capable of executing instructions.
   emoji: 🇬🇧
 
 - id: turing_fr
-  name: Alan Turing a formalisé le calcul à l’aide d’une machine abstraite capable d’exécuter des instructions.
+  concept: Alan Turing a formalisé le calcul à l’aide d’une machine abstraite capable d’exécuter des instructions.
   emoji: 🇫🇷
 
 - id: turing_es
-  name: Alan Turing formalizó el cálculo mediante una máquina abstracta capaz de ejecutar instrucciones.
+  concept: Alan Turing formalizó el cálculo mediante una máquina abstracta capaz de ejecutar instrucciones.
   emoji: 🇪🇸
