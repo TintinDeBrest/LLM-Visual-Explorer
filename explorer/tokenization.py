@@ -2,15 +2,36 @@
 # Tokenization Explorer
 # ============================================================
 
+import base64
 import html
+
+from pathlib import Path
 
 import ipywidgets as widgets
 
 from IPython.display import display, HTML, clear_output
 from transformers import AutoTokenizer
 
-from explorer.config import INTERFACE_LANGUAGE
+from explorer import config
+from explorer.i18n import tr
 
+
+# ============================================================
+# LlmExpl logo
+# ============================================================
+
+LOGO_PATH = (
+    Path(__file__).resolve().parent.parent
+    / "images"
+    / "LlmExpl_logo.png"
+)
+
+LOGO_DATA_URI = (
+    "data:image/png;base64,"
+    + base64.b64encode(
+        LOGO_PATH.read_bytes()
+    ).decode("ascii")
+)
 
 # ============================================================
 # Models available for tokenization
@@ -28,64 +49,6 @@ TOKENIZER_MODELS = {
 
     "LaBSE":
         "sentence-transformers/LaBSE",
-}
-
-
-# ============================================================
-# Interface translations
-# ============================================================
-
-TEXTS = {
-    "fr": {
-        "model": "Modèle :",
-        "text": "Texte :",
-        "placeholder": "Écrivez un mot ou un texte court...",
-        "button": "Tokeniser",
-        "empty": "Écrivez un mot ou un texte court.",
-        "title": "Tokenisation",
-        "token_count": "Nombre de tokens",
-        "tokens": "Tokens",
-        "word_token": "MOT ≠ TOKEN",
-        "explanation": (
-            "Un token peut être un mot, "
-            "une partie d'un mot, "
-            "un caractère ou un signe."
-        ),
-    },
-
-    "en": {
-        "model": "Model:",
-        "text": "Text:",
-        "placeholder": "Enter a word or a short text...",
-        "button": "Tokenize",
-        "empty": "Enter a word or a short text.",
-        "title": "Tokenization",
-        "token_count": "Number of tokens",
-        "tokens": "Tokens",
-        "word_token": "WORD ≠ TOKEN",
-        "explanation": (
-            "A token can be a word, "
-            "part of a word, "
-            "a character or a symbol."
-        ),
-    },
-
-    "es": {
-        "model": "Modelo:",
-        "text": "Texto:",
-        "placeholder": "Escribe una palabra o un texto breve...",
-        "button": "Tokenizar",
-        "empty": "Escribe una palabra o un texto breve.",
-        "title": "Tokenización",
-        "token_count": "Número de tokens",
-        "tokens": "Tokens",
-        "word_token": "PALABRA ≠ TOKEN",
-        "explanation": (
-            "Un token puede ser una palabra, "
-            "una parte de una palabra, "
-            "un carácter o un signo."
-        ),
-    },
 }
 
 
@@ -116,33 +79,182 @@ def _get_tokenizer(alias):
 
 
 # ============================================================
+# Comparative tokenization table
+# ============================================================
+
+TOKENIZATION_EXAMPLES = [
+    "crocodile",
+    "alligator",
+    "wolf",
+    "coyote",
+    "dog",
+    "blueberries",
+]
+
+def display_tokenization_comparison(words=None):
+    """Compare selected words across all available tokenizers."""
+
+    words = words or TOKENIZATION_EXAMPLES
+
+    header_cells = "".join(
+        f"<th>{html.escape(alias)}</th>"
+        for alias in TOKENIZER_MODELS
+    )
+
+    table_rows = []
+
+    for word in words:
+        token_cells = []
+
+        for alias in TOKENIZER_MODELS:
+            tokenizer = _get_tokenizer(alias)
+            tokens = tokenizer.tokenize(word)
+
+            formatted_tokens = " · ".join(
+                html.escape(token)
+                for token in tokens
+            )
+
+            token_cells.append(
+                f"""
+                <td>
+                    <code>{formatted_tokens}</code>
+
+                    <div class="token-count">
+                        {len(tokens)}
+                        {"token" if len(tokens) == 1 else "tokens"}
+                    </div>
+                </td>
+                """
+            )
+
+        table_rows.append(
+            f"""
+            <tr>
+                <th class="concept-cell">
+                    {html.escape(word)}
+                </th>
+
+                {"".join(token_cells)}
+            </tr>
+            """
+        )
+
+    display(
+        HTML(
+            f"""
+            <style>
+                .tokenization-comparison {{
+                    border-collapse: collapse;
+                    width: 100%;
+                    margin-top: 12px;
+                    margin-bottom: 10px;
+                    font-size: 0.94em;
+                }}
+
+                .tokenization-comparison th,
+                .tokenization-comparison td {{
+                    border: 1px solid #d9dee7;
+                    padding: 10px 12px;
+                    text-align: left;
+                    vertical-align: top;
+                }}
+
+                .tokenization-comparison thead th {{
+                    background: #eef3f8;
+                    text-align: center;
+                }}
+
+                .tokenization-comparison .concept-cell {{
+                    background: #f7f9fb;
+                    white-space: nowrap;
+                }}
+
+                .tokenization-comparison code {{
+                    white-space: normal;
+                    overflow-wrap: anywhere;
+                }}
+
+                .tokenization-comparison .token-count {{
+                    margin-top: 5px;
+                    color: #6b7280;
+                    font-size: 0.82em;
+                }}
+            </style>
+
+            <div>
+                <h3 style="
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                ">
+                    <img
+                        src="{LOGO_DATA_URI}"
+                        alt="LlmExpl"
+                        style="
+                            height: 42px;
+                            width: auto;
+                            object-fit: contain;
+                        "
+                    >
+
+                    <span>
+                        {tr("tokenization_comparison_title")}
+                    </span>
+                </h3>
+
+                <p>
+                    {tr("tokenization_comparison_intro")}
+                </p>
+
+                <table class="tokenization-comparison">
+                    <thead>
+                        <tr>
+                            <th>
+                                {tr("tokenization_concept")}
+                            </th>
+
+                            {header_cells}
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {"".join(table_rows)}
+                    </tbody>
+                </table>
+
+                <p style="
+                    color: #5f6670;
+                    font-size: 0.90em;
+                    margin-top: 8px;
+                ">
+                    <b>▁ / ##</b>
+                    —
+                    {tr("tokenization_marker_note")}
+                </p>
+            </div>
+            """
+        )
+    )
+
+
+# ============================================================
 # Public UI
 # ============================================================
 
 def tokenization_explorer(
-    language=None,
     default_model="MiniLM",
-    default_text="cocodrilo",
+    default_text="crocodile",
 ):
     """Display the interactive tokenization explorer."""
 
-    language = (
-        language
-        or INTERFACE_LANGUAGE
-        or "en"
-    ).lower()
-
-    if language not in TEXTS:
-        language = "en"
-
-    texts = TEXTS[language]
 
     model_dropdown = widgets.Dropdown(
         options=list(
             TOKENIZER_MODELS.keys()
         ),
         value=default_model,
-        description=texts["model"],
+        description=tr("tokenization_model"),
         layout=widgets.Layout(
             width="450px"
         ),
@@ -150,15 +262,15 @@ def tokenization_explorer(
 
     text_input = widgets.Text(
         value=default_text,
-        description=texts["text"],
-        placeholder=texts["placeholder"],
+        description=tr("tokenization_text"),
+        placeholder=tr("tokenization_placeholder"),
         layout=widgets.Layout(
             width="450px"
         ),
     )
 
     tokenize_button = widgets.Button(
-        description=texts["button"],
+        description=tr("tokenization_button"),
         button_style="primary",
         layout=widgets.Layout(
             width="150px"
@@ -182,7 +294,7 @@ def tokenization_explorer(
 
                 display(
                     HTML(
-                        f'<i>{texts["empty"]}</i>'
+                        f'<i>{tr("tokenization_empty")}</i>'
                     )
                 )
 
@@ -207,35 +319,49 @@ def tokenization_explorer(
                 text
             )
 
+
             display(
                 HTML(
                     f"""
                     <div style="margin-top: 12px;">
 
-                        <h4>
-                            🔤 {texts["title"]} — {alias}
+                        <h4 style="
+                            display: flex;
+                            align-items: center;
+                            gap: 9px;
+                        ">
+                            <img
+                                src="{LOGO_DATA_URI}"
+                                alt="LlmExpl"
+                                style="
+                                    height: 38px;
+                                    width: auto;
+                                    object-fit: contain;
+                                "
+                            >
+                            <span>
+                                {tr("tokenization_title")} — {alias}
+                            </span>
                         </h4>
 
                         <p>
-                            <b>{texts["text"]}</b>
+                            <b>{tr("tokenization_text")}:</b>
                             {safe_text}<br>
 
-                            <b>{texts["token_count"]}:</b>
+                            <b>{tr("tokenization_token_count")}:</b>
                             {len(tokens)}
                         </p>
 
                         <p>
-                            <b>{texts["tokens"]}:</b><br>
+                            <b>{tr("tokenization_tokens")}:</b><br>
                             {token_display}
                         </p>
 
                         <p style="margin-top: 16px;">
-                            <b>{texts["word_token"]}</b><br>
+                            <b>{tr("tokenization_word_not_token")}</b><br>
 
-                            <span style="
-                                font-size: 0.95em;
-                            ">
-                                {texts["explanation"]}
+                            <span style="font-size: 0.95em;">
+                                {tr("tokenization_explanation")}
                             </span>
                         </p>
 
@@ -244,8 +370,23 @@ def tokenization_explorer(
                 )
             )
 
+
     tokenize_button.on_click(
         show_tokenization
+    )
+
+    # Transition between observation and free experimentation.
+    display(
+        HTML(
+            f"""
+            <h3 style="
+                margin-top: 28px;
+                margin-bottom: 16px;
+            ">
+                🧪 {tr("tokenization_experiment_title")}
+            </h3>
+            """
+        )
     )
 
     display(
@@ -258,5 +399,4 @@ def tokenization_explorer(
     )
 
     # Show the default example immediately.
-
     show_tokenization()
